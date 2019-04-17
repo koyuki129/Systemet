@@ -1,0 +1,14 @@
+{
+  "name": "-cucumber-intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node ./node_modules/selenium-cucumber-js/index.js && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "selenium-cucumber-js": "^1.6.2"
+  }
+}
