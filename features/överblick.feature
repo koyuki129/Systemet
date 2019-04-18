@@ -1,4 +1,4 @@
-feature: 
+Feature: 
 Som en användare vill jag kunna se en överblick på min varukorg/dess innehåll, 
 för att få en bekräftelse på att jag valt rätt varor.
 
