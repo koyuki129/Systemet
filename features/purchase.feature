@@ -3,17 +3,13 @@ Som en användare vill jag kunna genomföra ett köp utan att registrera ett kon
 (Betalning sker ej på riktigt), för att jag inte vill behöva bli kund på hemsidan.
 
 Scenario: Successfully buy 1 product without registring an account
-Given that there are products in the cart
-When I buy the products
-Then  the products should be bought
-
-Scenario: Successfully buy more than 1 products without registring an account
-Given that there are at least 2 products in the cart
-When I buy the products
-Then the products should be bought
-
-Scenario: Able to buy products without doing payment for the real
-Given that there are products in the cart
+Given that there is 1 products in the cart
 When I buy the products
 Then the cart should be empty
 And I should get the confirmation that the products are bought
+
+Scenario: Successfully buy 2 products without registring an account
+Given that there are 2 products in the cart
+When I buy the products
+Then the cart should be empty
+And I should get the confirmation that 2 products are bought

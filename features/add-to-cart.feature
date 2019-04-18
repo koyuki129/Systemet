@@ -14,6 +14,6 @@ And I can add another products to the cart
 Then the products should be added to the cart
 
 Scenario: Out of products
-Given that there is product out of stock
-When I select one products
+Given that there is a product that is out of stock
+When I select the product
 Then the page should say "Out of products"

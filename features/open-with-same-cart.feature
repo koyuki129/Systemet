@@ -12,9 +12,7 @@ Then I should be able to open the same cart with the selected products
 
 Scenario: Able to get all the selected products in the cart
 Given that there is at least 1 product in the cart
-When my computer shows en error 
-And it restarts
-And  I reopen the browser
+When I refresh the browser
 Then I should be able to open the same cart with the selected products
   
 
