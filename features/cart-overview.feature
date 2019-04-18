@@ -7,7 +7,7 @@ Given that I have added 1 products to the cart
 When I enter the cart
 Then the product should be visible in the cart
 
-Scenario: Successfully overview the cart of at least 2 products
+Scenario: Successfully overview the cart of at least 2 different products
 Given that I have added 2 different products to the cart
 When I enter the cart
 Then the products should be visible in the cart

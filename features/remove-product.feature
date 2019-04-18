@@ -2,7 +2,7 @@ Feature:
 Som en användare vill jag kunna ta bort en produkt från min varukorg
 för att själv bestämma vad som ska köpas och inte.
 
-Scenario: Successfully remove products from the cart
+Scenario: Successfully remove 1 products from the cart
 Given that there is 1 products in the cart
 When I remove the only product from the cart
 Then the cart should not contain any products anymore

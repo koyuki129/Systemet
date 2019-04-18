@@ -2,7 +2,7 @@ Feature:
 Som en användare vill jag kunna justera kvantiteten 
 av en produkt i min varukorg för eventuellt senare ändringar
 
-Scenario: Successfully raise quantity of products in the cart
+Scenario: Successfully raise quantity of 1 products in the cart
 Given that there is 1 products with 1 unit in the cart
 When I raise the quantity for that product by 1
 Then the quantity of that product in the cart should be 2

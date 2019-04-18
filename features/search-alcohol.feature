@@ -2,7 +2,7 @@ Feature:
 Som en användare vill jag kunna söka efter produkter 
 för att hitta det jag letar efter.
 
-Scenario: Successfully search products by name
+Scenario: Successfully search products by namn
 Given that I am searching by a partial name
 When I search
 Then I should be given a list of products with names that matches the name
