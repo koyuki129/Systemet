@@ -4,15 +4,15 @@ module.exports = class ShoppingCart {
 
   constructor() {
     this.thingsToBuy = [];
+
   }
 
   add(product, quantity) {
 
     this.thingsToBuy.push({
-      product: product,
-      quantity: quantity
-
-    });
+        product: product,
+        quantity: quantity
+      });
   }
 
   editQuantity(product, newQuantity) {
@@ -20,7 +20,13 @@ module.exports = class ShoppingCart {
   }
 
   remove(product) {
-
+    for (let i = 0; i < this.thingsToBuy.length; i++) {
+      if (this.thingsToBuy[i].product === product) {
+        this.thingsToBuy[i].quantity -= 2;
+        this.thingsToBuy.splice(i, 1);
+        i--;
+      }
+    }
   }
 
   overviewOfCart(product) {
