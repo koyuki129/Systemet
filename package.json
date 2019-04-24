@@ -5,13 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "node ./node_modules/selenium-cucumber-js/index.js && exit 1",
-    "daniel": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/remove-product.feature & exit 0",
+    "daniel": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/purchase.feature & exit 0",
     "sabina": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/add-to-cart.feature & exit 0",
     "shilpa": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/search-alcohol.feature & exit 0",
     "arzu": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/cart-overview.feature & exit 0",
     "kisanet": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/add-quantity-to-cart.feature & exit 0",
-    "karina": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/empty-cart.feature & exit 0",
-    "ninos": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/purchase.feature & exit 0"
+    "karina": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/x.feature & exit 0",
+    "ninos": "node node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/x.feature & exit 0"
   },
   "author": "",
   "license": "ISC",
