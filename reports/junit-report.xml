@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name=";successfully-add-1-product-to-the-cart" tests="3" failures="0" skipped="3">
+        <properties>
+            <property name="URI" value="C:/Users/Sabina/Desktop/Systemet/features/add-to-cart.feature">
+            </property>
+        </properties>
+        <testcase name="Given that the product is available in the store" classname=";successfully-add-1-product-to-the-cart">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="When I add the product to the cart" classname=";successfully-add-1-product-to-the-cart">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then the product should be added to the cart" classname=";successfully-add-1-product-to-the-cart">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name=";successfully-add-at-least-2-different-products-to-the-cart" tests="4" failures="0" skipped="4">
+        <properties>
+            <property name="URI" value="C:/Users/Sabina/Desktop/Systemet/features/add-to-cart.feature">
+            </property>
+        </properties>
+        <testcase name="Given that the products are available in the store" classname=";successfully-add-at-least-2-different-products-to-the-cart">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="When I add 1 products to the cart" classname=";successfully-add-at-least-2-different-products-to-the-cart">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I add 1 other products to the cart" classname=";successfully-add-at-least-2-different-products-to-the-cart">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then the 2 different products should be added to the cart" classname=";successfully-add-at-least-2-different-products-to-the-cart">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name=";out-of-products" tests="3" failures="0" skipped="3">
+        <properties>
+            <property name="URI" value="C:/Users/Sabina/Desktop/Systemet/features/add-to-cart.feature">
+            </property>
+        </properties>
+        <testcase name="Given that there is a product that is out of stock" classname=";out-of-products">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="When I try to add that product" classname=";out-of-products">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then the page should say &quot;Out of stock&quot;" classname=";out-of-products">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+</testsuites>
