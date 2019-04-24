@@ -1,10 +1,11 @@
-let shoppingCart = require('www\js\shopping-cart.js');
-let product = require('www\js\product.js'); 
+let ShoppingCart = require('../www/js/shopping-cart.js');
+let Product = require('../www/js/product.js'); 
 
-module.exports = new Product
 
+module.exports = function(){
 
 this.Given(/^that the product is available in the store$/, function () {
 
   });
 
+}

@@ -1,9 +1,11 @@
 module.exports = class Search {
 
-    constructor(namn, varnummer, namn2){
-  
-  
-      
+    constructor(){
+      this.searchResult = [];    }  
+    
+    findProducts(searchTerm){
+
     }
+    
   
   }
