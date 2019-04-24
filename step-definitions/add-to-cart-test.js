@@ -17,14 +17,11 @@ this.When(/^I add the product to the cart$/, function () {
 });
 
 this.Then(/^the product should be added to the cart$/, function (thingsToBuy) {
-    let products = [];
-    for(let product of products){
-    products.add(new Product(t));
-    
-    if(thingsToBuy.includes(product)) {
-        
+    for(let thingToBuy of cart.thingsToBuy){
+        if(thingToBuy.product == Product.products[129]) {
+            console.log('added to cart', thingToBuy)
 
-    }
+        }
     }
 
 
