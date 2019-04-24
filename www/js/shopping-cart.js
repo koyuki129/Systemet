@@ -22,7 +22,6 @@ module.exports = class ShoppingCart {
   remove(product) {
     for (let i = 0; i < this.thingsToBuy.length; i++) {
       if (this.thingsToBuy[i].product === product) {
-        this.thingsToBuy[i].quantity -= 2;
         this.thingsToBuy.splice(i, 1);
         i--;
       }
