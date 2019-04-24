@@ -28,7 +28,7 @@ module.exports = class ShoppingCart {
   }
 
   findProductInStore(product) {
-
+    
   }
 
   purchase() {
