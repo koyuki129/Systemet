@@ -29,7 +29,8 @@ module.exports = class ShoppingCart {
   }
 
   overviewOfCart(product) {
-
+    return this.thingsToBuy;
+    
   }
 
   findProductInStore(product) {
