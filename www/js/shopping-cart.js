@@ -58,8 +58,7 @@ module.exports = class ShoppingCart {
   }
 
   emptyCart() {
-   
-
+    this.thingsToBuy.length = 0;
   }
 
   sumOfProducts() {
