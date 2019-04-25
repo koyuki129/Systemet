@@ -1,4 +1,4 @@
-let shoppingCart = require('../shopping-cart.js');
+/*let shoppingCart = require('../shopping-cart.js');
 
 module.exports = function(){
 
@@ -8,4 +8,4 @@ module.exports = function(){
         cart = new;
     });
 
-}
+}*/

@@ -16,18 +16,17 @@ this.When(/^I add the product to the cart$/, function () {
     cart.add(Product.products[129], 1) 
 });
 
-this.Then(/^the product should be added to the cart$/, function (thingsToBuy) {
+this.Then(/^the product should be added to the cart$/, function () {
+    let productWasFound = false;
     for(let thingToBuy of cart.thingsToBuy){
         if(thingToBuy.product == Product.products[129]) {
-            console.log('added to cart', thingToBuy)
+            productWasFound = true;
 
         }
     }
+    
+    assert(productWasFound == true,  'the cart was empty' )
 
-
-});
-
-        
+    });
 
 }
-
