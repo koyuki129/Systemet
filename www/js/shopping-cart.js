@@ -50,7 +50,8 @@ module.exports = class ShoppingCart {
   }
 
   overviewOfCart(product) {
-
+    return this.thingsToBuy;
+    
   }
 
   purchase() {
