@@ -2,16 +2,16 @@ Feature:
 Som en användare vill jag kunna lägga till produkter i min varukorg
 för att senare kunna köpa produkterna jag valt.
 
-Scenario: Successfully add 1 product to the cart
-Given that the product is available in the store
-When I add the product to the cart
+Scenario: Successfully add one product to the cart
+Given that the products are available in the store
+When I add one product to the cart
 Then the product should be added to the cart
 
-Scenario: Successfully add at least 2 different products to the cart
+Scenario: Successfully add at least two different products to the cart
 Given that the products are available in the store
-When I add 1 products to the cart
-And I add 1 other products to the cart
-Then the 2 different products should be added to the cart
+When I add one product to the cart
+And I add one other product to the cart
+Then the two different products should be added to the cart
 
 Scenario: Out of products
 Given that there is a product that is out of stock
