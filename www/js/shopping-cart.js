@@ -8,7 +8,6 @@ module.exports = class ShoppingCart {
   }
 
   add(product, quantity) {
-
     this.thingsToBuy.push({
       product: product,
       quantity: quantity
@@ -18,9 +17,25 @@ module.exports = class ShoppingCart {
   editQuantity(product, newQuantity) {
     for (let i = 0; i < this.thingsToBuy.length; i++) {
       if (this.thingsToBuy[i].product === product) {
-        this.thingsToBuy[i].quantity === newQuantity;
-        this.thingsToBuy.splice(i, 1);
-        i--;
+        this.thingsToBuy[i].quantity = newQuantity;
+      }
+    }
+  }
+
+  raiseQuantityByOne(product) {
+    for (let i = 0; i < this.thingsToBuy.length; i++) {
+      if (this.thingsToBuy[i].product === product) {
+        this.thingsToBuy[i].quantity++
+
+      }
+    }
+  }
+
+  lowerQuantityByOne(product) {
+
+    for (let i = 1; i < this.thingsToBuy.length; i++) {
+      if (this.thingsToBuy[i].product === product) {
+        this.thingsToBuy[i].quantity--
       }
     }
   }
@@ -35,11 +50,8 @@ module.exports = class ShoppingCart {
   }
 
   overviewOfCart(product) {
-
-  }
-
-  findProductInStore(product) {
-
+    return this.thingsToBuy;
+    
   }
 
   purchase() {
@@ -47,7 +59,7 @@ module.exports = class ShoppingCart {
   }
 
   emptyCart() {
-
+    this.thingsToBuy.length = 0;
   }
 
   sumOfProducts() {
