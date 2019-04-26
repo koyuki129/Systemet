@@ -10,9 +10,18 @@ module.exports = class ShoppingCart {
   add(product, quantity) {
 
     this.thingsToBuy.push({
-        product: product,
-        quantity: quantity
-      });
+      product: product,
+      quantity: quantity
+    });
+
+    let status = {ok: true};
+
+    // låt var ok men med en varning om produkten inte finns i lager (men inte har utgått)
+    if(product.iLager / 1 < quantity / 1){
+      status.warning = 'You wanted ' + quantity + ' units but we only have ' + product.iLager + ' left in stock. This might lead to a delay in delivery...';
+    }
+
+    return status;
   }
 
   editQuantity(product, newQuantity) {
