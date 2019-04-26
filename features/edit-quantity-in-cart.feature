@@ -4,8 +4,8 @@ av en produkt i min varukorg för eventuellt senare ändringar
 
 Scenario: Successfully edit quantity of one products in the cart
 Given that there is one products with one unit in the cart
-When I edit the quantity for that product by one
-Then the quantity of that product in the cart should be two
+When I edit the quantity for that product to 5
+Then the quantity of that product in the cart should be 5
 
 Scenario: Successfully edit unit quantity of two products in the cart
 Given that there is two products with one unit each in the cart
@@ -15,7 +15,7 @@ Then the quantity of that product in the cart should be two and the other still 
 Scenario: Successfully raise quantity of one products in the cart
 Given that there is one products with one unit in the cart
 When I raise the quantity for that product by one
-Then the quantity of that product in the cart should be two
+Then the quantity of that product in the cart should be 2
 
 Scenario: Successfully raise unit quantity of two products in the cart
 Given that there is two products with one unit each in the cart

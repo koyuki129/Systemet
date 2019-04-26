@@ -15,13 +15,13 @@ module.exports = function () {
 
     });
 
-    this.When(/^I edit the quantity for that product by one$/, function () {
-        cart.editQuantity(Product.products[129], 2);
+    this.When(/^I edit the quantity for that product to (\d+)$/, function (quantityToChangeTo) {
+        cart.editQuantity(Product.products[129], quantityToChangeTo);
 
     });
 
-    this.Then(/^the quantity of that product in the cart should be two$/, function () {
-        assert.equal(cart.thingsToBuy[0].quantity, 2, 'the cart didnt have the right quantity, expected 2 got ' + cart.thingsToBuy[0].quantity);
+    this.Then(/^the quantity of that product in the cart should be (\d+)$/, function (newQuantity) {
+        assert.equal(cart.thingsToBuy[0].quantity, newQuantity, 'the cart didnt have the right quantity, expected ' + newQuantity + ' got ' + cart.thingsToBuy[0].quantity);
     });
 
     this.Given(/^that there is two products with one unit each in the cart$/, function () {
