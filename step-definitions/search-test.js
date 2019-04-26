@@ -23,7 +23,7 @@ module.exports = function () {
             toSearchFor = toSearchFor.substr(1);
         }
     });
-
+    
     this.When(/^I search$/, function () {
         search.findProducts(toSearchFor);
     });
