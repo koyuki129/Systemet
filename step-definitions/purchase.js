@@ -8,7 +8,7 @@ module.exports = function () {
     let cart;
 
 
-this.When(/^I buy the products$/, function () {
+this.When(/^I checkout$/, function () {
 
 
   });

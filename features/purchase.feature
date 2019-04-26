@@ -5,11 +5,11 @@ Som en användare vill jag kunna genomföra ett köp utan att registrera ett kon
 Scenario: Successfully buy 1 product without having to register an account
 Given that there is 1 products in the cart
 When I checkout
-Then the cart should be empty
-And I should get the confirmation that the products are bought
+Then the cart should be emptied
+And I should get the confirmation that the products are bought included the total price paid
 
 Scenario: Successfully buy 2 products without having to register an account
 Given that there are 2 products in the cart
 When I checkout
-Then the cart should be empty
+Then the cart should be emptied
 And I should get the confirmation that 2 products are bought

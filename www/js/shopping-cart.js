@@ -10,7 +10,8 @@ module.exports = class ShoppingCart {
   add(product, quantity) {
     this.thingsToBuy.push({
       product: product,
-      quantity: quantity
+      quantity: quantity,
+      rowSum: product.prisinklmoms * quantity
     });
 
     let status = {ok: true};
@@ -63,7 +64,7 @@ module.exports = class ShoppingCart {
     
   }
 
-  purchase() {
+  checkout() {
 
   }
 
