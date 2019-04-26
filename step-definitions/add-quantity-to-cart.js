@@ -1,8 +1,8 @@
 // Senario nr 1
 let Product = require('../www/js/product.js');
 let ShoppingCart = require('../www/js/shopping-cart.js');
-let Unit = require('../www/js/unit.js');
-let Assert = require('assert');
+//let Unit = require('../www/js/unit.js');
+let assert = require('assert');
 
 module.exports = function () {
 
