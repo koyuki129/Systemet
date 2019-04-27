@@ -15,12 +15,15 @@ module.exports = function () {
     });
 
     this.When(/^I empty the cart$/, function () {
+
         cart.emptyCart();
+        
     });
 
 
     this.Then(/^the cart should not contain any products$/, function () {
-        assert.deepStrictEqual(cart.thingsToBuy, [], 'the cart is not empty');
-        // assert.equal(cart.thingsToBuy.length, 0, 'the cart is not empty');
+      
+        assert.equal(cart.thingsToBuy.length, 0, 'the cart is not empty');
+        // assert.deepStrictEqual(cart.thingsToBuy, [], 'the cart is not empty');
     });
 }
