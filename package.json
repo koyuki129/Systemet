@@ -11,7 +11,7 @@
     "arzu": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/cart-overview.feature & exit 0",
     "kisanet": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/add-quantity-to-cart.feature & exit 0",
     "karina": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/cart-overview.feature & exit 0",
-    "ninos": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/purchase.feature & exit 0"
+    "sabina2": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/purchase.feature & exit 0"
   },
   "author": "",
   "license": "ISC",

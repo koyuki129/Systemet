@@ -11,12 +11,13 @@ module.exports = class ShoppingCart {
     this.thingsToBuy.push({
       product: product,
       quantity: quantity,
-      rowSum: product.prisinklmoms * quantity
+      rowSum: product.prisinklmoms * quantity,
+
     });
 
     let status = {ok: true};
 
-    // låt var ok men med en varning om produkten inte finns i lager (men inte har utgått)
+    
     if(product.iLager / 1 < quantity / 1){
       status.warning = 'You wanted ' + quantity + ' units but we only have ' + product.iLager + ' left in stock. This might lead to a delay in delivery...';
     }
@@ -66,15 +67,32 @@ module.exports = class ShoppingCart {
 
   checkout() {
 
-  }
+    for (let i = 0; i < this.thingsToBuy.length; i++) {
+      return  this.emptyCart();
+    }
+  
+
+    for (let i = 0; i < this.thingsToBuy.length; i++) {
+        return this.sumOfProducts();
+      }
+    
+    }
+  
 
   emptyCart() {
-    this.thingsToBuy.length = 0;
+     this.thingsToBuy.length = 0;
+}
+  
+
+  sumOfProducts(rowSum) {
+    let total = 0;
+    for(let i = 0; i<rowSum.length; i++){
+      total += rowSum[i];
+
+    }
+      return total;
+     
+   
   }
-
-  sumOfProducts() {
-
-  }
-
-
+    
 }
