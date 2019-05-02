@@ -30,5 +30,11 @@ module.exports = class Search {
     }
 
   }
+  sortProductsByName(toSearchFor) {
+    this.findProducts(toSearchFor);
+    this.searchResult.sort(function (a, b) {
+      return a.namn > b.namn ? 1 : -1;
+    });
+  }
 
 }
