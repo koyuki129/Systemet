@@ -65,7 +65,9 @@ module.exports = function(){
         });
 
     this.Then(/^show the total price of products in the cart$/, function () {
+    
 
+      assert.equal(cart.sumOfProducts(), Product.products[118].prisinklmoms + Product.products[129].prisinklmoms  + Product.products[106].prisinklmoms  + Product.products[133].prisinklmoms, 'Incorrect sum in receipt');
           });
 
 }

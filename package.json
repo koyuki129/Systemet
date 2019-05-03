@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "node ./node_modules/selenium-cucumber-js/index.js && exit 1",
-    "daniel": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/purchase.feature & exit 0",
+    "daniel": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/remove-product.feature & exit 0",
+    "daniel1": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/edit-quantity-in-cart.feature & exit 0",
     "sabina": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/add-to-cart.feature & exit 0",
     "shilpa": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/search-alcohol.feature & exit 0",
     "arzu": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/cart-overview.feature & exit 0",
