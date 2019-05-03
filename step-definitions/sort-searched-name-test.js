@@ -4,12 +4,13 @@ module.exports = function () {
 
     let search = new Search();
 
-    this.Given(/^that I have a list of searched products$/, function () {
+   this.Given(/^that I have a list of searched products$/, function () {
 
-    });
+   });
 
     this.When(/^I sort the products$/, function () {
         search.sortProductsByName('red');
+       
     });
 
     this.Then(/^the names of the products should be sorted in ascending alphabetical order$/, function () {

@@ -34,7 +34,7 @@ module.exports = function () {
         for (let result of search.searchResult) {
             if (result.nr === chosenProduct.nr) {
                 foundChosenProductInSearch = true;
-                break; // no need to continue looping through search results because product found
+                break; // no need to continue looping through search results because product is found
             }
         }
         assert(foundChosenProductInSearch, 'The given product (nr ' + chosenProduct.nr + ') is not found using the searchTerm "' + toSearchFor + '"');
