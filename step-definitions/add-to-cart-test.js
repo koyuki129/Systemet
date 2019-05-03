@@ -6,15 +6,10 @@ module.exports = function () {
 
     let cart;
 
-    // OK?
     this.Given(/^that the products are available in the store$/, function () {
-        for (let i = 0; i < Product.products.length; i++) {
-            if (Product.products.iLager > 0) {
-                this.thingsToBuy.push(Product.products[i])
-            }
-        }
-
-
+       // Which product? Impossible to test Cucumber can't read ahead
+       // and then go back to a given so we don't know what products
+       // you want to add so we can't test a single thing here...
     });
 
     this.When(/^I add one product to the cart$/, function () {
