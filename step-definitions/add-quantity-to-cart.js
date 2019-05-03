@@ -1,81 +1,106 @@
-// Senario nr 1
+
 let Product = require('../www/js/product.js');
 let ShoppingCart = require('../www/js/shopping-cart.js');
-//let Unit = require('../www/js/unit.js');
-let assert = require('assert');
+ 
+module.exports = function(){
+ 
+  
+ 
+  let cart;
+  let addQuantityOfProducts;
+ 
+  //Given that the products are available in the store
+  this.Given(/^that the products (\d+) are available in the store$/, function (quantityOfProducts){
+    addQuantityOfProducts= quantityOfProducts;
+    cart = new ShoppingCart(quantityOfProducts / 2);
+    assert.equal(quantityOfProducts, cart.productLeft, 'The cart was not created with requested quantity of products');
+  });
+ 
+ //When I add 2 units of the same products to the cart
+ this.When(/^I add 2 units of the same products to the cart$/, function () {
+    cart = new ShoppingCart();
+    cart.add(Product.products[100], 2)
+    });
 
-module.exports = function () {
+  //Then the products should be added to the cart
 
-    let cart;
+  this.Then(/^the products should be added to the cart$/, function () {
     
-    this.Given(/^that the products are available in the store$/, function () {
-        for (let i=0; i<Product.products.length; i++){
-            if(Product.products.includes(i)){
-                this.thingsToBuy.push(Product.products[i])
+    cart.add(Product.products[100],2)
+
+});
+
+           //And the quantity of the products in the cart is 2
+           this.Then(/^the quantity of the products in the cart is 2$/, function () {
+            let quantityWasAdded= false;
+            for (let thingToBuy of cart.thingsToBuy) {
+                if (thingToBuy.products === Product.products[100],[150]) {
+                    quantityWasAdded= true;
+                    break;
+                }
             }
-        }
+    
+        assert(quantityWasAdded, 'the quantity of the products was not added.')
+    
+      });
+  
+ // Senario nr 2
 
+ //Given that the products are available in the store
 
+this.Given(/^that the the products are available in the store$/, function () {
+
+    cart = new ShoppingCart();
+    cart.add(Product.products[200], 1)
+
+});
+//When I add 1 unit of the same products to the cart
+this.When(/^I add 1 unit of the same products to the cart$/, function () {
+
+    cart.add(Product.products[200], 1)
     });
 
-    this.When(/^I add 2 units of the same products to the cart$/, function () {
-        cart = new ShoppingCart();
-        cart.add(Unit.products[110], 1);
-        cart.add(Unit.products[110], 1);
-    });
+ //When I add 1 unit of the same products to the cart
 
-    this.Then(/^the product should be added to the cart$/, function () {
-        let productWasFound = false;
+//And I add 1 unit of the same products to the cart
+
+  
+//And I add 1 unit of the same products to the cart
+
+//Then the products should be added to the cart
+
+
+
+
+//And the quantity of the products in the cart is 3
+
+      //And the quantity of the products in the cart is 3
+      this.Then(/^the quantity of the products in the cart is 3$/, function () {
+        let quantityWasAdded= false;
         for (let thingToBuy of cart.thingsToBuy) {
-            if (thingToBuy.product === Product.products[110],[110]) {
-                unitWasFound = true;
+            if (thingToBuy.products === Product.products[100],[150],[170]) {
+                quantityWasAdded= true;
                 break;
             }
         }
 
-        assert(productWasFound, 'The quantity of the products in the cart is 1+1= 2.')
+    assert(quantityWasAdded, 'the quantity of the products was not added.')
 
-    });
-// Senario nr 2
-    this.When(/^I add 3 unit of the same products to the cart$/, function () {
-        cart = new ShoppingCart();
-        cart.add(Unit.products[100], 1);
-        cart.add(Unit.products[100], 1);
-        cart.add(Unit.products[100], 1);
-    });
+  });
+   //
+  
+   // Senario nr 3
+   //When I add 0 unit of the products to the cart
+this.When(/^I add 0 unit of the products to the cart$/, function () {
 
-    this.Then(/^the quantity of the products in the cart is 3$/, function () {
-        let unitWasFound = false;
-        for (let thingToBuy of cart.thingsToBuy) {
-            if (thingToBuy.product === Unit.products[100],[100],[100] ){
-                unitWasFound = true;
-                break;
-            }
-        }
-
-        assert(unitWasFound, 'The quantitity of the products in the cart is 1+1+1=3.')
-
-    });
-// Senario nr 3
-    this.When(/^I add 0 unit of the same products to the cart$/, function () {
-        cart = new ShoppingCart();
-        cart.add(Unit.products[200], 0)
+    cart.add(Product.products[300], 0)
     });
 
-    this.Then(/^the product should not be added to the cart$/, function () {
-        let unitWasFound = false;
-        for (let thingToBuy of cart.thingsToBuy) {
-            if (thingToBuy.product === Unit.products[200]) {
-                unitWasFound = true;
-                break;
-            }
-        }
-
-
+    this.Then(/^the products should not be added to the cart$/, function () {
+    
+        cart.add(Product.products[300],0)
     
     });
-
-
-
-
 }
+
+
