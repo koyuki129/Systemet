@@ -7,7 +7,7 @@ itemsArray.push(input.value)
 })
 localStorage.clear()*/
 
-
+/*
 editQuantity(product, newQuantity) {
     for (let i = 0; i < this.thingsToBuy.length; i++) {
     if (this.thingsToBuy[i].product === product) {
@@ -16,4 +16,4 @@ editQuantity(product, newQuantity) {
     }
     localStorage.clear();
     }
-    
+    */
