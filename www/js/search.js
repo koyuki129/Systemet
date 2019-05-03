@@ -36,5 +36,4 @@ module.exports = class Search {
       return a.namn > b.namn ? 1 : -1;
     });
   }
-
 }
