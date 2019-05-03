@@ -4,10 +4,13 @@ let ShoppingCart = require('../www/js/shopping-cart.js');
 
 module.exports = function () {
 
-  let cart;
+  global.cart = '';
 
   this.Given(/^that there is one products in the cart$/, function () {
     cart = new ShoppingCart();
+
+    global.cart = cart; // share between files
+    
     // for (let i = 0; i < amountOfProducts; i++) {
     cart.add(Product.products[129], 1)
     // }
@@ -29,6 +32,7 @@ module.exports = function () {
   this.Given(/^that there is two units of the same product in the cart$/, function () {
 
     cart = new ShoppingCart();
+    global.cart = cart; // share between files
     cart.add(Product.products[129], 2)
 
 
@@ -37,6 +41,7 @@ module.exports = function () {
   this.Given(/^that there is two different products in the cart$/, function () {
 
     cart = new ShoppingCart();
+    global.cart = cart; // share between files
     cart.add(Product.products[130], 1)
     cart.add(Product.products[129], 1)
 
