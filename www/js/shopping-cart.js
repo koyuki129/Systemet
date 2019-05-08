@@ -23,6 +23,17 @@ class ShoppingCart {
   }
 
   editQuantity(product, newQuantity) {
+
+    // since assert does not work in browser (by default)
+    // we have two choices - add a lib like chai.js on the fronedn
+    // or rewrite thing like this
+    /*if(typeof newQuantity !== 'number'){
+      throw(new Error('The new quantity is not a number!'));
+    }*/
+    // we decided to load the chai library in the browser!
+
+    assert.typeOf(newQuantity, 'number', 'The new quantity is not a number!');
+    assert(newQuantity >= 1, 'The new quantity ' + newQuantity + ' is less than 1');
     for (let i = 0; i < this.thingsToBuy.length; i++) {
       if (this.thingsToBuy[i].product === product) {
         this.thingsToBuy[i].quantity = newQuantity;
@@ -60,6 +71,9 @@ class ShoppingCart {
   overviewOfCart(product) {
     return this.thingsToBuy;
 
+  }
+  closeTheBrowser(browser){
+    return this.thingsToBuy;
   }
 
   checkout() {
