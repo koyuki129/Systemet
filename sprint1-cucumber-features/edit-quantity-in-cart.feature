@@ -32,4 +32,31 @@ Given that there is two products with one unit each in the cart
 When I lower the quantity for one of the products by one
 Then the quantity of that product in the cart should be one and the other still one
 
+Scenario Outline: Make sure you can't edit quantity to a number less than one (not <quantity>)
+Given that there is one products with one unit in the cart
+When I edit the quantity for that product to the value <quantity>
+Then the program throws an error
+
+Examples:
+| quantity |
+| 0        |
+| -5       |
+| -500     |
+| 0.75     |
+
+Scenario Outline: Make sure you can only edit quantity to a number and not a <type>
+Given that there is one products with one unit in the cart
+When I edit the quantity for that product to a non-number like a <type>
+Then the program throws an error
+
+Examples: 
+| type       |
+| string     |
+| boolean    |
+| null       |
+| undefined  |
+| array      |
+| object     |
+
+
 

@@ -1,6 +1,4 @@
-let assert = require('assert');
-
-module.exports = class ShoppingCart {
+class ShoppingCart {
 
   constructor() {
     this.thingsToBuy = [];
@@ -11,7 +9,7 @@ module.exports = class ShoppingCart {
     this.thingsToBuy.push({
       product: product,
       quantity: quantity,
-      get rowSum(){ return this.product.prisinklmoms * this.quantity; }
+      get rowSum() { return this.product.prisinklmoms * this.quantity; }
     });
 
     let status = { ok: true };
@@ -25,6 +23,17 @@ module.exports = class ShoppingCart {
   }
 
   editQuantity(product, newQuantity) {
+
+    // since assert does not work in browser (by default)
+    // we have two choices - add a lib like chai.js on the fronedn
+    // or rewrite thing like this
+    /*if(typeof newQuantity !== 'number'){
+      throw(new Error('The new quantity is not a number!'));
+    }*/
+    // we decided to load the chai library in the browser!
+
+    assert.typeOf(newQuantity, 'number', 'The new quantity is not a number!');
+    assert(newQuantity >= 1, 'The new quantity ' + newQuantity + ' is less than 1');
     for (let i = 0; i < this.thingsToBuy.length; i++) {
       if (this.thingsToBuy[i].product === product) {
         this.thingsToBuy[i].quantity = newQuantity;
@@ -63,6 +72,9 @@ module.exports = class ShoppingCart {
     return this.thingsToBuy;
 
   }
+  closeTheBrowser(browser){
+    return this.thingsToBuy;
+  }
 
   checkout() {
 
@@ -84,10 +96,15 @@ module.exports = class ShoppingCart {
 
   sumOfProducts() {
     let total = 0;
-    for (let thing of this.thingsToBuy){
+    for (let thing of this.thingsToBuy) {
       total += thing.rowSum;
     }
     return total;
   }
 
+}
+
+// Export the class as a module if on backend
+if(typeof module === 'object'){
+  module.exports = ShoppingCart;
 }
