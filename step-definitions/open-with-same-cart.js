@@ -6,7 +6,7 @@ itemsArray.push(input.value)
   input.value = ''
 })
 localStorage.clear()*/
-
+/*
 
 editQuantity(product, newQuantity) {
     for (let i = 0; i < this.thingsToBuy.length; i++) {
@@ -15,5 +15,5 @@ editQuantity(product, newQuantity) {
     }
     }
     localStorage.clear();
-    }
     
+    /*/
