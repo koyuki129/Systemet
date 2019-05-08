@@ -19,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.4",
     "selenium-cucumber-js": "^1.6.2"
   }
 }
