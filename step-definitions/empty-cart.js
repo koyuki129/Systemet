@@ -22,7 +22,8 @@ module.exports = function () {
 
 
     this.Then(/^the cart should not contain any products$/, function () {
-      
+ 
+        
         assert.equal(cart.thingsToBuy.length, 0, 'the cart is not empty');
         // assert.deepStrictEqual(cart.thingsToBuy, [], 'the cart is not empty');
     });

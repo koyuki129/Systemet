@@ -57,15 +57,15 @@ module.exports = function () {
     this.Then(/^the quantity of that product in the cart should still be one$/, function () {
 
         assert.equal(cart.thingsToBuy[0].quantity, 1, 'the cart didnt have the right quantity, expected 1 got ' + cart.thingsToBuy[0].quantity);
-      });
-      this.When(/^I lower the quantity for one of the products by one$/, function () {
+    });
+    this.When(/^I lower the quantity for one of the products by one$/, function () {
 
         cart.lowerQuantityByOne(Product.products[129])
-      });
+    });
 
-      this.Then(/^the quantity of that product in the cart should be one and the other still one$/, function () {
+    this.Then(/^the quantity of that product in the cart should be one and the other still one$/, function () {
 
         assert.equal(cart.thingsToBuy[0].quantity, 1, 'the cart didnt have the right quantity, expected 1 got ' + cart.thingsToBuy[0].quantity);
         assert.equal(cart.thingsToBuy[1].quantity, 1, 'the cart didnt have the right quantity, expected 1 got ' + cart.thingsToBuy[0].quantity);
-      });
+    });
 }
