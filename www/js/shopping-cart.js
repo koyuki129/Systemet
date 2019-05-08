@@ -1,6 +1,4 @@
-let assert = require('assert');
-
-module.exports = class ShoppingCart {
+class ShoppingCart {
 
   constructor() {
     this.thingsToBuy = [];
@@ -11,7 +9,7 @@ module.exports = class ShoppingCart {
     this.thingsToBuy.push({
       product: product,
       quantity: quantity,
-      get rowSum(){ return this.product.prisinklmoms * this.quantity; }
+      get rowSum() { return this.product.prisinklmoms * this.quantity; }
     });
 
     let status = { ok: true };
@@ -84,10 +82,15 @@ module.exports = class ShoppingCart {
 
   sumOfProducts() {
     let total = 0;
-    for (let thing of this.thingsToBuy){
+    for (let thing of this.thingsToBuy) {
       total += thing.rowSum;
     }
     return total;
   }
 
+}
+
+// Export the class as a module if on backend
+if(typeof module === 'object'){
+  module.exports = ShoppingCart;
 }

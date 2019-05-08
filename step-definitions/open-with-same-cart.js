@@ -8,12 +8,11 @@ itemsArray.push(input.value)
 localStorage.clear()*/
 
 
-editQuantity(product, newQuantity) {
+/*editQuantity(product, newQuantity) {
     for (let i = 0; i < this.thingsToBuy.length; i++) {
     if (this.thingsToBuy[i].product === product) {
     this.thingsToBuy[i].quantity = newQuantity;
     }
     }
     localStorage.clear();
-    }
-    
+}*/

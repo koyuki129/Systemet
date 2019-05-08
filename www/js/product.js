@@ -17,5 +17,10 @@ for(let t of temp){
 
 Product.products = products;
  
-module.exports = Product;
+//module.exports = Product;
 // Nu är products en array med 18 695 instanser av Product
+
+// Export the class as a module if on backend
+if(typeof module === 'object'){
+  module.exports = Product;
+}
