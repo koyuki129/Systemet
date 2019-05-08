@@ -6,7 +6,7 @@ module.exports = function () {
   let cart;
   let overview;
   let quantity;
-  let price;
+
 
   this.Given(/^that I have added one products to the cart$/, function () {
     cart = new ShoppingCart();

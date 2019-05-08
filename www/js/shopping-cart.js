@@ -61,6 +61,9 @@ class ShoppingCart {
     return this.thingsToBuy;
 
   }
+  closeTheBrowser(browser){
+    return this.thingsToBuy;
+  }
 
   checkout() {
 
