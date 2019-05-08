@@ -30,7 +30,7 @@ module.exports = function () {
 
     this.Then(/^I should be given a list of products that matches my search$/, function () {
         assert(search.searchResult.length > 0, "The list is empty");
-        let foundChosenProductInSearch = false;
+       let foundChosenProductInSearch = false;
         for (let result of search.searchResult) {
             if (result.nr === chosenProduct.nr) {
                 foundChosenProductInSearch = true;
@@ -38,6 +38,7 @@ module.exports = function () {
             }
         }
         assert(foundChosenProductInSearch, 'The given product (nr ' + chosenProduct.nr + ') is not found using the searchTerm "' + toSearchFor + '"');
+    
     });
 
 

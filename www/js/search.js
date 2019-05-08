@@ -1,6 +1,4 @@
-let Product = require('./product.js');
-
-module.exports = class Search {
+class Search {
 
   constructor() {
     this.searchResult = [];
@@ -36,4 +34,9 @@ module.exports = class Search {
       return a.namn > b.namn ? 1 : -1;
     });
   }
+}
+
+// Export the class as a module if on backend
+if(typeof module === 'object'){
+  module.exports = Search;
 }
