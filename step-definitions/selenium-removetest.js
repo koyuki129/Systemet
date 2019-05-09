@@ -9,17 +9,32 @@ module.exports = function(){
 
 
   this.Given(/^that there is one products in the cart$/, async function () {
-    
+    let add = await $('.search-page .add');
+  let searchBar = await $('.search #search');
+  await searchBar.sendKeys("Öl")
+  await add.click()
   });
 
   this.When(/^I press remove button$/, async function () {
-    let removeButton = await $('.cart-items [data-action="pressRemove"]');
+    let removeButton = await $('.cart-items .remove');
     
-    assert.notEqual(removeButton, null, 'Could not find the start button');
+    assert.notEqual(removeButton, null, 'Could not find the remove button');
+
+    // this part is needed for other tests
+    // If there are multiple removeButtons
+    // select the first one
+   // if (removeButton.length) {
+    //    removeButton = removeButton[0];
+  //  }
 
     await removeButton.click();
     
   });
 
+  this.Then(/^the cart should not contain any products anymore$/, async function () {
+    let cartItems = await $('.cart-items *');
+    assert(cartItems == null, "Det finns tydligen något kvar")
+  });
+  
 
 }
