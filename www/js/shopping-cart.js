@@ -7,7 +7,7 @@ class ShoppingCart {
 
   add(product, quantity) {
 
-    let changeQuantity;
+    let changeQuantity = false;
 
 
     for(let cartItem of this.thingsToBuy){
@@ -15,15 +15,16 @@ class ShoppingCart {
         cartItem.quantity += quantity;
         changeQuantity = true;
       }
+    
     }
-
     if(changeQuantity == false){
       this.thingsToBuy.push({
         product: product,
         quantity: quantity,
         get rowSum() { return this.product.prisinklmoms * this.quantity; }
       });
-    }
+    
+  }
 
     let status = { ok: true };
 

@@ -33,7 +33,7 @@ module.exports = function () {
     this.Given(/^that the the products are available in the store$/, function () {
 
         cart = new ShoppingCart();
-        cart.add(Product.products[100], 1)
+        
 
     });
     //When I add 1 unit of the same products to the cart
