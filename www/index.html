@@ -3,6 +3,7 @@
   <head>
     <title>Systembolaget</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -23,10 +24,13 @@
       
     </div>
 
-    <h1>Nu kör vi!</h1>
-
     <div class="cart-page">
-      
+      Varukorg
+        <div data-action="order">Beställ</div>
+        <div data-action="emptyCart">Töm Varukorgen</div>
+        
+        <div>Total: <span class="sumOfProducts"></span></div>
+
       <div class="cart-items">
         No items
       </div>
@@ -34,9 +38,20 @@
 
 
     <div class="search-page">
-      finns inga sökresultat
-    </div>
 
+        <p> </p>
+      Det finns inga sökresultat <p> </p>
+      Sortera
+      
+      <form class="GuiShoppingCart-form"></form>
+              <select class="form-control" id="price">
+                <option value="Name-A-Ö">Namn A till Ö</option>
+                <option value="Name-Ö-A">Namn Ö till A</option>
+                <option value="Pris-Högt-Lågt">Pris högt till lågt </option>
+                <option value="Pris-Högt-Lågt">Pris lågt till högt</option>
+              </select>
+            </div>
+            <div class="form-group">
 
 
     <script src="js/libs/jquery.js"></script>

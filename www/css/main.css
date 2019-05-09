@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
 div {
     margin-bottom: 6px;
+  }
+
+  
+    
+  .cart-page [data-action="order"]{
+    font-family: 'VT323';
+    font-size: 3vh;
+    padding: .5vh;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20vh;
+    right: 30vh;
+    color: #fff;
+    background-color: rgb(5, 4, 10);
+  }
+  
+  .cart-page [data-action="emptyCart"]{
+    font-family: 'VT323';
+    font-size: 3vh;
+    padding: .5vh;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20vh;
+    left: 55vh;
+    color: #fff;
+    background-color: rgb(5, 4, 10);
   }
