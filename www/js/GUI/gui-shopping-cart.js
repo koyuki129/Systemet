@@ -5,6 +5,10 @@ class GuiShoppingCart{
        // $('.search-page').hide();
        // $('.cart-page').show();
         this.updateListOfProducts();
+        $('.emptyCart').click((e) => {
+            
+        });
+       
     }
 
 
@@ -18,8 +22,8 @@ class GuiShoppingCart{
        // $('.cart-items').html(itemsHtml);
 
 
-    }
-
+    } 
 }
+
 
 let guiShoppingCart = new GuiShoppingCart();

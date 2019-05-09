@@ -3,6 +3,7 @@
   <head>
     <title>Systembolaget</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -18,10 +19,13 @@
       välkommen.
     </div>
 
-    <h1>Nu kör vi!</h1>
-
     <div class="cart-page">
-      
+      Varukorg
+        <div data-action="order">Beställ</div>
+        <div data-action="emptyCart">Töm Varukorgen</div>
+        
+        <div>Total: <span class="sumOfProducts"></span></div>
+
       <div class="cart-items">
         No items
       </div>
