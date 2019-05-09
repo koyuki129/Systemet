@@ -18,12 +18,12 @@
   <div class="header">
     <!-- The form -->
     <div class="search" data-action="findProducts">
-      <input type="text" placeholder="Sök namn, namn2, varnummer..." name="search">
+      <input type="text" placeholder="Sök namn, namn2, varnummer..." id="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </div>
   </div>
 
-  <div class="varukorg" data-action="addToCart">
+  <div class="varukorg" data-action="shoppingCart">
     <p><button>Varukorg</button></p>
   </div>
 
@@ -40,21 +40,20 @@
 
   <div class="cart-page">
     Varukorg
-    <div data-action="order">Beställ</div>
-    <div data-action="emptyCart">Töm Varukorgen</div>
+    <div class="order">Beställ</div>
+    <div class="emptyCart">Töm Varukorgen</div>
 
     <div>Total: <span class="sumOfProducts"></span></div>
 
-    <div class="cart-items">
-      No items
+      <div class="cart-items"></div>
     </div>
   </div>
 
 
   <div class="search-page">
-
-    <p> </p>
-    Det finns inga sökresultat <p> </p>
+      <div class="add">Lägg till</div>
+    <p> 
+     </p>
     Sortera
 
     <form class="GuiShoppingCart-form"></form>
