@@ -6,11 +6,24 @@ class ShoppingCart {
   }
 
   add(product, quantity) {
-    this.thingsToBuy.push({
-      product: product,
-      quantity: quantity,
-      get rowSum() { return this.product.prisinklmoms * this.quantity; }
-    });
+
+    let changeQuantity;
+
+
+    for(let cartItem of this.thingsToBuy){
+      if(cartItem.product === product ) {
+        cartItem.quantity += quantity;
+        changeQuantity = true;
+      }
+    }
+
+    if(changeQuantity == false){
+      this.thingsToBuy.push({
+        product: product,
+        quantity: quantity,
+        get rowSum() { return this.product.prisinklmoms * this.quantity; }
+      });
+    }
 
     let status = { ok: true };
 
