@@ -10,22 +10,26 @@
   <link rel="stylesheet" href="css/libs/bootstrap.css">
   <!-- Load icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Own css here if needed -->
   <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
   <div class="header">
-    <!-- The form -->
-    <div class="search" data-action="findProducts">
-      <input type="text" placeholder="Sök namn, namn2, varnummer..." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
+    <div class="search" data-action="pressSearch">
+      <input type="text" placeholder="Sök namn, namn2, varnummer..." id="search">
+      <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
     </div>
   </div>
 
-  <div class="varukorg" data-action="addToCart">
-    <p><button>Varukorg</button></p>
-  </div>
+  
+  <div class="shoppingcart">
+      <a href="#" class="btn btn-info btn-lg">
+      <span class="glyphicon glyphicon-shopping-cart"></span> varukorg
+    </a>
+  </p> 
+</div>  
 
   <div class="logga-in" data-action="logIn">
     <p><button>Logga in</button></p>

@@ -31,22 +31,24 @@ div {
     background-color: rgb(5, 4, 10);
   }
 
+  
   /* Style the search field */
   .search input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
     float: left;
-    width: 50%;
+    width: 30%;
     margin-top: 15px;
-    margin-left: 150px;
+    margin-left: 400px;
     background: #f1f1f1;
+    
   }
   
   /* Style the submit button */
   .search button {
     float: left;
-    width: 10%;
+    width:5%;
     padding: 10px;
     margin-top: 15px;
     background: #2196F3;
@@ -68,18 +70,20 @@ div {
     display: table;
   }
   
-  .varukorg {
+  .shoppingcart {
     float: right;
     margin-top: -63px;
-    margin-right: 250px;
+    margin-right: 350px;
     width: 10%;
     padding: 10px;
-    font-size: 27px;
+    font-size: 5px;
     border-left: none;
+    
      
   }
   
   .logga-in {
+    
     float: right;
     margin-top: -63px;
     margin-right: -340px;

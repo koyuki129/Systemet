@@ -8,7 +8,7 @@
     "daniel": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/remove-product.feature & exit 0",
     "daniel1": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/features/edit-quantity-in-cart.feature & exit 0",
     "sabina": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./sprint1-cucumber-features/add-to-cart.feature & exit 0",
-    "shilpa": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/search-alcohol.feature & exit 0",
+    "shilpa": "node ./node_modules/selenium-cucumber-js/index.js  -f ./selenium-feature/selenium-search-alcohol.feature & exit 0",
     "arzu": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/cart-overview.feature & exit 0",
     "kisanet": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./sprint1-cucumber-features/add-quantity-to-cart.feature & exit 0",
     "arzu1": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./step-definions-features/open-with-same-cart.feature & exit 0",
