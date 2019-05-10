@@ -1,1 +1,1 @@
-// Hello
+let ShoppingCart = new ShoppingCart;

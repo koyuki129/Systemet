@@ -19,7 +19,7 @@ div {
     background-color: rgb(5, 4, 10);
   }
   
-  .cart-page [data-action="emptyCart"]{
+  .emptyCart{
     font-family: 'VT323';
     font-size: 3vh;
     padding: .5vh;
@@ -92,4 +92,16 @@ div {
     font-size: 27px;
     border-left: none;
      
+  }
+
+  .cart-items [data-action="pressRemove"]{
+    font-family: 'VT323';
+    font-size: 3vh;
+    padding: .5vh;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20vh;
+    left: 55vh;
+    color: #fff;
+    background-color: rgb(5, 4, 10);
   }

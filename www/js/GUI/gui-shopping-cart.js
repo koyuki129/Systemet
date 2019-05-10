@@ -8,7 +8,16 @@ class GuiShoppingCart{
         $('.emptyCart').click((e) => {
             
         });
+        
+        $('.add').click((e) => {
+            cart.add();
+        });
        
+    }
+
+
+    remove(){
+        cart.remove();
     }
 
 
