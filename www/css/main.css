@@ -76,9 +76,9 @@ div {
     /*cursor: pointer;*/
   }
   
-  .searchbutton:hover {
-   background: #0b7dda;
-  }
+  /*.search button:hover {*/
+   /* background: #0b7dda;*/
+  /*} */
   
   /* Clear floats */
   .search::after {
