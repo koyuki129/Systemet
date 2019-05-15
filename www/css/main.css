@@ -5,7 +5,20 @@ div {
   box-sizing: border-box;
   }
 
-  
+  /* Style the header */
+  .start-page {
+    
+    float: left;
+    margin-top: -73px;
+    margin-right: -340px; 
+    color: #2196F3;
+    padding: 5px;
+    font-size: 14px;
+    border-right: none;
+     
+  }
+
+ 
     
   .cart-page [data-action="order"]{
     font-family: 'VT323';
@@ -105,3 +118,4 @@ div {
     color: #fff;
     background-color: rgb(5, 4, 10);
   }
+
