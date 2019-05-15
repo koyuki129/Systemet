@@ -54,4 +54,4 @@ class GuiShoppingCart {
         `;
         $('.cart-items').html(html);
 
-    }
+    }}

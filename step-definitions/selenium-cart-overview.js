@@ -3,7 +3,7 @@ module.exports = function () {
 
    this.Given(/^that I seach and added one products to the cart$/, async function () {
         
-        let searchBox = await $('.search');
+        let searchBox = await $('#search');
         let theButton = await $('.searchbutton');
       
         await searchBox.sendKeys("Vin");
