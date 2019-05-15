@@ -8,12 +8,14 @@ class GuiShoppingCart {
         this.updateListOfProducts();
 
         $('.emptyCart').click((e) => {
-            this.cart.empty();
+            this.cart.emptyCart();
         });
 
         $('.add').click((e) => {
             this.cart.add();
+            this.updateListOfProducts();
         });
+        
     }
 
 
@@ -54,4 +56,6 @@ class GuiShoppingCart {
         `;
         $('.cart-items').html(html);
 
-    }}
+    }
+
+}
