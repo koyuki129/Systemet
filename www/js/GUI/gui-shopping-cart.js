@@ -14,7 +14,6 @@ class GuiShoppingCart {
         $('.add').click((e) => {
             this.cart.add();
         });
-
     }
 
 
@@ -23,7 +22,6 @@ class GuiShoppingCart {
         // then add their html-code to .cart-items
 
         //  let itemsHtml = "<h3>Rödvin</h3><button>Buy</button>";
-
 
         // $('.cart-items').html(itemsHtml);
 
@@ -57,7 +55,3 @@ class GuiShoppingCart {
         $('.cart-items').html(html);
 
     }
-}
-
-// why here?
-let guiShoppingCart = new GuiShoppingCart();
