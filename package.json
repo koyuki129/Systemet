@@ -7,15 +7,13 @@
     "test": "node ./node_modules/selenium-cucumber-js/index.js && exit 1",
     "daniel": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/selenium-remove-product.feature & exit 0",
     "daniel1": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/features/edit-quantity-in-cart.feature & exit 0",
-    "sabina": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./sprint1-cucumber-features/add-to-cart.feature & exit 0",
+    "sabina": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/selenium-add-to-cart.feature & exit 0",
     "shilpa": "node ./node_modules/selenium-cucumber-js/index.js  -f ./selenium-feature/selenium-search-alcohol.feature & exit 0",
-    "arzu": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/cart-overview.feature & exit 0",
+    "arzu": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/selenium-cart-overview.feature & exit 0",
     "kisanet": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/selenium-add-quantity-to-cart.feature & exit 0",
     "arzu1": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./step-definions-features/open-with-same-cart.feature & exit 0",
-    "sabina2": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/selenium-purchase.feature & exit 0",
-    "shilpa1": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/empty-cart.feature & exit 0",
-    "shilpa2": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./features/sort-searched-name.feature & exit 0"
-  },
+    "sabina2": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/selenium-purchase.feature & exit 0"
+    },
   "author": "",
   "license": "ISC",
   "dependencies": {

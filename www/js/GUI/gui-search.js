@@ -1,9 +1,9 @@
 class GuiSearch {
-    constructor(){
-
-    }
-
-    pressSearch(){
+    constructor() {
         
     }
 }
+
+
+    
+
