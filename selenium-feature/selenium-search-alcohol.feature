@@ -4,9 +4,9 @@ för att hitta det jag letar efter.
 
 Scenario: Successfully search products by the value of the property "namn"
 Given that I am on the web page localhost:3000
-And that I am searching by "a partial" value of the property "namn"
+And that I am searching for "öl"
 When I press search button
-Then I should be given a list of products that matches my search
+Then I should be given a list of products that matches "öl"
 
 Scenario: Successfully search products by the value of the property "namn2"
 Given that I am on the web page localhost:3000
