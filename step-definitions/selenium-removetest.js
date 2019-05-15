@@ -26,7 +26,7 @@ module.exports = function () {
     // If there are multiple removeButtons
     // select the first one
     //if (removeButton.length) {
-      //removeButton = removeButton[0];
+    //removeButton = removeButton[0];
     //}
 
     await removeButton.click();
@@ -75,7 +75,7 @@ module.exports = function () {
   });
 
   this.When(/^I press remove button for one of the two different products$/, async function () {
-    
-  
+
+
   });
 }
