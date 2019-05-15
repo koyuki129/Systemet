@@ -26,7 +26,7 @@ module.exports = function () {
         assert.notEqual(searchResult.length, 0, "Did not find any element on the page containing the search string");
     });
 
-    this.Given(/^that I am searching for (\d+)$/, async function (searchNumber) {
+   /* this.Given(/^that I am searching for (\d+)$/, async function (searchNumber) {
         let searchBar = await $('.search #search');
         assert.notEqual(searchBar, null, 'Could not find the searchbar');
         await searchBar.sendKeys(searchNumber);
@@ -35,7 +35,7 @@ module.exports = function () {
 
     this.Then(/^I should be given a list of products that matches (\d+)$/, function (searchNumber) {
 
-    });
+    });*/
 
 
 
