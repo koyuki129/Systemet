@@ -21,22 +21,10 @@ module.exports = function () {
     });
 
     this.Then(/^I should be given a list of products that matches "([^"]*)"$/, async function (searchString) {
-        let searchResult = await helpers.getElementsContainingText(searchString);
-        console.log("searchResult", searchResult);
-        assert.notEqual(searchResult.length, 0, "Did not find any element on the page containing the search string");
+        //let searchResult = await helpers.getElementsContainingText('div', searchString);
+        let searchPage = await $('.search-page');
+        let searchResultText = await searchPage.getText();
+        assert(searchResultText.includes(searchString), "Did not find any text on the search-page containing the search string");
     });
-
-   /* this.Given(/^that I am searching for (\d+)$/, async function (searchNumber) {
-        let searchBar = await $('.search #search');
-        assert.notEqual(searchBar, null, 'Could not find the searchbar');
-        await searchBar.sendKeys(searchNumber);
-    });
-
-
-    this.Then(/^I should be given a list of products that matches (\d+)$/, function (searchNumber) {
-
-    });*/
-
-
 
 }
