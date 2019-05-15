@@ -1,1 +1,0 @@
-let ShoppingCart = new ShoppingCart;
