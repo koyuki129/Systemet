@@ -32,3 +32,7 @@ class GuiSearch {
         $('.search-page').html(html);
     }
 }
+
+
+    
+

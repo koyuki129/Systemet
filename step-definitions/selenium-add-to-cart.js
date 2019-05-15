@@ -5,11 +5,11 @@ module.exports = function () {
 
         });
 
-        this.When(/^I add on product to the cart$/, async function () {
-
-                let searchBar = await $('.search #search');
-
+        this.When(/^I add one product to the cart$/, async function () {
+                let searchBar = await $('.search');
+                let theButtom = await $('.searchbutton');
                 await searchBar.sendKeys("Öl")
+                await theButtom.click();
                 let add = await $('.search-page .add');
 
                 assert.notEqual(add, null, 'Could not find the addbuttom');
@@ -27,8 +27,10 @@ module.exports = function () {
 
         this.When(/^I add one other product to the cart$/, async function () {
 
-                let searchBar = await $('.search #search');
+                let searchBar = await $('.search');
+                let theButtom = await $('.searchbutton');
                 await searchBar.sendKeys("Vin")
+                await theButtom.click();
                 let add = await $('.search-page .add');
 
                 assert.notEqual(add, null, 'Could not find the addbuttom');
@@ -43,9 +45,9 @@ module.exports = function () {
         });
 
 
-        this.Given(/^I add one product that is out of stock to the cart$/, async function () {
+        this.When(/^I add one product that is out of stock to the cart$/, async function () {
                 let outOfStock = await $('.search-page .outOfStock');
-                let searchBar = await $('.search #search');
+                let searchBar = await $('.search');
                 await searchBar.sendKeys("Smirnoff");
 
                 assert.notEqual(outOfStock, null, 'Could not find the addbuttom');
