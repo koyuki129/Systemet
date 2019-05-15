@@ -28,12 +28,14 @@ class Search {
     }
 
   }
+
   sortProductsByName(toSearchFor) {
     this.findProducts(toSearchFor);
     this.searchResult.sort(function (a, b) {
       return a.namn > b.namn ? 1 : -1;
     });
   }
+
 }
 
 // Export the class as a module if on backend
