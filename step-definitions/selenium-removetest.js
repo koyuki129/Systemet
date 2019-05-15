@@ -10,8 +10,8 @@ module.exports = function () {
 
   this.Given(/^that there is one products in the cart$/, async function () {
 
-    let add = await $('.search-page .add');
     let searchBar = await $('.search #search');
+    let add = await $('.search-page .add');
     await searchBar.sendKeys("Öl")
     await add.click()
 
@@ -41,9 +41,9 @@ module.exports = function () {
   });
 
   this.Given(/^that there is two units of the same product in the cart$/, async function () {
-
-    let add = await $('.search-page .add');
+    
     let searchBar = await $('.search #search');
+    let add = await $('.search-page .add');
     await searchBar.sendKeys("Öl")
     await add.click()
     await add.click()
@@ -52,8 +52,8 @@ module.exports = function () {
 
   this.Given(/^that there is two different products in the cart$/, async function () {
 
-    let add = await $('.search-page .add');
     let searchBar = await $('.search #search');
+    let add = await $('.search-page .add');
     await searchBar.sendKeys("Öl")
     await add.click()
     await searchBar.sendKeys("Whiskey")

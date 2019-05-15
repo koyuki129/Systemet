@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
 @import url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One');
 
-
+.hidden {
+  display: none;
+}
 
 div {
   margin-bottom: 6px;
@@ -77,8 +79,8 @@ div {
     /*cursor: pointer;*/
   }
   
-  .search button:hover {
-   /* background: #0b7dda;*/
+  .searchbutton:hover {
+   background: #0b7dda;
   }
   
   /* Clear floats */
