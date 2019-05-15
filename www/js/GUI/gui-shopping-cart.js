@@ -1,18 +1,29 @@
 class GuiShoppingCart {
 
     constructor() {
-        //$('.start-page').hide();
+        //$('.start-p((age').hide();
         // $('.search-page').hide();
         // $('.cart-page').show();
         this.cart = new ShoppingCart();
         this.updateListOfProducts();
 
+        // När man skapar en eventhanterare så här:
+        // $('.add').click((e) => {});
+        // så gäller den bara element som redan finns i DOM:en
+
+        // Gör man istället så här
+        // $(document).on('click', '.add', (e) => {});
+        // gäller det alla KOMMANDE/ej än existerande element också
+
+
         $('.emptyCart').click((e) => {
             this.cart.emptyCart();
         });
 
-        $('.add').click((e) => {
-            this.cart.add();
+        $(document).on('click', '.add', (e) => {
+            let theButtonClicked = $(e.currentTarget);
+            let product = theButtonClicked.parents('.product').data('product');
+            this.cart.add(product, 1);
             this.updateListOfProducts();
         });
         
@@ -41,6 +52,7 @@ class GuiShoppingCart {
             <tbody>
         `;
         for(let row of rows){
+            console.log("A ROW", row)
             html += `
                 <tr>
                     <td>${row.product.namn}</td>
