@@ -1,40 +1,75 @@
 let { $, sleep } = require('./funcs.js');
 module.exports = function () {
 
+ //Senario nr 1
+
+//Given that I am on the web page localhost:3000
 
 //And that the products are available in the store
-
-
 
 //When I add 2 units of the same products to the cart
 
  this.When(/^I add (\d+) units of the same products to the cart$/, async function () {
-  let addProducts = await $('.add-products[0],');
-  assert(products, "The products are not added");
-  let searchBox = await $('.seach-box');
-  let add = await $(' .add');
-  
-  
-});
+  let searchBox = await $('.search #search');
+  let product = await $(' .search-page');
+  let add = await $('cart-page')
+  await searchBox.sendKeys('Cava','Vin');
+  await product.click();
+  await add[2].click();
+ });
 
 //Then the products should be added to the cart
 
-this.Then(/^the products should be added to the cart$/, async function (product) {
-  let output = await $('.cart .output');
-  let product = await output.getAttribute('innerHTML');
-  assert.equal(product, 'Cava', 'The cart added no product!');
+this.Then(/^the products should be added to the cart$/, async function () {
+  let search = await $('.search-page');
+  assert.equal(search, [2], 'The product should not be added!');
 });
-
 
 //And the quantity of the products in the cart is 2 
 
-this.Then(/^the quantity of the products in the cart is 2$/, async function (quantity) {
-  let output = await $('.cart .output');
-  let quantity = await output.getAttribute('innerHTML');
-  assert.equal(quantity, '2', 'The cart added no  quantity!');
+this.Then(/^the quantity of the products in the cart is (\d+)$/, async function (quantity) {
+  let esarch = await $('.search-page');
+  let quantity = await cart.quantity('');
+  assert.equal(quantity, '2', 'The quantity of the product is null!');
 }); 
+
+// Senario nr 2
+
+//Given that I am on the web page localhost:3000
+
+//And that the the products are available in the store
+this.Given(/^that the the products are available in the store$/, function (callback) {
+});
+
+//When I add 1 unit of the same products to the cart
+
+this.When(/^I add (\d+) unit of the same products to the cart$/, async function (unit) {
+  let searchUnit = await $('.search');
+  let Unit = await $('.search-page .unit');
+  await searchUnit.sendKeys('1')
+  await Unit.click();
+ 
+});
+ 
+//And I add 1 unit of the same products to the cart
+//And I add 1 unit of the same products to the cart
+//Then the products should be added to the cart
+
+//And the quantity of the products in the cart is 3
+
+ // Scenario nr 3:  
+  
+ //Given that I am on the web page localhost:3000
+
+ //And that the products are available in the store
+
+ //When I add 0 unit of the products to the cart
+
+ this.When(/^I add (\d+) unit of the products to the cart$/, function (arg1, callback) {
+ });
+
+ //Then the products should not be added to the cart
+
+ this.Then(/^the products should not be added to the cart$/, function (callback) {
+ }); 
 }
- // Scenario nr 2: Successfully add quantity of products to the cart by adding it seperately  
-   //Given that I am on the web page localhost:3000 
-    // And that the the products are available in the store  
-    
