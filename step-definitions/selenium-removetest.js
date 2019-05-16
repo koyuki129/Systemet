@@ -5,6 +5,14 @@ module.exports = function () {
  this.Given(/^that I am on the web page localhost:(\d+)$/, async function (portNumber) {
     // not sure how to detect when we fail to load the page?
     await helpers.loadPage('http://localhost:' + portNumber);
+    // here we are waiting for the products to load
+    // (when that is done the class hidden is removed from the body)
+    while(true){
+      let hiddenBody = await $('body.hidden');
+      console.log("hiddenBody", !!hiddenBody)
+      if(hiddenBody === null){ break; }
+      await sleep(100);
+    }
   });
 
 
