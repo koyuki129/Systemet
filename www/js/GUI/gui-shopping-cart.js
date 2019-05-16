@@ -6,20 +6,15 @@ class GuiShoppingCart {
         // $('.cart-page').show();
         this.cart = new ShoppingCart();
         this.updateListOfProducts();
-
+        
         // När man skapar en eventhanterare så här:
         // $('.add').click((e) => {});
         // så gäller den bara element som redan finns i DOM:en
-
+        
         // Gör man istället så här
         // $(document).on('click', '.add', (e) => {});
         // gäller det alla KOMMANDE/ej än existerande element också
-
-
-        $('.emptyCart').click((e) => {
-            this.cart.emptyCart();
-        });
-
+        
         $(document).on('click', '.add', (e) => {
             let theButtonClicked = $(e.currentTarget);
             let product = theButtonClicked.parents('.product').data('product');
@@ -34,6 +29,11 @@ class GuiShoppingCart {
             this.updateListOfProducts();
         });
     
+        
+        $(document).on('click', '.emptycart button', (e) => {
+            this.cart.emptyCart();
+            this.updateListOfProducts();
+        });
     }
 
 
