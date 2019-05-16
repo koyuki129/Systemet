@@ -26,7 +26,7 @@ class GuiShoppingCart {
             this.cart.add(product, 1);
             this.updateListOfProducts();
         });
-        
+
     }
 
 
@@ -40,31 +40,31 @@ class GuiShoppingCart {
 
         let rows = this.cart.overviewOfCart();
         let html = `
-            <table class="cart-items table">
-            <thead>
-                <tr>
-                <th scope="col">Produkt</th>
-                <th scope="col">Antal</th>
-                <th scope="col">Summa</th>
-                <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
+        <table class="cart-items table">
+        <thead>
+            <tr>
+            <th scope="col">Produkt</th>
+            <th scope="col">Antal</th>
+            <th scope="col">Summa</th>
+            <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
         `;
-        for(let row of rows){
+        for (let row of rows) {
             console.log("A ROW", row)
             html += `
-                <tr>
-                    <td>${row.product.namn}</td>
-                    <td><input type="number" value="${row.quantity}"></td>
-                    <td>${row.rowSum}</td>
-                    <td><button class="btn btn-primary">Ta bort</td>
-                </tr>
-            `;
+            <tr>
+            <td>${row.product.namn}</td>
+            <td><input type="number" value="${row.quantity}"></td>
+            <td>${row.rowSum}</td>
+            <td><button class="btn btn-primary">Ta bort</td>
+        </tr>
+                `;
         }
         html += `
-                </tbody>
-            </table>
+        </tbody>
+        </table>
         `;
         $('.cart-items').html(html);
 
