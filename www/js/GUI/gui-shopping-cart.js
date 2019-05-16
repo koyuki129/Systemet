@@ -26,7 +26,14 @@ class GuiShoppingCart {
             this.cart.add(product, 1);
             this.updateListOfProducts();
         });
-        
+        $(document).on('click', '.remove', (e) => {
+            let theButtonClicked = $(e.currentTarget);
+            let row = theButtonClicked.parents('tr');
+            let product = row.data('product');
+            this.cart.remove(product);
+            this.updateListOfProducts();
+        });
+    
     }
 
 
@@ -39,33 +46,32 @@ class GuiShoppingCart {
         // $('.cart-items').html(itemsHtml);
 
         let rows = this.cart.overviewOfCart();
-        let html = `
+        let html = $(`
             <table class="cart-items table">
-            <thead>
-                <tr>
-                <th scope="col">Produkt</th>
-                <th scope="col">Antal</th>
-                <th scope="col">Summa</th>
-                <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-        `;
+                <thead>
+                    <tr>
+                    <th scope="col">Produkt</th>
+                    <th scope="col">Antal</th>
+                    <th scope="col">Summa</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        `);
         for(let row of rows){
-            console.log("A ROW", row)
-            html += `
+            let productRow = $(`
                 <tr>
                     <td>${row.product.namn}</td>
                     <td><input type="number" value="${row.quantity}"></td>
                     <td>${row.rowSum}</td>
-                    <td><button class="btn btn-primary">Ta bort</td>
+                    <td><button class="btn btn-primary remove">Ta bort</td>
                 </tr>
-            `;
+            `);
+            productRow.data('product', row.product);
+            html.append(productRow);
         }
-        html += `
-                </tbody>
-            </table>
-        `;
         $('.cart-items').html(html);
 
     }
