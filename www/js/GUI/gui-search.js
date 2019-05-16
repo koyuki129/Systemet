@@ -26,6 +26,7 @@ class GuiSearch {
             let htmlForProduct  = $(`
                 <div class="product">
                     <h4>${product.namn}</h4>
+                    <h5>${product.namn2}</h5>
                     <h4>${product.prisinklmoms}
                     <button class="btn btn-primary add">Lägg till</button>
                 </div>
