@@ -1,6 +1,8 @@
 let { $, sleep } = require('./funcs.js');
 module.exports = function () {
 
+  let addedProduct1;
+  let addedProduct2;
 
   this.Given(/^that I am on the web page localhost:(\d+)$/, async function (portNumber) {
     // not sure how to detect when we fail to load the page?
@@ -97,9 +99,14 @@ module.exports = function () {
     }
     
     await add.click();
+
+    let firstProduct = await $('.cart-items td:first-child');
+    addedProduct1 = await firstProduct.getText();
+
+
+
     await searchBar.clear();
     await searchBar.sendKeys("gin");
-    // assert(searchBar.getText() === 'gin', "The text is not Gin")
     await searchButton.click();
 
     add = await $('.search-page .add');
@@ -109,6 +116,10 @@ module.exports = function () {
     }
 
     await add.click();
+
+    
+    let secondProduct = await $('.cart-items td:first-child');
+    addedProduct2 = await secondProduct[1].getText();
 
   });
 
@@ -134,6 +145,23 @@ module.exports = function () {
 
   this.When(/^I press remove button for one of the two different products$/, async function () {
 
+    let removeButton = await $('.cart-items .remove');
+    assert.notEqual(removeButton, null, 'Could not find the remove button');
+
+    if (removeButton.length) {
+      removeButton = removeButton[0];
+    }
+
+    await removeButton.click();
 
   });
+
+this.Then(/^the cart should not contain the removed product anymore$/, async function () {
+  let cartItems = await $('.cart-items td:first-child');
+    assert.notEqual(cartItems, null, 'Det finns tydligen något kvar');
+    assert(Array.isArray(cartItems) == false, 'Det var tydligen en array');
+    console.log(await cartItems.getText());
+    assert((await cartItems.getText()).includes(addedProduct2), "Det finns tydligen något kvar")
+
+});
 }
