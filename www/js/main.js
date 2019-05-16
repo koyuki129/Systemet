@@ -1,1 +1,2 @@
-let ShoppingCart = new ShoppingCart;
+new GuiSearch();
+new GuiShoppingCart();

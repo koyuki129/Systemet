@@ -1,11 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
+@import url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One');
+
+.hidden {
+  display: none;
+}
 
 div {
   margin-bottom: 6px;
   box-sizing: border-box;
   }
 
-  
+  /* Style the header */
+  .start-page {
+    
+    float: left;
+    margin-top: -73px;
+    margin-right: -340px; 
+    color: #2196F3;
+    padding: 5px;
+    font-size: 14px;
+    border-right: none;
+     
+  }
+
+ 
     
   .cart-page [data-action="order"]{
     font-family: 'VT323';
@@ -22,46 +40,45 @@ div {
   .emptyCart{
     font-family: 'VT323';
     font-size: 3vh;
-    padding: .5vh;
+    /*padding: .5vh;
     cursor: pointer;
     position: absolute;
     bottom: 20vh;
     left: 55vh;
     color: #fff;
-    background-color: rgb(5, 4, 10);
+    background-color: rgb(5, 4, 10);*/
   }
 
   
   /* Style the search field */
   .search input[type=text] {
     padding: 10px;
-    font-size: 17px;
+    font-size: 15px;
     border: 1px solid grey;
     float: left;
-    width: 30%;
-    margin-top: 15px;
-    margin-left: 400px;
+    width: 49%;
+    margin-top: 45px;
+    margin-left: 10px;
     background: #f1f1f1;
     
   }
   
   /* Style the submit button */
   .search button {
-    float: left;
-    width:5%;
+    margin-top: 45px;
+    /*background: #2196F3;
+    width:13%;
     padding: 10px;
-    margin-top: 15px;
-    background: #2196F3;
     color: white;
-    font-size: 17px;
+    font-size: 15px;
     border: 1px solid grey;
-    border-left: none; /* Prevent double borders */
-    cursor: pointer;
+    border-left: none; */ /* Prevent double borders */
+    /*cursor: pointer;*/
   }
   
-  .search button:hover {
-    background: #0b7dda;
-  }
+  /*.search button:hover {*/
+   /* background: #0b7dda;*/
+  /*} */
   
   /* Clear floats */
   .search::after {
@@ -71,26 +88,18 @@ div {
   }
   
   .shoppingcart {
-    float: right;
-    margin-top: -63px;
-    margin-right: 350px;
-    width: 10%;
-    padding: 10px;
-    font-size: 5px;
-    border-left: none;
-    
-     
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-right: 10px; 
+
   }
   
   .logga-in {
-    
-    float: right;
-    margin-top: -63px;
-    margin-right: -340px;
-    width: 15%;
-    padding: 10px;
-    font-size: 27px;
-    border-left: none;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-right: 180px; 
      
   }
 
@@ -105,3 +114,4 @@ div {
     color: #fff;
     background-color: rgb(5, 4, 10);
   }
+
