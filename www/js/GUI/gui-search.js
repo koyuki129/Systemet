@@ -7,6 +7,7 @@ class GuiSearch {
             let searchPhrase = $('#search').val();
             this.search.findProducts(searchPhrase);
             this.showResults(this.search.searchResult);
+           // $('#search').val();
         });
 
         // search on enter
@@ -27,7 +28,7 @@ class GuiSearch {
                 <div class="product">
                     <h4>${product.namn}</h4>
                     <h5>${product.namn2}</h5>
-                    <h4>${product.prisinklmoms}
+                    <h4>${product.prisinklmoms}</h4>
                     <button class="btn btn-primary add">Lägg till</button>
                 </div>
             `);
@@ -36,7 +37,10 @@ class GuiSearch {
             // add the html element the DOM
             $('.search-page').append(htmlForProduct);
         }
-    }
+
+
+
+}
 }
 
 
