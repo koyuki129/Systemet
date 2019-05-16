@@ -9,7 +9,7 @@ module.exports = function () {
     // (when that is done the class hidden is removed from the body)
     while(true){
       let hiddenBody = await $('body.hidden');
-      console.log("hiddenBody", !!hiddenBody)
+      //console.log("hiddenBody", !!hiddenBody)
       if(hiddenBody === null){ break; }
       await sleep(100);
     }
