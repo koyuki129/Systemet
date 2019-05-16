@@ -9,13 +9,22 @@ module.exports = function () {
 
 //When I add 2 units of the same products to the cart
 
- this.When(/^I add (\d+) units of the same products to the cart$/, async function () {
+ this.When(/^I add (\d+) units of the same products to the cart$/, async function (units) {
   let searchBox = await $('.search #search');
-  let product = await $(' .search-page');
-  let add = await $('cart-page')
-  await searchBox.sendKeys('Cava','Vin');
-  await product.click();
-  await add[2].click();
+  await searchBox.sendKeys('Cava');
+  
+  let searchButton = await $('.searchbutton')
+  await searchButton.click();
+
+  let addButton = await $('.add')
+  await addButton.click();
+
+  let a = await $('.a')
+  await a.click;
+ 
+
+  let button = await $('.button')
+  await button.click();
  });
 
 //Then the products should be added to the cart
@@ -38,16 +47,17 @@ this.Then(/^the quantity of the products in the cart is (\d+)$/, async function 
 //Given that I am on the web page localhost:3000
 
 //And that the the products are available in the store
-this.Given(/^that the the products are available in the store$/, function (callback) {
-});
+//this.Given(/^that the the products are available in the store$/, function (callback) {
+//});
 
 //When I add 1 unit of the same products to the cart
 
-this.When(/^I add (\d+) unit of the same products to the cart$/, async function (unit) {
-  let searchUnit = await $('.search');
-  let Unit = await $('.search-page .unit');
-  await searchUnit.sendKeys('1')
-  await Unit.click();
+this.When(/^I add (\d+) unit of the same products to the cart$/, async function () {
+  let addUnit = await $('#add');
+  let theButton = await $('.searchbutton');
+
+   await addUnit.sendKeys("Cava");
+   await theButton.click();
  
 });
  
