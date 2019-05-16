@@ -21,7 +21,6 @@ module.exports = function () {
     });
 
     this.Then(/^I should be given a list of products that matches "([^"]*)"$/, async function (searchString) {
-        //let searchResult = await helpers.getElementsContainingText('div', searchString);
         let searchPage = await $('.search-page');
         let searchResultText = await searchPage.getText();
         assert(searchResultText.includes(searchString), "Did not find any text on the search-page containing the search string");
