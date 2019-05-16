@@ -16,6 +16,7 @@ module.exports = function () {
         let add = await $('.search-page .add');
        
         await add[0].click();
+        await sleep(100);
   });
 
   this.When(/^I press on the cart to see the overview$/, async function () {
@@ -23,6 +24,7 @@ module.exports = function () {
       assert(theButton !== null, "The .shoppingcart doesn't exist");
       if (theButton) {
         await theButton.click()
+        await sleep(100);
       }
   });
    
