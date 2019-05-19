@@ -11,8 +11,7 @@ Then i should see the product in the cart
 Scenario: Successfully add at least two different products to the cart
 Given that I am on the web page localhost:3000
 And that the products are available in the store
-When I add one product to the cart
-And I add one other product to the cart
+And that there is two different products in the cart
 Then I should see the products in the cart
 
 Scenario: Out of products

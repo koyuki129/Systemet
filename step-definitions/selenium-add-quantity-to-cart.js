@@ -47,8 +47,8 @@ this.Then(/^the quantity of the products in the cart is (\d+)$/, async function 
 //Given that I am on the web page localhost:3000
 
 //And that the the products are available in the store
-//this.Given(/^that the the products are available in the store$/, function (callback) {
-//});
+this.Given(/^that the the products are available in the store$/, function (callback) {
+});
 
 //When I add 1 unit of the same products to the cart
 
