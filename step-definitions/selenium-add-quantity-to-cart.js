@@ -64,11 +64,12 @@ this.When(/^I add (\d+) unit of the same products to the cart$/, async function 
  
   let searchButton = await $('.searchbutton')
   await searchButton.click();
+ 
+  let add = await $('.add');
 
 
-  let add = await $('.add')
+  assert.notEqual(add, 1, 'Could not find the addbuttom')
 
-  await add[1].click();
 });
  
 //And I add 1 unit of the same products to the cart
@@ -79,11 +80,12 @@ this.When(/^I add (\d+) unit of the same products to the cart$/, async function 
 //Then the products should be added to the cart
  
 //And the quantity of the products in the cart is 3
-this.Then(/^the quantity of the products in the cart is(\d+) $/, async function() {
-  let shoppingCart = await $('.shopping-cart');
-  let theButtom = await $('.div')
-  await shoppingCart.click();
-  await theButtom.click();
+this.Then(/^the quantity of the products(\d+) in the cart is $/, async function (units) {
+  let searchButton = await $('.searchbutton');
+  await searchButton.sendKeys('Cava');
+  await searchButton.sendKeys('Cava');
+  await searchButton.sendKeys('Cava');
+  //( 'The quantity should not be added!');
     
   
   
