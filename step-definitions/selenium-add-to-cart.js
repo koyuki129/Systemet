@@ -29,7 +29,7 @@ module.exports = function () {
         });
 
 
-        this.Then(/^i should see the product in the cart$/, async function () {
+        this.Then(/^I should see the product in the cart$/, async function () {
                 let cartItems = await $('.cart-items td:first-child');
                 assert((await cartItems.getText()).includes(this.addedProduct1), "The product is Auld Rare Benriach");
 
