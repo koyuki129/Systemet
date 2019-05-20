@@ -21,7 +21,7 @@ class ShoppingCart {
       this.thingsToBuy.push({
         product: product,
         quantity: quantity,
-        get rowSum() { return this.product.prisinklmoms * this.quantity; }
+        get rowSum() { return (this.product.prisinklmoms * this.quantity).toFixed(2); }
       });
     
   }
@@ -37,6 +37,7 @@ class ShoppingCart {
   }
 
   editQuantity(product, newQuantity) {
+    assert.typeOf(newQuantity, 'number', 'The new quantity is not a number!');
 
     // since assert does not work in browser (by default)
     // we have two choices - add a lib like chai.js on the fronedn
@@ -45,9 +46,10 @@ class ShoppingCart {
       throw(new Error('The new quantity is not a number!'));
     }*/
     // we decided to load the chai library in the browser!
-
-    assert.typeOf(newQuantity, 'number', 'The new quantity is not a number!');
-    assert(newQuantity >= 1, 'The new quantity ' + newQuantity + ' is less than 1');
+    if (newQuantity < 1) {
+      newQuantity = 1;
+    }
+    // assert(newQuantity >= 1, 'The new quantity ' + newQuantity + ' is less than 1');
     for (let i = 0; i < this.thingsToBuy.length; i++) {
       if (this.thingsToBuy[i].product === product) {
         this.thingsToBuy[i].quantity = newQuantity;
@@ -66,8 +68,10 @@ class ShoppingCart {
 
   lowerQuantityByOne(product) {
 
-    for (let i = 1; i < this.thingsToBuy.length; i++) {
+
+    for (let i = 0; i < this.thingsToBuy.length; i++) {
       if (this.thingsToBuy[i].product === product) {
+        assert(this.thingsToBuy[i].quantity - 1 >= 1, 'The new quantity ' + ' is less than 1');
         this.thingsToBuy[i].quantity--
       }
     }
