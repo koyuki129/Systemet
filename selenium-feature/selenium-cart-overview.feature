@@ -6,14 +6,13 @@ Scenario: Successfully overview the cart of products
 Given that I am on the web page localhost:3000
 And that I search and added one products to the cart
 When I press on the cart to see the overview
-Then the product should be among the products in the overview
-And the correct quantity should be shown.
+Then I should see the product in the cart
 
 Scenario: Successfully overview the cart of at least 2 different products
 Given that I am on the web page localhost:3000
 And that there is two different products in the cart
 When I press on the cart to see the overview
-Then the products should be visible in the cart
+Then I should see the products in the cart
 
 Scenario: Successfully overview the price of the products
 Given that I am on the web page localhost:3000

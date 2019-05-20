@@ -1,4 +1,4 @@
-let { $, sleep } = require('./funcs.js');
+/*let { $, sleep } = require('./funcs.js');
 
 module.exports = function () {
 
@@ -13,8 +13,8 @@ module.exports = function () {
         // add = add[0]; 
 
         //if we are adding different products
-        for (let i = 0; i < numberOfProductsInCart; i++) {
-            await add[i].click();
+    //    for (let i = 0; i < numberOfProductsInCart; i++) {
+     //       await add[i].click();
         }
     });
 
@@ -29,3 +29,4 @@ module.exports = function () {
         assert(cartItems === null, "Cart is not empty");
     });
 }
+}*/
