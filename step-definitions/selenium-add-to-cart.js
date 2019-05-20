@@ -1,64 +1,74 @@
 let { $, sleep } = require('./funcs.js');
 module.exports = function () {
 
+
+
         this.Given(/^that the products are available in the store$/, function () {
 
         });
 
         this.When(/^I add one product to the cart$/, async function () {
-                let searchBar = await $('.search');
-                let theButtom = await $('.searchbutton');
-                await searchBar.sendKeys("Öl")
-                await theButtom.click();
+                let searchBar = await $('.search #search');
+                let searchButton = await $('.search .searchbutton');
+
+                await searchBar.sendKeys("Auld Rare Benriach");
+                await searchButton.click();
+
                 let add = await $('.search-page .add');
+                if (add.length > 0) {
+                        add = add[0];
+                }
 
                 assert.notEqual(add, null, 'Could not find the addbuttom');
-                await add.click()
+
+                await add.click();
+
+                let firstProduct = await $('.cart-items td:first-child');
+                this.addedProduct1 = await firstProduct.getText();
 
         });
 
 
         this.Then(/^i should see the product in the cart$/, async function () {
+                let cartItems = await $('.cart-items td:first-child');
+                assert((await cartItems.getText()).includes(this.addedProduct1), "The product is Auld Rare Benriach");
 
-                let cartItems = await $('.cart-page *');
-                assert(cartItems, 'Öl', "The cart does not contain any products")
         });
 
-
-        this.When(/^I add one other product to the cart$/, async function () {
-
-                let searchBar = await $('.search');
-                let theButtom = await $('.searchbutton');
-                await searchBar.sendKeys("Vin")
-                await theButtom.click();
-                let add = await $('.search-page .add');
-
-                assert.notEqual(add, null, 'Could not find the addbuttom');
-                await add.click()
-        });
 
         this.Then(/^I should see the products in the cart$/, async function () {
-
-                let cartItems = await $('.cart-page *');
-                assert(cartItems, 'Öl', "The cart does not contain any products")
-                assert(cartItems, 'Vin', "The cart does not contain any products")
+                let cartItems = await $('.cart-items td:first-child');
+                assert((await cartItems[0].getText()).includes(this.addedProduct1), "The cart do not contain 2 products");
+                cartItems = await $('.cart-items td:first-child');
+                assert((await cartItems[1].getText()).includes(this.addedProduct2), "The cart do not contain 2 products");
         });
 
-
+        let outOfStockProduct;
         this.When(/^I add one product that is out of stock to the cart$/, async function () {
-                let outOfStock = await $('.search-page .outOfStock');
-                let searchBar = await $('.search');
-                await searchBar.sendKeys("Smirnoff");
+ 
 
-                assert.notEqual(outOfStock, null, 'Could not find the addbuttom');
-                await outOfStock.click();
+                let searchBar = await $('.search #search');
+                let searchButton = await $('.search .searchbutton');
+
+                await searchBar.sendKeys("harlis Ipanema");
+                await searchButton.click();
+
+                let add = await $('.search-page .add');
+                if (add.length > 0) {
+                        add = add[0];
+                }
+
+                assert.notEqual(add, null, 'Could not find the addbuttom');
+
+                await add.click();
+
+                let outOfStock = await $('.cart-items td:first-child');
+                outOfStockProduct = await outOfStock.getText();
+
         });
 
         this.Then(/^the page should show a message$/, async function () {
-                let outOfStock = await $('.search-page .outOfStock');
 
-                assert.notEqual(outOfStock, 'Tillfälligt slut', 'Your order should show that it is not in stock');
-                await outOfStock.click();
         });
 
 
