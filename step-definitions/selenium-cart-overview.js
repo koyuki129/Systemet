@@ -76,33 +76,18 @@ module.exports = function () {
 
   
   let thirdProduct = await $('.cart-items td:first-child');
-  this.addedProduct2 = await thirdProduct[1].getText();
+  this.addedProduct3 = await thirdProduct[1].getText();
 });
 
 
 
- /*let searchBox = await $('#search');
- let theButton = await $('.searchbutton');
-
- await searchBox.sendKeys("Brancott Estate");
- await theButton.click();
-
- let add = await $('.search-page .add');
 
 
- await add.click();
+this.Then(/^I should see the product in the cart$/, async function () {
+  let cartProduct = await $('.cart-items td:first-child');
+  assert((await cartProduct.getText()).includes(this.addedProduct1, this.addedProduct2, this.addedProduct3), "The product is Auld Rare Benriach");
 
- await searchBox.clear();
-
- await searchBox.sendKeys("Daruvar");
- await theButton.click();
-
-
- await add.click();
- await sleep(100);
-
-
-});*/
+});
  
 
 } 
