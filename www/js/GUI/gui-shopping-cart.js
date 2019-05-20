@@ -4,7 +4,7 @@ class GuiShoppingCart {
         //$('.start-p((age').hide();
         // $('.search-page').hide();
         // $('.cart-page').show();
-        this.cart = new ShoppingCart();
+        this.cart = new StoredShoppingCart();
         this.updateListOfProducts();
         
         // När man skapar en eventhanterare så här:

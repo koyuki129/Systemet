@@ -9,16 +9,16 @@ module.exports = function () {
 
   this.Given(/^that there is at least one products in the cart$/, async function () {
     
-    let searchBar = await $('.search #search');
-    let theButtom = await $('.search .searchbutton');
-    await searchBar.sendKeys("Öl")
-    await theButtom.click();
-    let add = await $('.search-page .add');
+    let searchBox = await $('.search #search');
+    await searchBox.sendKeys('cava')
+    let searchButtom = await $('.searchbutton');
+    await searButtom.click();
+    let add = await $('.add');
     if (add.length > 0) {
       add = add[0];
     }
 
-    assert.notEqual(add, null, 'Could not find the addbuttom');
+    assert.notEqual(add, 1, 'Could not find the addbuttom');
     await add.click()
   });
 

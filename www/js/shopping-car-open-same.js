@@ -1,7 +1,4 @@
 
-const Product = require('../www/js/product.js');
-const ShoppingCart = require('../www/js/shopping-cart.js');
-
 class StoredShoppingCart extends ShoppingCart {
   
   constructor() {
