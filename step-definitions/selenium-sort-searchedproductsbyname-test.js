@@ -11,5 +11,10 @@ module.exports = function () {
 
       });
 
-     
+      this.When(/^I press bokstavsordning button$/,  async function () {
+        let bokstavsordningButton = await $('.search-page .bokstavsordning');
+        assert.notEqual(bokstavsordningButton, null, "Could not find the bokstavsordning button");
+        await bokstavsordningButton.click();
+       
+      });
 }
