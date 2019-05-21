@@ -157,6 +157,7 @@ h1 {
 .dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
+.dropdown.clicked .dropdown-content {display: block;}
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
