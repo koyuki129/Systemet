@@ -14,7 +14,7 @@
     "arzu": "node ./node_modules/selenium-cucumber-js/index.js -b chrome -f ./selenium-feature/selenium-cart-overview.feature & exit 0",
     "kisanet": "node ./node_modules/selenium-cucumber-js/index.js -b chrome -f ./selenium-feature/selenium-add-quantity-to-cart.feature & exit 0",
     "arzu1": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./step-definions-features/open-with-same-cart.feature & exit 0",
-    "sabina2": "node ./node_modules/selenium-cucumber-js/index.js -b phantomjs -f ./selenium-feature/selenium-purchase.feature & exit 0"
+    "sabina2": "node ./node_modules/selenium-cucumber-js/index.js -b chrome -f ./selenium-feature/selenium-purchase.feature & exit 0"
   },
   "author": "",
   "license": "ISC",
