@@ -4,9 +4,9 @@ class GuiShoppingCart {
         //$('.start-p((age').hide();
         // $('.search-page').hide();
         // $('.cart-page').show();
-        this.cart = new ShoppingCart();
+        window.cart = this.cart = new ShoppingCart();
         this.updateListOfProducts();
-        this.outOfStockProduct;
+        $('.error').hide();
         
 
         // När man skapar en eventhanterare så här:
@@ -22,6 +22,11 @@ class GuiShoppingCart {
             let product = theButtonClicked.parents('.product').data('product');
             this.cart.add(product, 1);
             this.updateListOfProducts();
+            if(product.iLager === 0){
+                $('.error').show();
+            } else {
+                $('.error').hide();
+            }
         });
         $(document).on('click', '.remove', (e) => {
             let theButtonClicked = $(e.currentTarget);
@@ -86,7 +91,7 @@ class GuiShoppingCart {
         for (let row of rows) {
             let productRow = $(`
                 <tr>
-                    <td>${row.product.namn}.error</td>
+                    <td>${row.product.namn}</td>
                     <td><input type="number" value="${row.quantity}"></td>
                     <td>${row.product.namn}</td>
                     <td>
