@@ -62,6 +62,13 @@ class GuiShoppingCart {
             this.cart.emptyCart();
             this.updateListOfProducts();
         });
+        $(document).on('click', '.checkout button', (e) => {
+            $('.reciept').text(`Tack för din beställning! 
+            Dina varor kommer att anlända inom 3 arbetsdagar 
+             Summa för beställda produkter: ${this.cart.sumOfProducts()} :-`)
+            this.cart.checkout();
+            this.updateListOfProducts();
+        });
     }
 
 
