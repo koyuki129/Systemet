@@ -92,8 +92,6 @@ class GuiShoppingCart {
             let productRow = $(`
                 <tr>
                     <td>${row.product.namn}</td>
-                    <td><input type="number" value="${row.quantity}"></td>
-                    <td>${row.product.namn}</td>
                     <td>
                         <button class="btn btn-primary lower"> - </button>
                         <input type="number" value="${row.quantity}">
