@@ -16,6 +16,7 @@ module.exports = function () {
   await searchBox.sendKeys('Cava');
   
   let searchButton = await $('.searchbutton')
+ 
   await searchButton.click();
 
  
@@ -30,6 +31,7 @@ module.exports = function () {
 
 this.Then(/^the products should be added to the cart$/, async function () {
   let searchBox = await $('.search #search');
+  await searchBox.clear();
   await searchBox.sendKeys('Cava');
   //( 'The unit should not be added!');
 });
@@ -37,10 +39,19 @@ this.Then(/^the products should be added to the cart$/, async function () {
 //And the quantity of the products in the cart is 2 
 
 this.Then(/^the quantity of the products in the cart is (\d+)$/, async function (units) {
-  let searchButton = await $('.searchbutton');
-  await searchButton.sendKeys('Cava');
-  await searchButton.sendKeys('Cava');
-  //( 'The quantity should not be added!');
+  let quantityBox  = await $('td input');
+  assert.notEqual(quantityBox, null, 'Could not find the quantitybox');
+
+  // get the value from the quantityBox
+  let cartItems = await $('th value');
+  assert.notEqual(cartItems, 'Can not get the value' )
+
+  // compare that value to `units`
+  let numberOfunits = await $('th value');
+  assert.notEqual(numberOfunits,'Can not compare' )
+  // if they're not equal -> crash
+  let valueOfnumbers = await $('th value')
+  assert.notEqual(valueOfnumbers,'Crash' )
 }); 
 
 // Senario nr 2
@@ -56,10 +67,11 @@ this.When(/^I add (\d+) unit of the same products to the cart$/, async function 
   await searchBox.sendKeys('Cava');
  
   let searchButton = await $('.searchbutton')
+
   await searchButton.click();
  
   let add = await $('.add');
-  
+  assert.notEqual(add, null, 'Could not find the addbuttom');
   await add[0].click();
 });
  
@@ -69,18 +81,6 @@ this.When(/^I add (\d+) unit of the same products to the cart$/, async function 
   //And I add 1 unit of the same products to the cart
   
 //Then the products should be added to the cart
- 
-//And the quantity of the products in the cart is 3
-this.Then(/^the quantity of the products(\d+) in the cart is $/, async function (units) {
-  let searchButton = await $('.searchbutton');
-  await searchButton.sendKeys('Cava');
-  await searchButton.sendKeys('Cava');
-  await searchButton.sendKeys('Cava');
-  //( 'The quantity should not be added!');
-    
-  
-  
-});
 
  // Scenario nr 3:  
   
@@ -95,6 +95,7 @@ this.Then(/^the quantity of the products(\d+) in the cart is $/, async function 
   await searchBox.sendKeys('0');
   
   let searchButton = await $('.searchbutton')
+ 
   await searchButton.click();
 
 });
