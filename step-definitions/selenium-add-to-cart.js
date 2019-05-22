@@ -45,7 +45,7 @@ module.exports = function () {
 
         let outOfStockProduct;
         this.When(/^I add one product that is out of stock to the cart$/, async function () {
- 
+
 
                 let searchBar = await $('.search #search');
                 let searchButton = await $('.search .searchbutton');

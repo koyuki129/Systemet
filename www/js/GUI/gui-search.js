@@ -1,5 +1,5 @@
 class GuiSearch {
-    constructor(){
+    constructor() {
 
         this.search = new Search();
 
@@ -7,24 +7,30 @@ class GuiSearch {
             let searchPhrase = $('#search').val();
             this.search.findProducts(searchPhrase);
             this.showResults(this.search.searchResult);
-           // $('#search').val();
+            // $('#search').val();
         });
 
         // search on enter
         $('#search').keyup((e) => {
-            if(e.which === 13){
+            if (e.which === 13) {
                 // you pressed enter
                 $('.searchbutton').click();
             }
         });
 
+        $('.bokstavsordning').click((e) => {
+            let searchPhrase = $('#search').val();
+            this.search.sortProductsByName(searchPhrase);
+            this.showResults(this.search.searchResult);
+        });
+
     }
 
-    showResults(products){
-        $('.search-page').empty();
-        for(let product of products){
+    showResults(products) {
+        $('.search-page .search-result').empty();
+        for (let product of products) {
             // create a new jQuery html object
-            let htmlForProduct  = $(`
+            let htmlForProduct = $(`
                 <div class="product">
                     <h4>${product.namn}</h4>
                     <h5>${product.namn2}</h5>
@@ -35,14 +41,11 @@ class GuiSearch {
             // bind data to the html element
             htmlForProduct.data('product', product);
             // add the html element the DOM
-            $('.search-page').append(htmlForProduct);
+            $('.search-page .search-result').append(htmlForProduct);
         }
-
-
-
-}
+    }
 }
 
 
-    
+
 
