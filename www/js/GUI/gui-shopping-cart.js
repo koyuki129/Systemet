@@ -6,6 +6,7 @@ class GuiShoppingCart {
         // $('.cart-page').show();
         this.cart = new ShoppingCart();
         this.updateListOfProducts();
+        this.outOfStockProduct;
         
         // När man skapar en eventhanterare så här:
         // $('.add').click((e) => {});
@@ -63,7 +64,7 @@ class GuiShoppingCart {
         for(let row of rows){
             let productRow = $(`
                 <tr>
-                    <td>${row.product.namn}</td>
+                    <td>${row.product.namn}.error</td>
                     <td><input type="number" value="${row.quantity}"></td>
                     <td>${row.rowSum}</td>
                     <td><button class="btn btn-primary remove">Ta bort</td>

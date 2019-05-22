@@ -43,7 +43,10 @@ h1 {
     color: #fff;
     background-color: rgb(5, 4, 10);
   }
-  
+  .error {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+  }
   .emptyCart{
     font-family: 'VT323';
     font-size: 3vh;

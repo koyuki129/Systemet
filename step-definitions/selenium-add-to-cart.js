@@ -46,7 +46,7 @@ module.exports = function () {
         let outOfStockProduct;
         this.When(/^I add one product that is out of stock to the cart$/, async function () {
  
-
+        this.When(/^I add one product that is out of stock to the cart$/, async function () {
                 let searchBar = await $('.search #search');
                 let searchButton = await $('.search .searchbutton');
 
@@ -63,11 +63,17 @@ module.exports = function () {
                 await add.click();
 
                 let outOfStock = await $('.cart-items td:first-child');
-                outOfStockProduct = await outOfStock.getText();
+                this.outOfStockProduct = await outOfStock.getText();
 
         });
 
         this.Then(/^the page should show a message$/, async function () {
+                let outOfStock = await $('.cart-items td:first-child');
+
+                let warningMsg = await $('.error');
+                assert.notEqual(warningMsg, null, "");
+                assert((await outOfStock.getText()).includes(this.outOfStockProduct), "The product is not a outOffStockProduct");
+
 
         });
 
