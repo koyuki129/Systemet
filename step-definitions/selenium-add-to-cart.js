@@ -29,7 +29,7 @@ module.exports = function () {
         });
 
 
-        this.Then(/^i should see the product in the cart$/, async function () {
+        this.Then(/^I should see the product in the cart$/, async function () {
                 let cartItems = await $('.cart-items td:first-child');
                 assert((await cartItems.getText()).includes(this.addedProduct1), "The product is Auld Rare Benriach");
 
@@ -45,8 +45,8 @@ module.exports = function () {
 
         let outOfStockProduct;
         this.When(/^I add one product that is out of stock to the cart$/, async function () {
- 
-        this.When(/^I add one product that is out of stock to the cart$/, async function () {
+
+
                 let searchBar = await $('.search #search');
                 let searchButton = await $('.search .searchbutton');
 

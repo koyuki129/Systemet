@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=VT323');
 @import url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One');
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 
 .hidden {
   display: none;
@@ -29,7 +30,10 @@ h1 {
     border-right: none;
      
   }
-
+.pic {
+  margin-top: 45px;
+  margin-left: 20px;
+}
  
     
   .cart-page [data-action="order"]{
@@ -64,13 +68,35 @@ h1 {
   .search input[type=text] {
     padding: 10px;
     font-size: 15px;
-    border: 1px solid grey;
+    border: 1px solid #4CAF50;
+    padding: 10px;
+    border-radius: 25px;
     float: left;
     width: 49%;
     margin-top: 55px;
     margin-left: 180px;
     background: #f1f1f1;
     
+  }
+
+  .center {
+    margin: auto;
+    width: 94%;
+    padding: 10px;
+  }
+  
+
+  .search-page {
+    font-family: 'Oswald', sans-serif;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px solid grey;
+    float: center;
+    width: 90%;
+    margin-top: 85px;
+    margin-left: 75px;
+    background: #f1f1f1;
+
   }
   
   /* Style the submit button */
@@ -112,7 +138,7 @@ h1 {
   }
 
   .cart-items [data-action="pressRemove"]{
-    font-family: 'VT323';
+    font-family: 'Oswald', sans-serif;
     font-size: 3vh;
     padding: .5vh;
     cursor: pointer;
@@ -122,4 +148,11 @@ h1 {
     color: #fff;
     background-color: rgb(5, 4, 10);
   }
+
+  .bokstavsordning{
+    font-size: 3vh;
+    margin-right: 10px; 
+  }
+
+  
 
