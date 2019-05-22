@@ -1,3 +1,4 @@
+let assert = require('assert');
 let { $, sleep } = require('./funcs.js');
 
 module.exports = function () {
@@ -14,9 +15,15 @@ module.exports = function () {
     await bokstavsordningButton.click();
   });
 
-  this.Then(/^the names of the products should be sorted in ascending alphabetical order$/, function () {
-let searchResult = await $('.search-page');
+  this.Then(/^the names of the products should be sorted in ascending alphabetical order$/, async function () {
+    let searchResultNames = await $('.product h4:first-child');
 
+    for (let i = 0; i < searchResultNames.length; i++) {
+      searchResultNames[i] = await searchResultNames[i].getText();
+    }
+    let copy = searchResultNames.slice();
+    searchResultNames.sort();
+    assert.deepStrictEqual(copy, searchResultNames, "The list is not sorted in ascending alphabetical order");
   });
 
 

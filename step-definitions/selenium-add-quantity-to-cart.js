@@ -47,29 +47,20 @@ this.Then(/^the quantity of the products in the cart is (\d+)$/, async function 
 
 //Given that I am on the web page localhost:3000
 
-//And that the the products are available in the store
-this.Then(/^that the the products are available in the store$/, function () {
 
-        
-
-
-});
-
-//When I add 1 unit of the same products to the cart
 
 this.When(/^I add (\d+) unit of the same products to the cart$/, async function (unit) {
-
+ 
   let searchBox = await $('.search #search');
+  await searchBox.clear();
   await searchBox.sendKeys('Cava');
  
   let searchButton = await $('.searchbutton')
   await searchButton.click();
  
   let add = await $('.add');
-
-
-  assert.notEqual(add, 1, 'Could not find the addbuttom')
-
+  
+  await add[0].click();
 });
  
 //And I add 1 unit of the same products to the cart
