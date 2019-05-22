@@ -4,22 +4,29 @@ class GuiShoppingCart {
         //$('.start-p((age').hide();
         // $('.search-page').hide();
         // $('.cart-page').show();
-        this.cart = new ShoppingCart();
+        window.cart = this.cart = new ShoppingCart();
         this.updateListOfProducts();
+        $('.error').hide();
         
+
         // När man skapar en eventhanterare så här:
         // $('.add').click((e) => {});
         // så gäller den bara element som redan finns i DOM:en
-        
+
         // Gör man istället så här
         // $(document).on('click', '.add', (e) => {});
         // gäller det alla KOMMANDE/ej än existerande element också
-        
+
         $(document).on('click', '.add', (e) => {
             let theButtonClicked = $(e.currentTarget);
             let product = theButtonClicked.parents('.product').data('product');
             this.cart.add(product, 1);
             this.updateListOfProducts();
+            if(product.iLager === 0){
+                $('.error').show();
+            } else {
+                $('.error').hide();
+            }
         });
         $(document).on('click', '.remove', (e) => {
             let theButtonClicked = $(e.currentTarget);
@@ -46,9 +53,14 @@ class GuiShoppingCart {
             let theSubmitted = $(e.currentTarget);
             let row = theSubmitted.parents('tr');
             let product = row.data('product');
-            this.cart.editQuantity(product, theSubmitted.val()/1);
+            this.cart.editQuantity(product, theSubmitted.val() / 1);
             this.updateListOfProducts();
-            
+
+        });
+
+        $(document).on('click', '.emptycart button', (e) => {
+            this.cart.emptyCart();
+            this.updateListOfProducts();
         });
     }
 
@@ -76,9 +88,11 @@ class GuiShoppingCart {
                 </tbody>
             </table>
         `);
-        for(let row of rows){
+        for (let row of rows) {
             let productRow = $(`
                 <tr>
+                    <td>${row.product.namn}</td>
+                    <td><input type="number" value="${row.quantity}"></td>
                     <td>${row.product.namn}</td>
                     <td>
                         <button class="btn btn-primary lower"> - </button>

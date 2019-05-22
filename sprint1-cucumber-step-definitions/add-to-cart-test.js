@@ -56,7 +56,7 @@ module.exports = function () {
     });
 
 
-    let outOfStockProduct;
+    this.outOfStockProduct;
     let statusFromAdd;
 
     this.Given(/^that there is a product that is out of stock$/, function () {
@@ -65,26 +65,26 @@ module.exports = function () {
         let tries = 0;
         do {
             let randomIndex = Math.floor(Math.random() * Product.products.length);
-            outOfStockProduct = Product.products[randomIndex];
+            this.outOfStockProduct = Product.products[randomIndex];
             tries++;
-        } while (outOfStockProduct.iLager > 0 && tries < maxTries);
+        } while (this.outOfStockProduct.iLager > 0 && tries < maxTries);
 
-        assert(outOfStockProduct.iLager === 0, 'Tried ' + maxTries + ' times to find a product that was not in stock but failed!');
+        assert(this.outOfStockProduct.iLager === 0, 'Tried ' + maxTries + ' times to find a product that was not in stock but failed!');
     });
 
 
 
     this.When(/^I try to add that product$/, function () {
-        if (outOfStockProduct.iLager === 0) {
-            statusFromAdd = cart.add(outOfStockProduct, 1);
+        if (this.outOfStockProduct.iLager === 0) {
+            statusFromAdd = cart.add(this.outOfStockProduct, 1);
         }
 
 
     });
 
     this.Then(/^it should show a message$/, function () {
-        let warningMsg = statusFromAdd.warning || '';
-        assert(warningMsg.includes('but we only have'), 'Your order should show that it is not in stock');
+        this.warningMsg = statusFromAdd.warning || '';
+        assert(this.warningMsg.includes('but we only have'), 'Your order should show that it is not in stock');
     });
 
 

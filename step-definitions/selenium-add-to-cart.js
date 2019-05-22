@@ -29,7 +29,7 @@ module.exports = function () {
         });
 
 
-        this.Then(/^i should see the product in the cart$/, async function () {
+        this.Then(/^I should see the product in the cart$/, async function () {
                 let cartItems = await $('.cart-items td:first-child');
                 assert((await cartItems.getText()).includes(this.addedProduct1), "The product is Auld Rare Benriach");
 
@@ -43,10 +43,11 @@ module.exports = function () {
                 assert((await cartItems[1].getText()).includes(this.addedProduct2), "The cart do not contain 2 products");
         });
 
-        let outOfStockProduct;
         this.When(/^I add one product that is out of stock to the cart$/, async function () {
- 
 
+                this.warningMsg = await $('.error');
+                assert(await this.warningMsg.getText() === '', "error msg is shown before it should")
+                
                 let searchBar = await $('.search #search');
                 let searchButton = await $('.search .searchbutton');
 
@@ -61,14 +62,11 @@ module.exports = function () {
                 assert.notEqual(add, null, 'Could not find the addbuttom');
 
                 await add.click();
-
-                let outOfStock = await $('.cart-items td:first-child');
-                outOfStockProduct = await outOfStock.getText();
-
         });
 
         this.Then(/^the page should show a message$/, async function () {
-
+                let text = await this.warningMsg.getText();
+                assert(text.includes('Finns inte i lager'), "error does not show");
         });
 
 

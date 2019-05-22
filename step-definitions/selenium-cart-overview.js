@@ -10,8 +10,17 @@ module.exports = function () {
         await theButton.click();
 
         let add = await $('.search-page .add');
+        if (add.length > 0) {
+          add = add[0];
+  }
        
-        await add.click();
+  assert.notEqual(add, null, 'Could not find the addbuttom');
+
+  await add.click();
+
+  let firstProduct = await $('.cart-items td:first-child');
+  this.addedProduct1 = await firstProduct.getText();
+  
         await sleep(100);
   });
 
@@ -24,7 +33,9 @@ module.exports = function () {
       }
   });
 
-
+  
+ 
+//S2
 
  this.Given(/^that I search and added products to the cart$/, async function () {
   let searchBar = await $('.search #search');
@@ -76,33 +87,19 @@ module.exports = function () {
 
   
   let thirdProduct = await $('.cart-items td:first-child');
-  this.addedProduct2 = await thirdProduct[1].getText();
+  this.addedProduct3 = await thirdProduct[1].getText();
 });
 
 
-
- /*let searchBox = await $('#search');
- let theButton = await $('.searchbutton');
-
- await searchBox.sendKeys("Brancott Estate");
- await theButton.click();
-
- let add = await $('.search-page .add');
-
-
- await add.click();
-
- await searchBox.clear();
-
- await searchBox.sendKeys("Daruvar");
- await theButton.click();
-
-
- await add.click();
- await sleep(100);
-
+/*this.Then(/^show the total price of products in the cart$/, async function () {
+  let productTotPrice = await $('.cart-items td:first-child');
+  assert((await productTotPrice[0].getText()).includes(this.addedProduct1), "The cart do not contain 3 products");
+  productTotPrice = await $('.cart-items td:first-child');
+  assert((await productTotPrice[1].getText()).includes(this.addedProduct2), "The cart do not contain 3 products");
+  productTotPrice = await $('.cart-items td:first-child');
+  assert((await productTotPrice[3].getText()).includes(this.addedProduct3), "The cart do not contain 3 products");
 
 });*/
- 
+
 
 } 
