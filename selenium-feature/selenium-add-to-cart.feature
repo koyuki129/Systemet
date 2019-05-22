@@ -16,5 +16,5 @@ Then I should see the products in the cart
 
 Scenario: Out of products
 Given that I am on the web page localhost:3000
-Given I add one product that is out of stock to the cart
+When I add one product that is out of stock to the cart
 Then the page should show a message 

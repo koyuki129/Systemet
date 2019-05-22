@@ -9,7 +9,7 @@ Then the products should be added to the cart
 And the quantity of the products in the cart is 2
 
 Scenario: Successfully add quantity of products to the cart by adding it seperately
-Given that the the products are available in the store
+Given that the products are available in the store
 When I add 1 unit of the same products to the cart
 And I add 1 unit of the same products to the cart
 And I add 1 unit of the same products to the cart
