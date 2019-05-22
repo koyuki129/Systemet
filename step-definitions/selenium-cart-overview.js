@@ -91,15 +91,22 @@ module.exports = function () {
 });
 
 
-/*this.Then(/^show the total price of products in the cart$/, async function () {
-  let productTotPrice = await $('.cart-items td:first-child');
-  assert((await productTotPrice[0].getText()).includes(this.addedProduct1), "The cart do not contain 3 products");
-  productTotPrice = await $('.cart-items td:first-child');
-  assert((await productTotPrice[1].getText()).includes(this.addedProduct2), "The cart do not contain 3 products");
-  productTotPrice = await $('.cart-items td:first-child');
-  assert((await productTotPrice[3].getText()).includes(this.addedProduct3), "The cart do not contain 3 products");
+this.Then(/^show the total price of products in the cart$/, async function () {
+  let productTotPrice = await $('.cart-items td:nth-child(3)');
+  let totPrice = await $('.totPrice');
 
-});*/
+  totPrice = await totPrice.getText();
+  totPrice = Number(totPrice);
+  let calculatedSum = 0;
+  
+  for (let i = 0; i < productTotPrice.length; i++) {
+   productTotPrice[i] = await productTotPrice[i].getText()
+    productTotPrice[i] = Number(productTotPrice[i])
+    calculatedSum += productTotPrice[i];
+  }
+
+  assert(calculatedSum == totPrice, "fel totalsumma i varuvargnen")
+});
 
 
 } 
