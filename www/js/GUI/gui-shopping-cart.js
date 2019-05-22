@@ -7,7 +7,7 @@ class GuiShoppingCart {
         window.cart = this.cart = new ShoppingCart();
         this.updateListOfProducts();
         $('.error').hide();
-        
+
 
         // När man skapar en eventhanterare så här:
         // $('.add').click((e) => {});
@@ -19,10 +19,10 @@ class GuiShoppingCart {
 
         $(document).on('click', '.add', (e) => {
             let theButtonClicked = $(e.currentTarget);
-            let product = theButtonClicked.parents('.product').data('product');
+            let product = theButtonClicked.closest('.product').data('product');
             this.cart.add(product, 1);
             this.updateListOfProducts();
-            if(product.iLager === 0){
+            if (product.iLager === 0) {
                 $('.error').show();
             } else {
                 $('.error').hide();
@@ -30,7 +30,7 @@ class GuiShoppingCart {
         });
         $(document).on('click', '.remove', (e) => {
             let theButtonClicked = $(e.currentTarget);
-            let row = theButtonClicked.parents('tr');
+            let row = theButtonClicked.closest('tr');
             let product = row.data('product');
             this.cart.remove(product);
             this.updateListOfProducts();
@@ -51,7 +51,7 @@ class GuiShoppingCart {
         });
         $(document).on('change', 'td input', (e) => {
             let theSubmitted = $(e.currentTarget);
-            let row = theSubmitted.parents('tr');
+            let row = theSubmitted.closest('tr');
             let product = row.data('product');
             this.cart.editQuantity(product, theSubmitted.val() / 1);
             this.updateListOfProducts();
@@ -92,11 +92,9 @@ class GuiShoppingCart {
             let productRow = $(`
                 <tr>
                     <td>${row.product.namn}</td>
-                    <td><input type="number" value="${row.quantity}"></td>
-                    <td>${row.product.namn}</td>
                     <td>
                         <button class="btn btn-primary lower"> - </button>
-                        <input type="number" value="${row.quantity}">
+                       <input type="number" class="inputNumber" value="${row.quantity}">
                         <button class="btn btn-primary raise"> + </button>
                     </td>
                     <td>${row.rowSum}</td>
