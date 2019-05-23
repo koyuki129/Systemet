@@ -67,9 +67,11 @@ class GuiShoppingCart {
             this.updateListOfProducts();
         });
         $(document).on('click', '.checkout button', (e) => {
-            $('.reciept').text(`Tack för din beställning! 
-            Dina varor kommer att anlända inom 3 arbetsdagar 
-             Summa för beställda produkter: ${this.cart.sumOfProducts()} :-`)
+            $('.reciept').html(`<div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Tack för din beställning!</h4>
+            <p>Aww yeah, Dina varor kommer att anlända inom 3 arbetsdagar 
+            Summa för beställda produkter:</p>
+          </div> ${this.cart.sumOfProducts()} :-</p>`)
             this.cart.checkout();
             this.updateListOfProducts();
         });
@@ -109,7 +111,7 @@ class GuiShoppingCart {
                         <button class="btn btn-primary raise"> + </button>
                     </td>
                     <td>${row.rowSum}</td>
-                    <td><button class="btn btn-primary remove">Ta bort </button></td>
+                    <td><button class="btn btn-primary remove">Ta bort</button></td>
                 </tr>
             `);
             productRow.data('product', row.product);
