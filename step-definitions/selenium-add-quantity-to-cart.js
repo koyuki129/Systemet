@@ -90,6 +90,9 @@ this.When(/^I add (\d+) unit of the same products to the cart$/, async function 
 
  //Then the products should not be added to the cart
 
- this.Then(/^the products should not be added to the cart$/, function () {
- }); 
+ this.Then(/^the products should not be added to the cart$/, async function () {
+  let cartItems = await $('.cart-items .inputNumber');
+  assert.notEqual(cartItems,1, "The product should not be added ");
+  
+}); 
 }
