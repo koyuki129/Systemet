@@ -32,10 +32,10 @@ class GuiSearch {
             // create a new jQuery html object
             let htmlForProduct = $(`
                 <div class="product">
-                    <h4>${product.namn}</h4>
+                    <h2>${product.namn}</h2>
                     <h5>${product.namn2}</h5>
                     <h4>${product.prisinklmoms}</h4>
-                    <button class="btn btn-primary add">Lägg till</button>
+                    <button class="btn btn-primary add float-right">Lägg till</button>
                 </div>
             `);
             // bind data to the html element
