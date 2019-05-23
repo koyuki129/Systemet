@@ -70,17 +70,17 @@ module.exports = function () {
 
         let changeQuantity = await $('.cart-items .inputNumber');
 
-       
+
 
         driver.executeScript("$('.cart-items .inputNumber').eq(0).val('')")
         await changeQuantity[0].sendKeys('2');
         driver.executeScript("$('.cart-items .inputNumber').eq(1).val('')")
         try {
             changeQuantity = await $('.cart-items .inputNumber');
-        } catch(e) {}
+        } catch (e) { }
         try {
             await changeQuantity[1].sendKeys('1');
-        } catch(e) {}
+        } catch (e) { }
     });
 
     this.Then(/^the quantity of that product in the cart should be two and the other still one$/, async function () {
@@ -89,8 +89,64 @@ module.exports = function () {
         assert(await changeQuantity[1].getAttribute('value') == "1", "expected value was not 1")
     });
 
-    this.When(/^I raise the quantity for one of the products by one$/, async function () {
+    this.When(/^I raise the quantity for that product by one$/, async function () {
+        let raiseQuantity = await $('.cart-items .raise');
 
+        assert.notEqual(raiseQuantity, null, 'Could not find the raise button');
+        await raiseQuantity.click();
     });
 
+    this.Then(/^the quantity of that product in the cart should be two$/, async function () {
+        let changeQuantity = await $('.cart-items .inputNumber');
+        assert(await changeQuantity.getAttribute('value') == "2", "expected value was not 2")
+    });
+
+    this.When(/^I raise the quantity for one of the products by one$/, async function () {
+        let raiseQuantity = await $('.cart-items .raise');
+
+        assert.notEqual(raiseQuantity, null, 'Could not find the raise button');
+        await raiseQuantity[0].click();
+    });
+
+    this.When(/^I lower the quantity of that product by one$/, async function () {
+        let lowerQuantity = await $('.cart-items .lower');
+
+        assert.notEqual(lowerQuantity, null, 'Could not find the lower button');
+        await lowerQuantity.click();
+    });
+
+    this.Then(/^the quantity of that product in the cart should still be one$/, async function () {
+        let changeQuantity = await $('.cart-items .inputNumber');
+        assert(await changeQuantity.getAttribute('value') == "1", "expected value was not 1")
+    });
+
+    this.When(/^I lower the quantity for one of the products by one$/, async function () {
+        let lowerQuantity = await $('.cart-items .lower');
+
+        assert.notEqual(lowerQuantity, null, 'Could not find the raise button');
+        await lowerQuantity[0].click();
+      });
+
+      this.Then(/^the quantity of that product in the cart should be one and the other still one$/, async function () {
+        let changeQuantity = await $('.cart-items .inputNumber');
+        assert(await changeQuantity[0].getAttribute('value') == "1", "expected value was not 1")
+        assert(await changeQuantity[1].getAttribute('value') == "1", "expected value was not 1")
+      
+      });
+
+      this.When(/^I edit the quantity for that product to the value ([\d.-]+)$/, async function (val) {
+        let changeQuantity = await $('.cart-items .inputNumber');
+        assert.notEqual(changeQuantity, null, 'Could not find the input box');
+
+        driver.executeScript("$('.cart-items .inputNumber').val('')")
+        await changeQuantity.sendKeys(val, selenium.Key.ENTER);
+
+      });
+
+      this.Then(/^the quantity becomes (\d+)$/, async function (val) {
+        let changeQuantity = await $('.cart-items .inputNumber');
+        
+        assert.equal(await changeQuantity.getAttribute('value'), val, "expected value was not " + val)
+
+      });
 }
