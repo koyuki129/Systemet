@@ -27,6 +27,7 @@ class GuiShoppingCart {
             } else {
                 $('.error').hide();
             }
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
         $(document).on('click', '.remove', (e) => {
             let theButtonClicked = $(e.currentTarget);
@@ -34,6 +35,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.remove(product);
             this.updateListOfProducts();
+            $('.totPrice').text(`Totalt: ${this.cart.sumOfProducts()} :-`)
         });
         $(document).on('click', '.raise', (e) => {
             let theButtonClicked = $(e.currentTarget);
@@ -41,6 +43,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.raiseQuantityByOne(product);
             this.updateListOfProducts();
+            $('.totPrice').text(`Totalt: ${this.cart.sumOfProducts()} :-`)
         });
         $(document).on('click', '.lower', (e) => {
             let theButtonClicked = $(e.currentTarget);
@@ -48,6 +51,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.lowerQuantityByOne(product);
             this.updateListOfProducts();
+            $('.totPrice').text(`Totalt: ${this.cart.sumOfProducts()} :-`)
         });
         $(document).on('change', 'td input', (e) => {
             let theSubmitted = $(e.currentTarget);
@@ -55,7 +59,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.editQuantity(product, theSubmitted.val() / 1);
             this.updateListOfProducts();
-
+            $('.totPrice').text(`Totalt: ${this.cart.sumOfProducts()} :-`)
         });
 
         $(document).on('click', '.emptycart button', (e) => {
@@ -63,9 +67,11 @@ class GuiShoppingCart {
             this.updateListOfProducts();
         });
         $(document).on('click', '.checkout button', (e) => {
-            $('.reciept').text(`Tack för din beställning! 
-            Dina varor kommer att anlända inom 3 arbetsdagar 
-             Summa för beställda produkter: ${this.cart.sumOfProducts()} :-`)
+            $('.reciept').html(`<div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Tack för din beställning!</h4>
+            <p>Aww yeah, Dina varor kommer att anlända inom 3 arbetsdagar 
+            Summa för beställda produkter:</p>
+          </div> ${this.cart.sumOfProducts()} :-</p>`)
             this.cart.checkout();
             this.updateListOfProducts();
         });
@@ -105,7 +111,7 @@ class GuiShoppingCart {
                         <button class="btn btn-primary raise"> + </button>
                     </td>
                     <td>${row.rowSum}</td>
-                    <td><button class="btn btn-primary remove">Ta bort </button></td>
+                    <td><button class="btn btn-primary remove">Ta bort</button></td>
                 </tr>
             `);
             productRow.data('product', row.product);
