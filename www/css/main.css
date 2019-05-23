@@ -12,8 +12,14 @@ div {
   }
 
 h1 {
+  font-family: 'Oswald', sans-serif;
   margin-top: 45px;
-  margin-left: 20px;
+  margin-left: 25px;
+}
+
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
 }
 
 
@@ -62,6 +68,18 @@ h1 {
     color: #fff;
     background-color: rgb(5, 4, 10);*/
   }
+  .checkout{
+    font-family: 'VT323';
+    font-size: 3vh;
+    /*padding: .5vh;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20vh;
+    left: 55vh;
+    color: #fff;
+    background-color: rgb(5, 4, 10);*/
+  }
+  
 
   
   /* Style the search field */

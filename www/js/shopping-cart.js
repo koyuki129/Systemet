@@ -115,7 +115,7 @@ class ShoppingCart {
   sumOfProducts() {
     let total = 0;
     for (let thing of this.thingsToBuy) {
-      total += thing.rowSum;
+      total += Number(thing.rowSum);
     }
     return total;
   }
