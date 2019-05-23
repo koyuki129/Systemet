@@ -2,6 +2,31 @@
 <html>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+          
+          $("a").on('click', function(event) {
+        
+            if (this.hash !== "") {
+              
+              event.preventDefault();
+        
+             
+              var hash = this.hash;
+        
+             $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 800, function(){
+           
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        });
+        </script>
+
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,13 +42,16 @@
 
 
 <body class="hidden">
+
+    <div class="main" id="cartscroll1">
+
   <header class="p-3 bg-light text-dark">
     <div class="pic d-inline-block float-left"><img src="bild1.png" width="115" height="60"></div>
 
     <div class="search">
       <input type="text" placeholder="Sök dryck, land, varunummer..." id="search">
-      <button class="searchbutton btn btn-outline-light" type="submit"><i
-          class="fa fa-search btn-success btn-sm rounded-circle"></i></button>
+      <button class="searchbutton btn btn-outline-light" type="submit"><a href="#cartscroll3"><i
+          class="fa fa-search btn-success btn-sm rounded-circle"></i></a></button>
 
 
       <div class="float-right logga-in">
@@ -34,12 +62,16 @@
         </a>
       </div>
 
-      <div class="shoppingcart float-right">
+      
+          <a href="#cartscroll2">
+            <div class="shoppingcart float-right">
         <button class="login btn btn-outline-light" type="submit">
           <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-shopping-cart"></span> </button>
         <p>varukorg</p>
 
         </a>
+      </div>
+    </a>
       </div>
     </div>
   </header>
@@ -57,7 +89,6 @@
   </div>
 
 
-  <!-- <img src="b1.png" width="200" height="260"> -->
 
   
   
@@ -70,6 +101,9 @@
     <h2>Varuvagn</h2>
 
 
+
+
+      <div class="main" id="cartscroll2">
 
     <div class="cart-items"></div>
     
@@ -85,7 +119,8 @@
 
 
   
-    
+
+    </div>
 
  
     </section>
@@ -104,8 +139,11 @@
     </section>
   </div> 
 
-
+  <div class="main" id="cartscroll3">
   <div class="search-page">
+
+      <a href="#cartscroll1">Gå tillbaka upp</a>
+
     <h2>Sökresultat</h2>
 
     <div class="bokstavsordning">
@@ -113,6 +151,7 @@
     </div>
 
     <div class="search-result"></div>
+  </div>
   </div>
 
   <footer class="text-center bg-dark text-light p-2 mt-4">© 2019 Systemet AB
