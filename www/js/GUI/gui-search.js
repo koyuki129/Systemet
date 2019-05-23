@@ -34,7 +34,7 @@ class GuiSearch {
                 <div class="product shadow p-3 mb-5 bg-white rounded">
                     <h2>${product.namn}</h2>
                     <h5>${product.namn2}</h5>
-                    <h4>${product.prisinklmoms}</h4>
+                    <h4>${product.prisinklmoms} SEK</h4>
                     <button class="btn btn-primary add float-right">Lägg till</button>
                     <hr>
                 </div>
