@@ -35,7 +35,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.remove(product);
             this.updateListOfProducts();
-            $('.totPrice').text(`Totalt: ${this.cart.sumOfProducts()} :-`)
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
         $(document).on('click', '.raise', (e) => {
             let theButtonClicked = $(e.currentTarget);
@@ -43,7 +43,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.raiseQuantityByOne(product);
             this.updateListOfProducts();
-            $('.totPrice').text(`Totalt: ${this.cart.sumOfProducts()} :-`)
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
         $(document).on('click', '.lower', (e) => {
             let theButtonClicked = $(e.currentTarget);
@@ -51,7 +51,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.lowerQuantityByOne(product);
             this.updateListOfProducts();
-            $('.totPrice').text(`Totalt: ${this.cart.sumOfProducts()} :-`)
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
         $(document).on('change', 'td input', (e) => {
             let theSubmitted = $(e.currentTarget);
@@ -59,7 +59,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.editQuantity(product, theSubmitted.val() / 1);
             this.updateListOfProducts();
-            $('.totPrice').text(`Totalt: ${this.cart.sumOfProducts()} :-`)
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
 
         $(document).on('click', '.emptycart button', (e) => {
@@ -71,7 +71,7 @@ class GuiShoppingCart {
             <h4 class="alert-heading">Tack för din beställning!</h4>
             <p>Aww yeah, Dina varor kommer att anlända inom 3 arbetsdagar 
             Summa för beställda produkter:</p>
-          </div> ${this.cart.sumOfProducts()} :-</p>`)
+          </div> ${this.cart.sumOfProducts()}</p>`)
             this.cart.checkout();
             this.updateListOfProducts();
         });
@@ -91,9 +91,9 @@ class GuiShoppingCart {
             <table class="cart-items table">
                 <thead>
                     <tr>
-                    <th scope="col">Produkt</th>
-                    <th scope="col">Antal</th>
-                    <th scope="col">Summa</th>
+                    <th scope="col"><h2>Produkt</h2></th>
+                    <th scope="col"><h2>Antal</h2></th>
+                    <th scope="col"><h2>Summa</h2></th>
                     <th scope="col"></th>
                     </tr>
                 </thead>
