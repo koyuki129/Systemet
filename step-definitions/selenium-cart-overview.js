@@ -105,7 +105,7 @@ this.Then(/^show the total price of products in the cart$/, async function () {
     calculatedSum += productTotPrice[i];
   }
 
-  assert(calculatedSum == totPrice, "fel totalsumma i varuvargnen")
+  assert(calculatedSum == totPrice, "fel totalsumma i varuvargnen" + calculatedSum + ". " + totPrice)
 });
 
 
