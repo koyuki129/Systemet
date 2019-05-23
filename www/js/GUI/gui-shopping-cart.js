@@ -7,6 +7,7 @@ class GuiShoppingCart {
         window.cart = this.cart = new ShoppingCart();
         this.updateListOfProducts();
         $('.error').hide();
+        $('.totPrice').text(this.cart.sumOfProducts())
 
 
         // När man skapar en eventhanterare så här:
@@ -110,7 +111,7 @@ class GuiShoppingCart {
                        <input type="number" class="inputNumber" value="${row.quantity}">
                         <button class="btn btn-primary raise"> + </button>
                     </td>
-                    <td>${row.rowSum}</td>
+                    <td>${this.cart.getRowSum(row)}</td>
                     <td><button class="btn btn-primary remove">Ta bort</button></td>
                 </tr>
             `);

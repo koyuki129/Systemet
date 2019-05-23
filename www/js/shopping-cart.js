@@ -2,6 +2,12 @@ class ShoppingCart {
 
   constructor() {
     this.thingsToBuy = [];
+    if (window) {      
+      let loadedCart = window.localStorage.getItem('shopping-cart')
+      if (loadedCart) {
+        this.thingsToBuy = JSON.parse(loadedCart);
+      }
+    }
 
   }
 
@@ -21,7 +27,6 @@ class ShoppingCart {
       this.thingsToBuy.push({
         product: product,
         quantity: quantity,
-        get rowSum() { return (this.product.prisinklmoms * this.quantity).toFixed(2); }
       });
     
   }
@@ -32,6 +37,8 @@ class ShoppingCart {
     if (product.iLager / 1 < quantity / 1) {
       status.warning = 'You wanted ' + quantity + ' units but we only have ' + product.iLager + ' left in stock. This might lead to a delay in delivery...';
     }
+
+    window && window.localStorage.setItem('shopping-cart', JSON.stringify(this.thingsToBuy));
 
     return status;
   }
@@ -55,6 +62,8 @@ class ShoppingCart {
         this.thingsToBuy[i].quantity = newQuantity;
       }
     }
+    
+    window && window.localStorage.setItem('shopping-cart', JSON.stringify(this.thingsToBuy));
   }
 
   raiseQuantityByOne(product) {
@@ -64,6 +73,8 @@ class ShoppingCart {
 
       }
     }
+    
+    window && window.localStorage.setItem('shopping-cart', JSON.stringify(this.thingsToBuy));
   }
 
   lowerQuantityByOne(product) {
@@ -75,6 +86,8 @@ class ShoppingCart {
         this.thingsToBuy[i].quantity--
       }
     }
+
+    window && window.localStorage.setItem('shopping-cart', JSON.stringify(this.thingsToBuy));
   }
 
   remove(product) {
@@ -84,6 +97,8 @@ class ShoppingCart {
         i--;
       }
     }
+
+    window && window.localStorage.setItem('shopping-cart', JSON.stringify(this.thingsToBuy));
   }
 
   overviewOfCart(product) {
@@ -92,6 +107,7 @@ class ShoppingCart {
   }
   closeTheBrowser(browser){
     return this.thingsToBuy;
+
   }
 
   checkout() {
@@ -102,21 +118,24 @@ class ShoppingCart {
     }
 
     this.emptyCart();
-
     return receipt;
   }
 
 
   emptyCart() {
     this.thingsToBuy.length = 0;
+
+    window && window.localStorage.setItem('shopping-cart', JSON.stringify(this.thingsToBuy));
   }
 
+  getRowSum(row) { return (row.product.prisinklmoms * row.quantity).toFixed(2); }
 
   sumOfProducts() {
     let total = 0;
     for (let thing of this.thingsToBuy) {
-      total += Number(thing.rowSum);
+      total += Number(this.getRowSum(thing));
     }
+
     return total;
   }
 
