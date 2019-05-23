@@ -7,7 +7,7 @@ module.exports = function () {
 //And that the products are available in the store
 //When I add 2 units of the same products to the cart
 
-this.When(/^I add (\d+) units of the same products to the cart$/, async function (units) {
+this.Given(/^I add (\d+) units of the same products to the cart$/, async function (units) {
   
   let searchBox = await $('.search #search');
   await searchBox.sendKeys('Cava');
@@ -23,7 +23,7 @@ this.When(/^I add (\d+) units of the same products to the cart$/, async function
 
 //Then the products should be added to the cart
 
-this.Then(/^the products should be added to the cart$/, async function () {
+this.Given(/^the products should be added to the cart$/, async function () {
   
   let cartItems = await $('.cart-items .inputNumber');
   assert.equal(await cartItems.getAttribute('2'),null, "The product is 2 ")
@@ -35,7 +35,7 @@ this.Then(/^the products should be added to the cart$/, async function () {
 this.Then(/^the quantity of the products in the cart is (\d+)$/, async function (units) {
   let quantityBox  = await $('td input');
   //assert.notEqual(quantityBox, null, 'Could not find the quantitybox');
-  assert.equal(await quantityBox.getAttribute('value'), units, "expected value was not " + units)
+  assert.equal(await quantityBox.getAttribute('value'), units, "expected value was 2  " + units)
 
 
   // get the value from the quantityBox
