@@ -16,7 +16,7 @@ module.exports = function () {
   });
 
   this.Then(/^the names of the products should be sorted in ascending alphabetical order$/, async function () {
-    let searchResultNames = await $('.product h4:first-child');
+    let searchResultNames = await $('.product h2:first-child');
 
     for (let i = 0; i < searchResultNames.length; i++) {
       searchResultNames[i] = await searchResultNames[i].getText();
