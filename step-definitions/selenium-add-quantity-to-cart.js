@@ -65,7 +65,7 @@ this.When(/^I add (\d+) unit of the same products to the cart$/, async function 
   await searchButton.click();
  
   let add = await $('.add');
-  assert.notEqual(add, null, 'Could not find the addbuttom');
+  assert.notEqual(add, unit, 'Could not find the addbuttom');
   await add[0].click();
 });
  
@@ -86,6 +86,8 @@ this.When(/^I add (\d+) unit of the same products to the cart$/, async function 
   let searchButton = await $('.searchbutton')
   await searchButton.click();
 
+  let theButton = await $('.button');
+  assert.notEqual(theButton, "There is no item")
 });
 
  //Then the products should not be added to the cart
