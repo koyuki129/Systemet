@@ -73,7 +73,7 @@ class GuiShoppingCart {
         $(document).on('click', '.emptycart button', (e) => {
             this.cart.emptyCart();
             this.updateListOfProducts();
-            
+
         });
 
         $(document).on('click', '.checkout button', (e) => {
@@ -82,8 +82,13 @@ class GuiShoppingCart {
             <p>Aww yeah, Dina varor kommer att anlända inom 3 arbetsdagar 
             Summa för beställda produkter:</p>
             </div> ${this.cart.sumOfProducts()}</p>`)
+
+            setTimeout(function () { $('.alert').fadeOut(); }, 5000);
+
             this.cart.checkout();
             this.updateListOfProducts();
+
+            setTimeout(function () { $('.totPrice').fadeOut(); }, 5000);
         });
     }
 
