@@ -39,7 +39,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.remove(product);
             this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts());
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
 
         $(document).on('click', '.raise', (e) => {
@@ -48,7 +48,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.raiseQuantityByOne(product);
             this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts());
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
 
         $(document).on('click', '.lower', (e) => {
@@ -57,7 +57,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.lowerQuantityByOne(product);
             this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts());
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
 
         $(document).on('change', 'td input', (e) => {
@@ -66,7 +66,7 @@ class GuiShoppingCart {
             let product = row.data('product');
             this.cart.editQuantity(product, theSubmitted.val() / 1);
             this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts());
+            $('.totPrice').text(this.cart.sumOfProducts())
         });
 
 
