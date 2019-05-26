@@ -1,14 +1,13 @@
 class GuiShoppingCart {
 
     constructor() {
-        //$('.start-p((age').hide();
+        //$('.start-page').hide();
         // $('.search-page').hide();
         // $('.cart-page').show();
         window.cart = this.cart = new ShoppingCart();
         this.updateListOfProducts();
         $('.error').hide();
-        $('.totPrice').text(this.cart.sumOfProducts())
-
+        $('.totPrice').text(this.cart.sumOfProducts());
 
         // När man skapar en eventhanterare så här:
         // $('.add').click((e) => {});
@@ -28,53 +27,76 @@ class GuiShoppingCart {
             } else {
                 $('.error').hide();
             }
-            $('.totPrice').text(this.cart.sumOfProducts())
+
+            setTimeout(function () { $('.error').fadeOut(); }, 3000);
+
+            $('.totPrice').text(this.cart.sumOfProducts());
         });
+
         $(document).on('click', '.remove', (e) => {
             let theButtonClicked = $(e.currentTarget);
             let row = theButtonClicked.closest('tr');
             let product = row.data('product');
             this.cart.remove(product);
             this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts())
+            $('.totPrice').text(this.cart.sumOfProducts());
         });
+
         $(document).on('click', '.raise', (e) => {
             let theButtonClicked = $(e.currentTarget);
             let row = theButtonClicked.closest('tr');
             let product = row.data('product');
             this.cart.raiseQuantityByOne(product);
             this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts())
+            $('.totPrice').text(this.cart.sumOfProducts());
         });
+
         $(document).on('click', '.lower', (e) => {
             let theButtonClicked = $(e.currentTarget);
             let row = theButtonClicked.closest('tr');
             let product = row.data('product');
             this.cart.lowerQuantityByOne(product);
             this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts())
+            $('.totPrice').text(this.cart.sumOfProducts());
         });
+
         $(document).on('change', 'td input', (e) => {
             let theSubmitted = $(e.currentTarget);
             let row = theSubmitted.closest('tr');
             let product = row.data('product');
             this.cart.editQuantity(product, theSubmitted.val() / 1);
             this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts())
+            $('.totPrice').text(this.cart.sumOfProducts());
         });
+
 
         $(document).on('click', '.emptycart button', (e) => {
             this.cart.emptyCart();
+            $('.message').html(`<div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Varukorgen är töm</h4>
+            </div></p>`)
+
+            setTimeout(function () { $('.alert').fadeOut(); }, 3000);
+            $('.totPrice').text(this.cart.sumOfProducts());
+
             this.updateListOfProducts();
+            
         });
+
+
         $(document).on('click', '.checkout button', (e) => {
-            $('.reciept').html(`<div class="alert alert-success" role="alert">
+            $('.receipt').html(`<div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Tack för din beställning!</h4>
             <p>Aww yeah, Dina varor kommer att anlända inom 3 arbetsdagar 
             Summa för beställda produkter:</p>
-          </div> ${this.cart.sumOfProducts()}</p>`)
+            </div> ${this.cart.sumOfProducts()}</p>`)
+
+            setTimeout(function () { $('.alert').fadeOut(); }, 5000);
+
             this.cart.checkout();
             this.updateListOfProducts();
+
+            setTimeout(function () { $('.totPrice').fadeOut(); }, 5000);
         });
     }
 

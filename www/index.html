@@ -2,30 +2,30 @@
 <html>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script>
-        $(document).ready(function(){
-          
-          $("a").on('click', function(event) {
-        
-            if (this.hash !== "") {
-              
-              event.preventDefault();
-        
-             
-              var hash = this.hash;
-        
-             $('html, body').animate({
-                scrollTop: $(hash).offset().top
-              }, 800, function(){
-           
-                window.location.hash = hash;
-              });
-            } // End if
+  <script>
+    $(document).ready(function () {
+
+      $("a").on('click', function (event) {
+
+        if (this.hash !== "") {
+
+          event.preventDefault();
+
+
+          var hash = this.hash;
+
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function () {
+
+            window.location.hash = hash;
           });
-        });
-        </script>
+        } // End if
+      });
+    });
+  </script>
 
 
   <meta charset="utf-8">
@@ -43,37 +43,39 @@
 
 <body class="hidden">
 
-    <div class="main" id="cartscroll1">
+  <div class="main" id="cartscroll1">
 
-  <header class="p-3 bg-light text-dark">
-    <div class="pic d-inline-block float-left"><img src="bild1.png" width="115" height="60"></div>
+    <header class="p-3 bg-light text-dark">
+      <div class="pic d-inline-block float-left"><img src="bild1.png" width="115" height="60"></div>
 
-    <div class="search">
-      <input type="text" placeholder="Sök dryck, land, varunummer..." id="search">
-      <button class="searchbutton btn btn-outline-light" type="submit"><a href="#cartscroll3"><i
-          class="fa fa-search btn-success btn-sm rounded-circle"></i></a></button>
+      <div class="search">
+        <input type="text" placeholder="Sök namn, namn2, varnummer..." id="search">
+        <button class="searchbutton btn btn-outline-light" type="submit"><a href="#cartscroll3"><i
+              class="fa fa-search btn-success btn-sm rounded-circle"></i></a></button>
 
 
-      <div class="float-right logga-in">
-        <button class="login btn btn-outline-light" type="submit">
-          <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-user"></span>
-        </button>
-        <p>Logga in</p>
+        <div class="float-right logga-in">
+          <button class="login btn btn-outline-light" type="submit">
+            <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-user"></span>
+          </button>
+          <p>Logga in</p>
+          </a>
+        </div>
+
+
+
+
+        <a href="#cartscroll2">
+          <div class="shoppingcart float-right">
+            <button class="login btn btn-outline-light" type="submit">
+              <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-shopping-cart"></span> </button>
+            <p>varukorg</p>
+
         </a>
       </div>
-
-      
-          <a href="#cartscroll2">
-            <div class="shoppingcart float-right">
-        <button class="login btn btn-outline-light" type="submit">
-          <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-shopping-cart"></span> </button>
-        <p>varukorg</p>
-
-        </a>
-      </div>
-    </a>
-      </div>
-    </div>
+      </a>
+  </div>
+  </div>
   </header>
 
   <div class="p-3 mb-1 bg-dark text-white text-center">Visste du att du kan få råd om mat och dryck även i vår chatt?
@@ -90,44 +92,40 @@
 
 
 
-  
-  
+
+
   <div class="start-page">
-    
+
   </div>
-  
- 
+
+
   <div class="cart-page">
     <h2>Varuvagn</h2>
 
 
 
 
-      <div class="main" id="cartscroll2">
+    <div class="main" id="cartscroll2">
 
-    <div class="cart-items"></div>
-    
-    
-    <h2><div class="error"><div class="alert alert-danger" role="alert">Finns inte i lager</div></div></h2>
+      <div class="cart-items"></div>
 
-  
+      <h2>
+        <div class="error">
+          <div class="alert alert-danger" role="alert">Finns inte i lager</div>
+        </div>
+      </h2>
 
-    <div class="reciept text-white"></div> 
+      <div class="receipt text-white"></div>
+
+       <!--display "varukorgen är töm" message -->
+      <div class="message text-white"></div>
 
       <h2>Totalt: <span class="totPrice"></span> SEK</h2>
-
-
-
-  
-
     </div>
 
- 
-    </section>
+</section>
 
-
-    <section class="row px-5 float-right">
-        
+    <section class="row px-5 float-right">       
 
       <div class="emptycart">
         <h2><button type="button" class="btn btn-primary rounded btn-lg">Töm Varukorgen</button></h2>
@@ -137,21 +135,21 @@
         <h2><button type="button" class="btn btn-primary rounded btn-lg">Beställ</button></h2>
       </div>
     </section>
-  </div> 
+  </div>
 
   <div class="main" id="cartscroll3">
-  <div class="search-page">
+    <div class="search-page">
 
       <a href="#cartscroll1">Gå tillbaka upp</a>
 
-    <h2>Sökresultat</h2>
+      <h2>Sökresultat</h2>
 
-    <div class="bokstavsordning">
-      <button type="button" class="btn btn-primary rounded btn-lg">Bokstavsordning</button>
+      <div class="bokstavsordning">
+        <button type="button" class="btn btn-primary rounded btn-lg">Bokstavsordning</button>
+      </div>
+
+      <div class="search-result"></div>
     </div>
-
-    <div class="search-result"></div>
-  </div>
   </div>
 
   <footer class="text-center bg-dark text-light p-2 mt-4">© 2019 Systemet AB
