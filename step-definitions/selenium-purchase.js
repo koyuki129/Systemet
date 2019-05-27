@@ -15,14 +15,14 @@ module.exports = function () {
       });
 
       this.Then(/^I should get a reciept that the products are bought including the total price paid$/, async function () {
-          let reciept = await $('.reciept')
+          let reciept = await $('.receipt')
           reciept = await reciept.getText();
           assert(reciept.includes(this.totPrice), 'sum does not work');
 
       });
 
       this.Then(/^I should get a reciept that (\d+) products are bought including the total price paid$/, async function (numberOfProducts) {
-        let reciept = await $('.reciept')
+        let reciept = await $('.receipt')
         reciept = await reciept.getText();
         assert(reciept.includes(this.totPrice), 'sum does not work');
 

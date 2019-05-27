@@ -35,7 +35,7 @@ this.Given(/^the products should be added to the cart$/, async function () {
 this.Then(/^the quantity of the products in the cart is (\d+)$/, async function (units) {
   let quantityBox  = await $('td input');
   //assert.notEqual(quantityBox, null, 'Could not find the quantitybox');
-  assert.equal(await quantityBox.getAttribute('value'), units, "expected value was 2  " + units)
+  assert.equal(await quantityBox.getAttribute('value'), units, "Not expected the value was 2  " + units)
 
 
   // get the value from the quantityBox
