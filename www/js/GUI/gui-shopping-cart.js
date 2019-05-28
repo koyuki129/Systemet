@@ -20,7 +20,10 @@ class GuiShoppingCart {
         $(document).on('click', '.add', (e) => {
             let theButtonClicked = $(e.currentTarget);
             let product = theButtonClicked.closest('.product').data('product');
-            this.cart.add(product, 1);
+            let quantityField = theButtonClicked.parent().parent().find('input');
+            let quantity = quantityField.val() / 1;
+            quantityField.val(1);
+            this.cart.add(product, quantity);
             this.updateListOfProducts();
             if (product.iLager === 0) {
                 $('.error').show();
