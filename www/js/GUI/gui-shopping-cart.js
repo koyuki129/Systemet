@@ -75,8 +75,8 @@ class GuiShoppingCart {
 
         $(document).on('click', '.emptycart button', (e) => {
             this.cart.emptyCart();
-            $('.message').html(`<div class="goodbye-alert alert-success" role="alert">
-            <h4 class="alert-heading">Varukorgen är töm</h4>
+            $('.message').html(`<div class="goodbye alert alert-success" role="alert">
+            <h4 class="alert-heading">Varukorgen är tom</h4>
             </div></p>`)
 
             setTimeout(function () { $('.goodbye').fadeOut(); }, 3000);
