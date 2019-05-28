@@ -1,18 +1,19 @@
 let { $, sleep } = require('./funcs.js');
-let chrome = require('selenium-webdriver/chrome');
 
 module.exports = function () {
 
-
-  this.When(/^I refresh the browser$/, async function () {
-    await driver.navigate().refresh();
+  this.When(/^I go to a new site$/, async function () {
+   await driver.get("http://www.google.com");
+  });
+  
+  this.When(/^I go back to my web page$/, async function () {
+    await driver.get('http://localhost:3000');
+    await sleep(500);
   });
 
-  this.Then(/^I should be able to open the same cart with the selected products$/, async function () {
-    let firstProduct = await $('.cart-items td:first-child');
-    assert.notEqual(firstProduct, null, 'Could not find any product in the cart');
-    let firstProductText = await firstProduct.getText();
-    assert.equal(firstProductText, this.addedProduct1, 'Could not find added product');
+  this.Then(/^I should be able to open the same cart as before it closed and reopened the browser$/, async function () {
+    let cartItems = await $('.cart-items td:first-child');
+    assert((await cartItems.getText()).includes(this.addedProduct1), "The product is not Auld Rare Benriach");
   });
 
 }
