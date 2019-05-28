@@ -101,7 +101,7 @@ class GuiShoppingCart {
             this.cart.checkout();
             this.updateListOfProducts();
 
-            setTimeout(function () { $('.totPrice').fadeOut(); }, 5000);
+            $('.totPrice').text(this.cart.sumOfProducts())
             
         });
     }
