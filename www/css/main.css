@@ -197,6 +197,21 @@ a:active {
   }
 
 
-  
+  .search-result-page-nav span {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid #999;
+    margin-right: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */      
+  }
+
+  .search-result-page-nav div {
+    margin-top: 10px;
+    font-size: 70;
+  }
   
 

@@ -1,11 +1,15 @@
 class GuiSearch {
     constructor() {
 
+        this.productsPerResultPage = 50;
+
         this.search = new Search();
 
         $('.searchbutton').click((e) => {
             let searchPhrase = $('#search').val();
             this.search.findProducts(searchPhrase);
+            this.page = 1;
+            this.totalPages = Math.ceil(this.search.searchResult.length / this.productsPerResultPage);
             this.showResults(this.search.searchResult);
             // $('#search').val();
         });
@@ -27,6 +31,9 @@ class GuiSearch {
     }
 
     showResults(products) {
+        let startIndexOfProducts = (this.page - 1) * this.productsPerResultPage;
+        let endIndexOfProducts = startIndexOfProducts + 50;
+        products = products.slice(startIndexOfProducts, endIndexOfProducts);
         $('.search-page .search-result').empty();
         for (let product of products) {
             // create a new jQuery html object
@@ -44,7 +51,32 @@ class GuiSearch {
             // add the html element the DOM
             $('.search-page .search-result').append(htmlForProduct);
         }
+        // html for navigating between result pages
+        let start = Math.max(1, this.page - 5);
+        let end = Math.min(this.totalPages, start + 9);
+        let htmlForPageNav = $('<div class="search-result-page-nav"/>');
+        for(let p = start; p <= end; p++){
+            let el = $('<span>' + p + '</span>');
+            this.addClickToPageNavEl(el, p);
+            htmlForPageNav.append(el);
+        }
+        if(this.totalPages < 2){
+            htmlForPageNav.empty();
+            htmlForPageNav.append('<div>' + this.search.searchResult.length + " varor hittade.</div>");
+        }
+        else {
+            htmlForPageNav.append('<div>' + this.search.searchResult.length + " varor hittade (" + this.totalPages + " sidor) </div>");
+        }
+        $('.search-page .search-result').append(htmlForPageNav);
     }
+
+    addClickToPageNavEl(el, p){
+        el.click(()=>{
+            this.page = p;
+            this.showResults(this.search.searchResult);
+        });
+    }
+
 }
 
 

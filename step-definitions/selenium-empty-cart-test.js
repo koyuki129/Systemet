@@ -4,10 +4,15 @@ module.exports = function () {
 
     this.Given(/^that there is (\d+) products in the cart$/, async function (numberOfProductsInCart) {
         let searchBar = await $('.search #search');
+        assert.notEqual(searchBar, null, 'Could not find the searchbar');
         await searchBar.sendKeys("vin");
+
         let searchButton = await $('.search .searchbutton');
+        assert.notEqual(searchButton, null, "Could not find the search button");
         await searchButton.click();
+        
         let add = await $('.search-page .add');
+        assert.notEqual(add, null, 'Could not find the add button');
 
         //if we are adding the same product with different quantities 
         // add = add[0]; 

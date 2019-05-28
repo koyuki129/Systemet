@@ -2,10 +2,14 @@ let assert = require('assert');
 let { $, sleep } = require('./funcs.js');
 
 module.exports = function () {
+  
   this.Given(/^that I have a list of search results$/, async function () {
     let searchBar = await $('.search #search');
+    assert.notEqual(searchBar, null, 'Could not find the searchbar');
     await searchBar.sendKeys("Renat");
+
     let searchButton = await $('.search .searchbutton');
+    assert.notEqual(searchButton, null, "Could not find the search button");
     await searchButton.click();
   });
 
