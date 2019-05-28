@@ -19,69 +19,78 @@
 
 <body class="hidden">
 
- 
 
-    <header class="p-3 bg-light text-dark">
-      <div class="pic d-inline-block float-left"><img src="bild1.png" width="115" height="60"></div>
 
-      <div class="search">
+  <header class="p-3 bg-light text-dark container-fluid">
+    <div class="row search">
+
+      <div class="col-3 col-sm-3 col-md-2">
+        <img class="img-fluid ml-3" alt="SystemAB" src="bild1.png">
+
+
+      </div>
+
+      <div class="col-5 col-sm-7 col-md-8 search-holder">
         <input type="text" placeholder="Sök namn, namn2, varnummer..." id="search">
-        <button class="searchbutton btn btn-outline-light" type="submit"><a href="#cartscroll3"><i
-              class="fa fa-search btn-success btn-sm rounded-circle"></i></a></button>
+        <button class="searchbutton btn btn-outline-light" type="submit"><i
+            class="fa fa-search btn-success btn-sm rounded-circle"></i></a></button>
+      </div>
 
+      <div class="col-2 col-sm-1 col-md-1">
+        <div class="shoppingcart-holder pos-relative">
+          <button class="shoppingcart btn btn-outline-light" type="submit">
+            <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-shopping-cart"></span></button>
+        </div>
+      </div>
 
-        <div class="float-right logga-in">
+     <!-- <div class="col-2 col-sm-1 col-md-1">
+        <div class="logga-in pos-relative">
           <button class="login btn btn-outline-light" type="submit">
             <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-user"></span>
           </button>
-          <p>Logga in</p>
-          </a>
         </div>
+      </div>-->
+
+    </div>
 
 
 
-
-        <a href="#cartscroll2">
-          <div class="shoppingcart float-right">
-            <button class="login btn btn-outline-light" type="submit">
-              <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-shopping-cart"></span> </button>
-            <p>varukorg</p>
-
-        </a>
+    <div class="row">
+      <div class="col-12 p-3 mb-1 bg-dark text-white text-center">
+        Visste du att du kan få råd om mat och dryck även i vår chatt?
+        (länkar?)
       </div>
-      </a>
-  </div>
-  </div>
+    </div>
   </header>
 
-  <div class="p-3 mb-1 bg-dark text-white text-center">Visste du att du kan få råd om mat och dryck även i vår chatt?
-    (länkar?) </div>
+  <main class="container">
 
 
-  <div class="center">
-    <img src="bild2.jpg" width="385" height="370" class="rounded" alt="...">
-
-    <img src="bild3.jpg" width="385" height="370" class="rounded" alt="...">
-
-    <img src="bild4.jpg" width="385" height="370" class="rounded" alt="...">
-  </div>
+    <div class="row">
+      <div class="col-12 col-sm-4"><img class="img-fluid rounded" alt="..." src="bild2.jpg"></div>
+      <div class="col-12 col-sm-4"><img class="img-fluid rounded" alt="..." src="bild3.jpg"></div>
+      <div class="col-12 col-sm-4"><img class="img-fluid rounded" alt="..." src="bild4.jpg"></div>
+    </div>
 
 
 
 
 
-  <div class="start-page">
-
-  </div>
-
-
-  <div class="cart-page">
-    <h2>Varuvagn</h2>
 
 
 
+    <div class="start-page">
 
-  
+    </div>
+
+
+    <div class="cart-page">
+      <h2>Varuvagn</h2>
+
+
+
+
+
 
       <div class="cart-items"></div>
 
@@ -93,30 +102,30 @@
 
       <div class="receipt text-white"></div>
 
-       <!--display "varukorgen är töm" message -->
+      <!--display "varukorgen är töm" message -->
       <div class="message text-white"></div>
 
       <h2>Totalt: <span class="totPrice"></span> SEK</h2>
+
+
     
 
-</section>
+      <section class="row px-5 float-right">
 
-    <section class="row px-5 float-right">       
+        <div class="emptycart">
+          <h2><button type="button" class="btn btn-primary rounded btn-lg">Töm Varukorgen</button></h2>
+        </div>
 
-      <div class="emptycart">
-        <h2><button type="button" class="btn btn-primary rounded btn-lg">Töm Varukorgen</button></h2>
-      </div>
+        <div class="checkout">
+          <h2><button type="button" class="btn btn-primary rounded btn-lg">Beställ</button></h2>
+        </div>
+      </section>
+    </div>
 
-      <div class="checkout">
-        <h2><button type="button" class="btn btn-primary rounded btn-lg">Beställ</button></h2>
-      </div>
-    </section>
-  </div>
 
-  
     <div class="search-page">
 
-      <a href="#cartscroll1">Gå tillbaka upp</a>
+     
 
       <h2>Sökresultat</h2>
 
@@ -126,8 +135,9 @@
 
       <div class="search-result"></div>
     </div>
-  </div>
+    </div>
 
+  </main>
   <footer class="text-center bg-dark text-light p-2 mt-4">© 2019 Systemet AB
 
   </footer>
