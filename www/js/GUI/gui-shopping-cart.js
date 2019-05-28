@@ -75,11 +75,11 @@ class GuiShoppingCart {
 
         $(document).on('click', '.emptycart button', (e) => {
             this.cart.emptyCart();
-            $('.message').html(`<div class="alert alert-success" role="alert">
+            $('.message').html(`<div class="goodbye-alert alert-success" role="alert">
             <h4 class="alert-heading">Varukorgen är töm</h4>
             </div></p>`)
 
-            setTimeout(function () { $('.alert').fadeOut(); }, 3000);
+            setTimeout(function () { $('.goodbye').fadeOut(); }, 3000);
             $('.totPrice').text(this.cart.sumOfProducts());
 
             this.updateListOfProducts();
