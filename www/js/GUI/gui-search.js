@@ -57,8 +57,22 @@ class GuiSearch {
         let htmlForPageNav = $('<div class="search-result-page-nav"/>');
         for(let p = start; p <= end; p++){
             let el = $('<span>' + p + '</span>');
+            if(p === this.page){
+                el.addClass('current-page');
+            }
             this.addClickToPageNavEl(el, p);
             htmlForPageNav.append(el);
+        }
+        // prev and next buttons
+        if(this.page > 1){
+            let prevEl = $('<span class="prev-search-page">&lt;</span>');
+            this.addClickToPageNavEl(prevEl, this.page - 1);
+            htmlForPageNav.prepend(prevEl);
+        }
+        if(this.page < this.totalPages){
+            let nextEl = $('<span class="next-search-page">&gt;</span>');
+            this.addClickToPageNavEl(nextEl, this.page + 1);
+            htmlForPageNav.append(nextEl);
         }
         if(this.totalPages < 2){
             htmlForPageNav.empty();
@@ -72,6 +86,7 @@ class GuiSearch {
 
     addClickToPageNavEl(el, p){
         el.click(()=>{
+            console.log("GOING TO", p)
             this.page = p;
             this.showResults(this.search.searchResult);
         });
