@@ -1,106 +1,80 @@
 let { $, sleep } = require('./funcs.js');
 module.exports = function () {
 
-  //Senario nr 1
-
-  //Given that I am on the web page localhost:3000
-  //And that the products are available in the store
-  //When I add 2 units of the same products to the cart
-
-  this.Given(/^I add (\d+) units of the same products to the cart$/, async function (units) {
+  this.When(/^I add (\d+) units of the same products to the cart$/, async function (val) {
 
     let searchBox = await $('.search #search');
-    await searchBox.sendKeys('Cava');
+    await searchBox.sendKeys('Sommarovina');
 
-    let searchButton = await $('.searchbutton')
+    let searchButton = await $('.search .searchbutton');
     await searchButton.click();
 
     let changeQuantity = await $('.search-page .quantity');
     assert.notEqual(changeQuantity, null, 'Could not find the input box');
 
-   
-    await changeQuantity[0].sendKeys(units);
+    if (changeQuantity.length > 0) {
+      changeQuantity = changeQuantity[0];
+    }
+    driver.executeScript("$('.search-page .quantity').val('')")
+    await changeQuantity.sendKeys(val);
 
-    let add = await $('.add')
-    await add[0].click();
+    let add = await $('.search-page .add');
+    if (add.length > 0) {
+      add = add[0];
+    }
 
+    assert.notEqual(add, null, 'Could not find the addbutton');
+
+    await add.click();
+
+    let firstProduct = await $('.cart-items td:first-child');
+    this.addedProduct1 = await firstProduct.getText();
   });
 
-  //Then the products should be added to the cart
+  this.Then(/^the products should be added to the cart$/, async function () {
 
-  this.Given(/^the products should be added to the cart$/, async function () {
-
-    let cartItems = await $('.cart-items .inputNumber');
-    assert.equal(await cartItems.getAttribute('2'), null, "The product is 2 ")
-
+    let cartItems = await $('.cart-items td:first-child');
+    assert((await cartItems.getText()).includes(this.addedProduct1), "The product is not Sommarovina");
   });
 
-  //And the quantity of the products in the cart is 2 
-
-  this.Then(/^the quantity of the products in the cart is (\d+)$/, async function (units) {
-    let quantityBox = await $('.cart-items .inputNumber');
-    //assert.notEqual(quantityBox, null, 'Could not find the quantitybox');
-    let editBoxValue = await quantityBox.getAttribute('value');
-    assert.equal(editBoxValue, units, "Expected the value " + units + " but the edit box says " + editBoxValue);
-
-
-    // get the value from the quantityBox
-    let cartItems = await $('th value');
-    assert.notEqual(cartItems, 'Can not get the value')
-
-    // compare that value to `units`
-    let numberOfunits = await $('th value');
-    assert.notEqual(numberOfunits, "Can not compare the value ")
-
-    // if they're not equal -> crash
-    let valueOfnumbers = await $('th value')
-    assert.notEqual(valueOfnumbers, 'Crash')
+  this.Then(/^the quantity of the products in the cart is (\d+)$/, async function (val) {
+    let changeQuantity = await $('.cart-items .inputNumber');
+    assert.equal(await changeQuantity.getAttribute('value'), val, "expected value was not " + val)
   });
 
-  // Senario nr 2
-
-  //Given that I am on the web page localhost:3000
-
-  this.When(/^I add (\d+) unit of the same products to the cart$/, async function (unit) {
+  this.When(/^I add three units of the same products to the cart by adding them separately$/, async function () {
 
     let searchBox = await $('.search #search');
-    await searchBox.clear();
-    await searchBox.sendKeys('Cava');
+    await searchBox.sendKeys('Sommarovina');
 
-    let searchButton = await $('.searchbutton')
+    let searchButton = await $('.search .searchbutton');
     await searchButton.click();
 
-    let add = await $('.add');
-    assert.notEqual(add, unit, 'Could not find the addbuttom');
-    await add[0].click();
+    let add = await $('.search-page .add');
+    if (add.length > 0) {
+      add = add[0];
+    }
+
+    assert.notEqual(add, null, 'Could not find the addbutton');
+
+    await add.click();
+    await add.click();
+    await add.click();
+
+    let firstProduct = await $('.cart-items td:first-child');
+    this.addedProduct1 = await firstProduct.getText();
   });
 
-  //And I add 1 unit of the same products to the cart
-  //And I add 1 unit of the same products to the cart
-  //Then the products should be added to the cart
+  this.Then(/^the quantity of the products in the cart is three$/, async function () {
 
-  // Scenario nr 3:  
-
-  //Given that I am on the web page localhost:3000
-  //And that the products are available in the store
-  //When I add 0 unit of the products to the cart
-
-  this.When(/^I add (\d+) unit of the products to the cart$/, async function (unit) {
-    let searchBox = await $('.search #search');
-    await searchBox.sendKeys('0');
-
-    let searchButton = await $('.searchbutton')
-    await searchButton.click();
-
-    let theButton = await $('.button');
-    assert.notEqual(theButton, "There is no item")
+    let changeQuantity = await $('.cart-items .inputNumber');
+    assert(await changeQuantity.getAttribute('value') == "3", "expected value was not 3")
   });
-
-  //Then the products should not be added to the cart
 
   this.Then(/^the products should not be added to the cart$/, async function () {
-    let cartItems = await $('.cart-items .inputNumber');
-    assert.notEqual(cartItems, 1, "The product should not be added ");
-
+    let cartItems = await $('.cart-items td:first-child');
+    assert.notEqual(cartItems, null, 'Det finns tydligen något kvar');
+    assert(Array.isArray(cartItems) == false, 'Det var tydligen en array');
+    assert((await cartItems.getText()).includes(this.addedProduct1), "Det finns tydligen något kvar")
   });
 }
