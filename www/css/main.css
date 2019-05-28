@@ -196,7 +196,13 @@ a:active {
     margin-right: 10px; 
   }
 
+.quantity-and-add {
+  width: 100px;
+  position: absolute;
+  right: 70px;
+  bottom: -15px;
+}
 
-  
-  
-
+.quantity-and-add-holder {
+  position:relative;
+}
