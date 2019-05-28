@@ -49,6 +49,15 @@ a:active {
 }
 
   /* Style the header */
+
+  header {
+    position:fixed;
+    background-color: #fff;
+    z-index: 1;
+  }
+
+
+
   .start-page {
     
     float: left;
