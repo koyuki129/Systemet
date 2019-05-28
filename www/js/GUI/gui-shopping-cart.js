@@ -102,6 +102,7 @@ class GuiShoppingCart {
             this.updateListOfProducts();
 
             setTimeout(function () { $('.totPrice').fadeOut(); }, 5000);
+            
         });
     }
 
