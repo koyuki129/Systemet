@@ -60,10 +60,7 @@ a:active {
     border-right: none;
      
   }
-.pic {
-  margin-top: 45px;
-  margin-left: 20px;
-}
+
  
     
   .cart-page [data-action="order"]{
@@ -114,17 +111,15 @@ a:active {
     padding: 10px;
     border-radius: 25px;
     float: left;
-    width: 49%;
-    margin-top: 55px;
-    margin-left: 180px;
+    position:absolute;
+    bottom:0;
+    width: 83%;
     background: #f1f1f1;
     
   }
 
-  .center {
-    margin: auto;
-    width: 94%;
-    padding: 10px;
+  .search-holder {
+    position:relative;
   }
   
 
@@ -134,7 +129,7 @@ a:active {
     font-size: 20px;
     border: 1px solid grey;
     float: center;
-    width: 90%;
+    width: 85%;
     margin-top: 85px;
     margin-left: 75px;
     background: #f1f1f1;
@@ -143,8 +138,15 @@ a:active {
   
   /* Style the submit button */
   .search button {
-    margin-top: 55px;
-    /*background: #2196F3;
+    width: 15%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: left;
+    border-width: 0 !important;
+    background-color: transparent !important;
+    /*margin-top: 55px;
+    background: #2196F3;
     width:13%;
     padding: 10px;
     color: white;
@@ -164,19 +166,45 @@ a:active {
     clear: both;
     display: table;
   }
-  
-  .shoppingcart {
-    font-family: 'Pathway Gothic One', sans-serif;
-    font-size: 20px;
-    margin-right: 10px; 
 
+  .pos-relative {
+    position: relative;
   }
   
-  .logga-in {
-  font-family: 'Pathway Gothic One', sans-serif;
-  font-size: 20px;
-  margin-right: 130px; 
-     
+  .shoppingcart-holder {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 20px;
+    width: 100%;
+    position: absolute;
+    left:-10%;
+    bottom: -5px;
+    text-align: right;
+    border-width: 0 !important;
+    background-color: transparent !important;
+  }
+  
+ /* .logga-in {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 20px;
+    width: 100%;
+    position: absolute;
+    left:-100%;
+    bottom: -5px;
+    text-align: right;
+    border-width: 0 !important;
+    background-color: transparent !important;
+  }*/
+
+  @media (min-width: 576px) and (max-width: 767px){ 
+    .shoppingcart {
+      left: -60%
+    }
+  }
+
+  @media (min-width: 370px) and (max-width: 499px){ 
+    .shoppingcart {
+      left: -10%
+    }
   }
 
   .cart-items [data-action="pressRemove"]{
