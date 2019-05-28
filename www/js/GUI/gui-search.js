@@ -42,11 +42,19 @@ class GuiSearch {
                     <h2>${product.namn}</h2>
                     <h5>${product.namn2}</h5>
                     <h4>${product.prisinklmoms} SEK</h4>
-                    <button class="btn btn-primary add float-right">Lägg till</button>
+                    <div class="quantity-and-add-holder float-right">
+                    <div class="quantity-and-add input-group mb-3">
+                        <input min="1" type="number" value="1" class="quantity form-control">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary add" type="button" id="button-addon2">Lägg till</button>
+                        </div>
+                        </div>
+                    </div>
                     <hr>
                 </div>
+                
             `);
-            // bind data to the html element
+        // bind data to the html element
             htmlForProduct.data('product', product);
             // add the html element the DOM
             $('.search-page .search-result').append(htmlForProduct);
@@ -57,8 +65,22 @@ class GuiSearch {
         let htmlForPageNav = $('<div class="search-result-page-nav"/>');
         for(let p = start; p <= end; p++){
             let el = $('<span>' + p + '</span>');
+            if(p === this.page){
+                el.addClass('current-page');
+            }
             this.addClickToPageNavEl(el, p);
             htmlForPageNav.append(el);
+        }
+        // prev and next buttons
+        if(this.page > 1){
+            let prevEl = $('<span class="prev-search-page">&lt;</span>');
+            this.addClickToPageNavEl(prevEl, this.page - 1);
+            htmlForPageNav.prepend(prevEl);
+        }
+        if(this.page < this.totalPages){
+            let nextEl = $('<span class="next-search-page">&gt;</span>');
+            this.addClickToPageNavEl(nextEl, this.page + 1);
+            htmlForPageNav.append(nextEl);
         }
         if(this.totalPages < 2){
             htmlForPageNav.empty();
@@ -72,6 +94,7 @@ class GuiSearch {
 
     addClickToPageNavEl(el, p){
         el.click(()=>{
+            console.log("GOING TO", p)
             this.page = p;
             this.showResults(this.search.searchResult);
         });
@@ -79,6 +102,10 @@ class GuiSearch {
 
 }
 
+
+    
+            
+       
 
 
 

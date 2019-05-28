@@ -14,12 +14,26 @@ module.exports = function () {
         let add = await $('.search-page .add');
         assert.notEqual(add, null, 'Could not find the add button');
 
+
         //if we are adding the same product with different quantities 
         // add = add[0]; 
 
         //if we are adding different products
         for (let i = 0; i < numberOfProductsInCart; i++) {
             await add[i].click();
+            let add = await $('.search-page .add');
+            assert.notEqual(add, null, 'Could not find the add button');
+            for (btn of add) {
+                await btn.click();
+                leftToClick--;
+                if(leftToClick < 1){ break; }
+            }
+            // switch to the next page
+            if(leftToClick){
+                let nextPageBtn = await $('.next-search-page');
+                await nextPageBtn.click();
+            }
+            await sleep(500);
         }
     });
 

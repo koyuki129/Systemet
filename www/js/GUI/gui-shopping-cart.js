@@ -26,7 +26,10 @@ class GuiShoppingCart {
         $(document).on('click', '.add', (e) => {
             let theButtonClicked = $(e.currentTarget);
             let product = theButtonClicked.closest('.product').data('product');
-            this.cart.add(product, 1);
+            let quantityField = theButtonClicked.parent().parent().find('input');
+            let quantity = quantityField.val() / 1;
+            quantityField.val(1);
+            this.cart.add(product, quantity);
             this.updateListOfProducts();
             if (product.iLager === 0) {
                 $('.error').show();
@@ -73,12 +76,18 @@ class GuiShoppingCart {
             this.cart.emptyCart();
             this.updateListOfProducts();          
         });
+            $('.message').html(`<div class="goodbye alert alert-success" role="alert">
+            <h4 class="alert-heading">Varukorgen är tom</h4>
+            </div></p>`)
 
     /*    $(document).on('change', 'totProduct', (e) => {
             let theSubmitted = $(e.currentTarget);
             let row = theSubmitted.closest('tr');
             let product = row.data('product');
             this.cart.editQuantity(product, theSubmitted.val() / 1);
+            setTimeout(function () { $('.goodbye').fadeOut(); }, 3000);
+            $('.totPrice').text(this.cart.sumOfProducts());
+
             this.updateListOfProducts();
             $('.totPrice').text(this.cart.sumOfProducts())
         });*/
@@ -86,12 +95,26 @@ class GuiShoppingCart {
 
         $(document).on('click', '.checkout button', (e) => {
             $('.reciept').html(`<div class="alert alert-success" role="alert">
+            $('.receipt').html(`<div class="thank-you-for-ordering alert alert-success" role="alert">
             <h4 class="alert-heading">Tack för din beställning!</h4>
             <p>Aww yeah, Dina varor kommer att anlända inom 3 arbetsdagar 
             Summa för beställda produkter:</p>
           </div> ${this.cart.sumOfProducts()}</p>`)
+            <p>Dina varor kommer att anlända inom 3 arbetsdagar. Tänk på att varor som inte finns i lager kan ta upp till en vecka att anlända. </p>
+             Ditt total pris är: ${this.cart.sumOfProducts() + " SEK"}</div></p>`)
+            if (this.cart.thingsToBuy <= 0) {
+                $('.receipt').hide();
+            } else {
+                $('.receipt').show();
+            }
+
+            setTimeout(function () { $('.thank-you-for-ordering').fadeOut(); }, 5000);
+
             this.cart.checkout();
             this.updateListOfProducts();
+
+            $('.totPrice').text(this.cart.sumOfProducts())
+            
         });
     }
 
