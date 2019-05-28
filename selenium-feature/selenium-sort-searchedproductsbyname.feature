@@ -1,7 +1,7 @@
 Feature: 
-Som en användare vill jag kunna sortera sökta produkter efter namn (bokstavsordning).
+Som en användare vill jag kunna sortera sökta produkter efter namn i stigande bokstavsordning).
 
-Scenario: Successfully able to sort searched product in alphabetical order by name
+Scenario: Successfully able to sort searched products in ascending alphabetical order by name
 Given that I am on the web page localhost:3000
 And that I have a list of search results
 When I press bokstavsordning button

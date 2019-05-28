@@ -13,7 +13,7 @@ class Search {
         this.searchResult.push(Product.products[i]);
       }
 
-      if (typeof Product.products[i].namn2 === 'string'
+      else if (typeof Product.products[i].namn2 === 'string'
         && Product.products[i].namn2.includes(searchTerm)) {
         this.searchResult.push(Product.products[i]);
       }
@@ -21,9 +21,9 @@ class Search {
       // decided to use '==' comparison, not '==='
       // because we don't know when searchTerm will be a string
       // and when it will be a number
-      if (Product.products[i].varnummer == searchTerm) {
+      else if (Product.products[i].varnummer == searchTerm) {
         this.searchResult.push(Product.products[i]);
-      }
+      }   
 
     }
 

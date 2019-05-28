@@ -4,30 +4,6 @@
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script>
-    $(document).ready(function () {
-
-      $("a").on('click', function (event) {
-
-        if (this.hash !== "") {
-
-          event.preventDefault();
-
-
-          var hash = this.hash;
-
-          $('html, body').animate({
-            scrollTop: $(hash).offset().top
-          }, 800, function () {
-
-            window.location.hash = hash;
-          });
-        } // End if
-      });
-    });
-  </script>
-
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -43,7 +19,7 @@
 
 <body class="hidden">
 
-  <div class="main" id="cartscroll1">
+ 
 
     <header class="p-3 bg-light text-dark">
       <div class="pic d-inline-block float-left"><img src="bild1.png" width="115" height="60"></div>
@@ -105,7 +81,7 @@
 
 
 
-    <div class="main" id="cartscroll2">
+  
 
       <div class="cart-items"></div>
 
@@ -115,13 +91,13 @@
         </div>
       </h2>
 
-      <div class="receipt text-white"></div>
+      <div class="receipt "></div>
 
        <!--display "varukorgen är töm" message -->
-      <div class="message text-white"></div>
+      <div class="message "></div>
 
       <h2>Totalt: <span class="totPrice"></span> SEK</h2>
-    </div>
+    
 
 </section>
 
@@ -137,7 +113,7 @@
     </section>
   </div>
 
-  <div class="main" id="cartscroll3">
+  
     <div class="search-page">
 
       <a href="#cartscroll1">Gå tillbaka upp</a>

@@ -4,17 +4,34 @@ module.exports = function () {
 
     this.Given(/^that there is (\d+) products in the cart$/, async function (numberOfProductsInCart) {
         let searchBar = await $('.search #search');
-        await searchBar.sendKeys("vin");
+        assert.notEqual(searchBar, null, 'Could not find the searchbar');
+        await searchBar.sendKeys("a");
+
         let searchButton = await $('.search .searchbutton');
+        assert.notEqual(searchButton, null, "Could not find the search button");
         await searchButton.click();
-        let add = await $('.search-page .add');
+        
+
 
         //if we are adding the same product with different quantities 
         // add = add[0]; 
 
         //if we are adding different products
-        for (let i = 0; i < numberOfProductsInCart; i++) {
-            await add[i].click();
+        let leftToClick = numberOfProductsInCart;
+        while(leftToClick > 0){
+            let add = await $('.search-page .add');
+            assert.notEqual(add, null, 'Could not find the add button');
+            for (btn of add) {
+                await btn.click();
+                leftToClick--;
+                if(leftToClick < 1){ break; }
+            }
+            // switch to the next page
+            if(leftToClick){
+                let nextPageBtn = await $('.next-search-page');
+                await nextPageBtn.click();
+            }
+            await sleep(500);
         }
     });
 
