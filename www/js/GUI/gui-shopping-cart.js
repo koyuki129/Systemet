@@ -90,6 +90,11 @@ class GuiShoppingCart {
             <p>Aww yeah, Dina varor kommer att anlända inom 3 arbetsdagar 
             Summa för beställda produkter:</p>
             </div> ${this.cart.sumOfProducts()}</p>`)
+            if (this.cart.thingsToBuy <= 0) {
+                $('.receipt').hide();
+            } else {
+                $('.receipt').show();
+            }
 
             setTimeout(function () { $('.alert').fadeOut(); }, 5000);
 
