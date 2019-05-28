@@ -87,9 +87,8 @@ class GuiShoppingCart {
         $(document).on('click', '.checkout button', (e) => {
             $('.receipt').html(`<div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Tack för din beställning!</h4>
-            <p>Aww yeah, Dina varor kommer att anlända inom 3 arbetsdagar 
-            Summa för beställda produkter:</p>
-            </div> ${this.cart.sumOfProducts()}</p>`)
+            <p>Dina varor kommer att anlända inom 3 arbetsdagar. Tänk på att varor som inte finns i lager kan ta upp till en vecka att anlända. </p>
+             Ditt total pris är: ${this.cart.sumOfProducts() + " SEK"}</div></p>`)
             if (this.cart.thingsToBuy <= 0) {
                 $('.receipt').hide();
             } else {
@@ -101,8 +100,8 @@ class GuiShoppingCart {
             this.cart.checkout();
             this.updateListOfProducts();
 
-            setTimeout(function () { $('.totPrice').fadeOut(); }, 5000);
-           
+            $('.totPrice').text(this.cart.sumOfProducts())
+            
         });
     }
 
