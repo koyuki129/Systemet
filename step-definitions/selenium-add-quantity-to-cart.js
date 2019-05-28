@@ -1,100 +1,106 @@
 let { $, sleep } = require('./funcs.js');
 module.exports = function () {
 
- //Senario nr 1
+  //Senario nr 1
 
-//Given that I am on the web page localhost:3000
-//And that the products are available in the store
-//When I add 2 units of the same products to the cart
+  //Given that I am on the web page localhost:3000
+  //And that the products are available in the store
+  //When I add 2 units of the same products to the cart
 
-this.Given(/^I add (\d+) units of the same products to the cart$/, async function (units) {
-  
-  let searchBox = await $('.search #search');
-  await searchBox.sendKeys('Cava');
-  
-  let searchButton = await $('.searchbutton')
-  await searchButton.click();
+  this.Given(/^I add (\d+) units of the same products to the cart$/, async function (units) {
 
-  let add = await $('.add')
-  await add[0].click();
-  await add[0].click();
- 
- });
+    let searchBox = await $('.search #search');
+    await searchBox.sendKeys('Cava');
 
-//Then the products should be added to the cart
+    let searchButton = await $('.searchbutton')
+    await searchButton.click();
 
-this.Given(/^the products should be added to the cart$/, async function () {
-  
-  let cartItems = await $('.cart-items .inputNumber');
-  assert.equal(await cartItems.getAttribute('2'),null, "The product is 2 ")
+    let changeQuantity = await $('.search-page .quantity');
+    assert.notEqual(changeQuantity, null, 'Could not find the input box');
 
-});
+   
+    await changeQuantity[0].sendKeys(units);
 
-//And the quantity of the products in the cart is 2 
+    let add = await $('.add')
+    await add[0].click();
 
-this.Then(/^the quantity of the products in the cart is (\d+)$/, async function (units) {
-  let quantityBox  = await $('td input');
-  //assert.notEqual(quantityBox, null, 'Could not find the quantitybox');
-  assert.equal(await quantityBox.getAttribute('value'), units, "Not expected the value was 2  " + units)
+  });
+
+  //Then the products should be added to the cart
+
+  this.Given(/^the products should be added to the cart$/, async function () {
+
+    let cartItems = await $('.cart-items .inputNumber');
+    assert.equal(await cartItems.getAttribute('2'), null, "The product is 2 ")
+
+  });
+
+  //And the quantity of the products in the cart is 2 
+
+  this.Then(/^the quantity of the products in the cart is (\d+)$/, async function (units) {
+    let quantityBox = await $('.cart-items .inputNumber');
+    //assert.notEqual(quantityBox, null, 'Could not find the quantitybox');
+    let editBoxValue = await quantityBox.getAttribute('value');
+    assert.equal(editBoxValue, units, "Expected the value " + units + " but the edit box says " + editBoxValue);
 
 
-  // get the value from the quantityBox
-  let cartItems = await $('th value');
-  assert.notEqual(cartItems, 'Can not get the value' )
+    // get the value from the quantityBox
+    let cartItems = await $('th value');
+    assert.notEqual(cartItems, 'Can not get the value')
 
-  // compare that value to `units`
-  let numberOfunits = await $('th value');
-  assert.notEqual( numberOfunits, "Can not compare the value ")
+    // compare that value to `units`
+    let numberOfunits = await $('th value');
+    assert.notEqual(numberOfunits, "Can not compare the value ")
 
-  // if they're not equal -> crash
-  let valueOfnumbers = await $('th value')
-  assert.notEqual(valueOfnumbers,'Crash' )
-}); 
+    // if they're not equal -> crash
+    let valueOfnumbers = await $('th value')
+    assert.notEqual(valueOfnumbers, 'Crash')
+  });
 
-// Senario nr 2
+  // Senario nr 2
 
-//Given that I am on the web page localhost:3000
+  //Given that I am on the web page localhost:3000
 
-this.When(/^I add (\d+) unit of the same products to the cart$/, async function (unit) {
- 
-  let searchBox = await $('.search #search');
-  await searchBox.clear();
-  await searchBox.sendKeys('Cava');
- 
-  let searchButton = await $('.searchbutton')
-  await searchButton.click();
- 
-  let add = await $('.add');
-  assert.notEqual(add, unit, 'Could not find the addbuttom');
-  await add[0].click();
-});
- 
-//And I add 1 unit of the same products to the cart
-//And I add 1 unit of the same products to the cart
-//Then the products should be added to the cart
+  this.When(/^I add (\d+) unit of the same products to the cart$/, async function (unit) {
 
- // Scenario nr 3:  
-  
- //Given that I am on the web page localhost:3000
- //And that the products are available in the store
- //When I add 0 unit of the products to the cart
+    let searchBox = await $('.search #search');
+    await searchBox.clear();
+    await searchBox.sendKeys('Cava');
 
- this.When(/^I add (\d+) unit of the products to the cart$/, async function (unit) {
-  let searchBox = await $('.search #search');
-  await searchBox.sendKeys('0');
-  
-  let searchButton = await $('.searchbutton')
-  await searchButton.click();
+    let searchButton = await $('.searchbutton')
+    await searchButton.click();
 
-  let theButton = await $('.button');
-  assert.notEqual(theButton, "There is no item")
-});
+    let add = await $('.add');
+    assert.notEqual(add, unit, 'Could not find the addbuttom');
+    await add[0].click();
+  });
 
- //Then the products should not be added to the cart
+  //And I add 1 unit of the same products to the cart
+  //And I add 1 unit of the same products to the cart
+  //Then the products should be added to the cart
 
- this.Then(/^the products should not be added to the cart$/, async function () {
-  let cartItems = await $('.cart-items .inputNumber');
-  assert.notEqual(cartItems,1, "The product should not be added ");
-  
-}); 
+  // Scenario nr 3:  
+
+  //Given that I am on the web page localhost:3000
+  //And that the products are available in the store
+  //When I add 0 unit of the products to the cart
+
+  this.When(/^I add (\d+) unit of the products to the cart$/, async function (unit) {
+    let searchBox = await $('.search #search');
+    await searchBox.sendKeys('0');
+
+    let searchButton = await $('.searchbutton')
+    await searchButton.click();
+
+    let theButton = await $('.button');
+    assert.notEqual(theButton, "There is no item")
+  });
+
+  //Then the products should not be added to the cart
+
+  this.Then(/^the products should not be added to the cart$/, async function () {
+    let cartItems = await $('.cart-items .inputNumber');
+    assert.notEqual(cartItems, 1, "The product should not be added ");
+
+  });
 }
