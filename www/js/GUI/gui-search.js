@@ -42,11 +42,19 @@ class GuiSearch {
                     <h2>${product.namn}</h2>
                     <h5>${product.namn2}</h5>
                     <h4>${product.prisinklmoms} SEK</h4>
-                    <button class="btn btn-primary add float-right">Lägg till</button>
+                    <div class="quantity-and-add-holder float-right">
+                    <div class="quantity-and-add input-group mb-3">
+                        <input min="1" type="number" value="1" class="quantity form-control">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary add" type="button" id="button-addon2">Lägg till</button>
+                        </div>
+                        </div>
+                    </div>
                     <hr>
                 </div>
+                
             `);
-            // bind data to the html element
+        // bind data to the html element
             htmlForProduct.data('product', product);
             // add the html element the DOM
             $('.search-page .search-result').append(htmlForProduct);
@@ -94,6 +102,10 @@ class GuiSearch {
 
 }
 
+
+    
+            
+       
 
 
 

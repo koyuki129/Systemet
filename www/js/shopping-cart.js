@@ -17,7 +17,7 @@ class ShoppingCart {
 
 
     for(let cartItem of this.thingsToBuy){
-      if(cartItem.product === product ) {
+      if(cartItem.product.artikelid === product.artikelid) {
         cartItem.quantity += quantity;
         changeQuantity = true;
       }
