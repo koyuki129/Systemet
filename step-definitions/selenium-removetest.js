@@ -2,6 +2,7 @@ let { $, sleep } = require('./funcs.js');
 module.exports = function () {
   
   this.Given(/^that I am on the web page localhost:(\d+)$/, async function (portNumber) {
+
     // not sure how to detect when we fail to load the page?
     await helpers.loadPage('http://localhost:' + portNumber);
     // here we are waiting for the products to load
@@ -12,6 +13,10 @@ module.exports = function () {
       if (hiddenBody === null) { break; }
       await sleep(100);
     }
+    // make the header non-fixed because of probelms with clicking
+    // buttons with Selenium otherwise
+    driver.executeScript('$("header").css("position","static");');
+
     return true;
   });
   
