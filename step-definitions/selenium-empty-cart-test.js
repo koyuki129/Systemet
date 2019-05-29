@@ -10,28 +10,25 @@ module.exports = function () {
         let searchButton = await $('.search .searchbutton');
         assert.notEqual(searchButton, null, "Could not find the search button");
         await searchButton.click();
-        
-
 
         //if we are adding the same product with different quantities 
         // add = add[0]; 
 
         //if we are adding different products
         let leftToClick = numberOfProductsInCart;
-        while(leftToClick > 0){
+        while (leftToClick > 0) {
             let add = await $('.search-page .add');
             assert.notEqual(add, null, 'Could not find the add button');
             for (btn of add) {
                 await btn.click();
                 leftToClick--;
-                if(leftToClick < 1){ break; }
+                if (leftToClick < 1) { break; }
             }
             // switch to the next page
-            if(leftToClick){
+            if (leftToClick) {
                 let nextPageBtn = await $('.next-search-page');
                 await nextPageBtn.click();
             }
-            await sleep(500);
         }
     });
 
