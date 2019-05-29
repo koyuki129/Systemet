@@ -34,7 +34,7 @@ module.exports = function () {
 
   this.When(/^I press on the cart to see the overview$/, async function () {
       let theButton = await $('.shoppingcart');
-      console.warn("theButton", theButton.constructor.name);
+      
       assert(theButton !== null, "The .shoppingcart doesn't exist");
       if (theButton) {
         await theButton.click()
