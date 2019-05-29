@@ -35,7 +35,7 @@ class GuiShoppingCart {
             this.updateListOfProducts();
             if (product.iLager === 0) {
                 $('.error').show();
-                setTimeout(()=>{
+                setTimeout(() => {
                     $('.error').fadeOut(1000);
                 }, 3000);
             } else {
@@ -79,25 +79,13 @@ class GuiShoppingCart {
 
         $(document).on('click', '.emptycart button', (e) => {
             this.cart.emptyCart();
+            $('.totPrice').text(this.cart.sumOfProducts())
             this.updateListOfProducts();
         });
-        
+
         $('.message').html(`<div class="goodbye alert alert-success" role="alert">
             <h4 class="alert-heading">Varukorgen är tom</h4>
             </div></p>`)
-
-        /*    $(document).on('change', 'totProduct', (e) => {
-                let theSubmitted = $(e.currentTarget);
-                let row = theSubmitted.closest('tr');
-                let product = row.data('product');
-                this.cart.editQuantity(product, theSubmitted.val() / 1);
-                setTimeout(function () { $('.goodbye').fadeOut(); }, 3000);
-                $('.totPrice').text(this.cart.sumOfProducts());
-    
-                this.updateListOfProducts();
-                $('.totPrice').text(this.cart.sumOfProducts())
-            });*/
-
 
         $(document).on('click', '.checkout button', (e) => {
             $('.receipt').html(`<div class="alert alert-success" role="alert">
@@ -132,7 +120,7 @@ class GuiShoppingCart {
         let rows = this.cart.overviewOfCart();
         $('.shoppingcart .number-of-items').text(rows.length);
 
-        if(rows.length > 0){
+        if (rows.length > 0) {
             $('.empty-cart-alert').hide();
         }
         else {

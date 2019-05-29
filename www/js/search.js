@@ -23,7 +23,7 @@ class Search {
       // and when it will be a number
       else if (Product.products[i].varnummer == searchTerm) {
         this.searchResult.push(Product.products[i]);
-      }   
+      }
 
     }
 
@@ -39,6 +39,6 @@ class Search {
 }
 
 // Export the class as a module if on backend
-if(typeof module === 'object'){
+if (typeof module === 'object') {
   module.exports = Search;
 }
