@@ -159,7 +159,7 @@ this.Then(/^the cart should not contain the removed product anymore$/, async fun
   let cartItems = await $('.cart-items td:first-child');
     assert.notEqual(cartItems, null, 'Det finns tydligen något kvar');
     assert(Array.isArray(cartItems) == false, 'Det var tydligen en array');
-    assert((await cartItems.getText()).includes(this.addedProduct2), "Det finns tydligen något kvar")
+    assert(!(await cartItems.getText()).includes(this.addedProduct1), "Det finns tydligen något kvar")
 
 });
 }
