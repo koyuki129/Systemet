@@ -39,7 +39,9 @@
       <div class="col-2 col-sm-1 col-md-1">
         <div class="shoppingcart-holder pos-relative">
           <button class="shoppingcart btn btn-outline-light" type="submit">
-            <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-shopping-cart"></span></button>
+            <span class="btn-success btn-sm rounded-circle glyphicon glyphicon-shopping-cart"></span>
+            <span class="number-of-items"></span>
+          </button>
         </div>
       </div>
 
@@ -66,7 +68,7 @@
   <main class="container">
 
 
-    <div class="row">
+    <div class="row main-images">
       <div class="col-12 col-sm-4"><img class="img-fluid rounded" alt="..." src="bild2.jpg"></div>
       <div class="col-12 col-sm-4"><img class="img-fluid rounded" alt="..." src="bild3.jpg"></div>
       <div class="col-12 col-sm-4"><img class="img-fluid rounded" alt="..." src="bild4.jpg"></div>
@@ -85,7 +87,7 @@
 
 
     <div class="cart-page">
-      <h2>Varuvagn</h2>
+      <h2>Varukorg</h2>
 
 
 
@@ -103,7 +105,7 @@
       <div class="receipt "></div>
 
       <!--display "varukorgen är töm" message -->
-      <div class="message text-white"></div>
+      <div class="message text-white empty-cart-alert"></div>
 
       <h2>Totalt: <span class="totPrice"></span> SEK</h2>
 
