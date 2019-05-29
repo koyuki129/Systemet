@@ -10,6 +10,7 @@ class GuiSearch {
             this.search.findProducts(searchPhrase);
             this.page = 1;
             this.totalPages = Math.ceil(this.search.searchResult.length / this.productsPerResultPage);
+            $('.main-images').hide();
             this.showResults(this.search.searchResult);
             // $('#search').val();
         });
@@ -31,6 +32,7 @@ class GuiSearch {
     }
 
     showResults(products) {
+        $('.search-page').show();
         let startIndexOfProducts = (this.page - 1) * this.productsPerResultPage;
         let endIndexOfProducts = startIndexOfProducts + 50;
         products = products.slice(startIndexOfProducts, endIndexOfProducts);
@@ -94,7 +96,7 @@ class GuiSearch {
 
     addClickToPageNavEl(el, p){
         el.click(()=>{
-            console.log("GOING TO", p)
+            window.scrollTo(0,0);
             this.page = p;
             this.showResults(this.search.searchResult);
         });

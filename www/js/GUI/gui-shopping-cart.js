@@ -18,12 +18,14 @@ class GuiShoppingCart {
         // $(document).on('click', '.add', (e) => {});
         // gäller det alla KOMMANDE/ej än existerande element också
 
-        $(document).on('click', '.shoppingcart', () => {
-            let topPosOfCartPage = $('.cart-page').offset().top;
-            window.scrollTo(0, topPosOfCartPage);
+        $(document).on('click', '.shoppingcart', function () {
+            $('.cart-page').toggle();
+            $(this).blur();
+            window.scrollTo(0, 0);
         });
 
         $(document).on('click', '.add', (e) => {
+            $('.cart-page').show();
             let theButtonClicked = $(e.currentTarget);
             let product = theButtonClicked.closest('.product').data('product');
             let quantityField = theButtonClicked.parent().parent().find('input');
@@ -33,11 +35,14 @@ class GuiShoppingCart {
             this.updateListOfProducts();
             if (product.iLager === 0) {
                 $('.error').show();
+                setTimeout(()=>{
+                    $('.error').fadeOut(1000);
+                }, 3000);
             } else {
                 $('.error').hide();
             }
             $('.totPrice').text(this.cart.sumOfProducts())
-            
+
         });
         $(document).on('click', '.remove', (e) => {
             let theButtonClicked = $(e.currentTarget);
@@ -72,45 +77,46 @@ class GuiShoppingCart {
             $('.totPrice').text(this.cart.sumOfProducts())
         });
 
-       $(document).on('click', '.emptycart button', (e) => {
+        $(document).on('click', '.emptycart button', (e) => {
             this.cart.emptyCart();
-            this.updateListOfProducts();          
+            this.updateListOfProducts();
         });
-            $('.message').html(`<div class="goodbye alert alert-success" role="alert">
+        
+        $('.message').html(`<div class="goodbye alert alert-success" role="alert">
             <h4 class="alert-heading">Varukorgen är tom</h4>
             </div></p>`)
 
-    /*    $(document).on('change', 'totProduct', (e) => {
-            let theSubmitted = $(e.currentTarget);
-            let row = theSubmitted.closest('tr');
-            let product = row.data('product');
-            this.cart.editQuantity(product, theSubmitted.val() / 1);
-            setTimeout(function () { $('.goodbye').fadeOut(); }, 3000);
-            $('.totPrice').text(this.cart.sumOfProducts());
-
-            this.updateListOfProducts();
-            $('.totPrice').text(this.cart.sumOfProducts())
-        });*/
+        /*    $(document).on('change', 'totProduct', (e) => {
+                let theSubmitted = $(e.currentTarget);
+                let row = theSubmitted.closest('tr');
+                let product = row.data('product');
+                this.cart.editQuantity(product, theSubmitted.val() / 1);
+                setTimeout(function () { $('.goodbye').fadeOut(); }, 3000);
+                $('.totPrice').text(this.cart.sumOfProducts());
+    
+                this.updateListOfProducts();
+                $('.totPrice').text(this.cart.sumOfProducts())
+            });*/
 
 
         $(document).on('click', '.checkout button', (e) => {
-            $('.reciept').html(`<div class="alert alert-success" role="alert">
+            $('.receipt').html(`<div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Tack för din beställning!</h4>
             <p>Dina varor kommer att anlända inom 3 arbetsdagar. Tänk på att varor som inte finns i lager kan ta upp till en vecka att anlända. </p>
-             Ditt total pris är: ${this.cart.sumOfProducts() + " SEK"}</div></p>`)
+             Ditt total pris är: ${this.cart.sumOfProducts() + " SEK"}</div></p>`);
             if (this.cart.thingsToBuy <= 0) {
                 $('.receipt').hide();
             } else {
                 $('.receipt').show();
             }
 
-            setTimeout(function () { $('.thank-you-for-ordering').fadeOut(); }, 5000);
+            setTimeout(function () { $('.receipt').fadeOut(); }, 5000);
 
             this.cart.checkout();
             this.updateListOfProducts();
 
             $('.totPrice').text(this.cart.sumOfProducts())
-            
+
         });
     }
 
@@ -124,6 +130,15 @@ class GuiShoppingCart {
         // $('.cart-items').html(itemsHtml);
 
         let rows = this.cart.overviewOfCart();
+        $('.shoppingcart .number-of-items').text(rows.length);
+
+        if(rows.length > 0){
+            $('.empty-cart-alert').hide();
+        }
+        else {
+            $('.empty-cart-alert').show();
+        }
+
         let html = $(`
             <table class="cart-items table">
                 <thead>
