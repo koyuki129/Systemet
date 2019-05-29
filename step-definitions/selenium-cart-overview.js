@@ -24,6 +24,14 @@ module.exports = function () {
         await sleep(100);
   });
 
+  this.Then(/^I will see the product in the cart$/, async function () {
+    let LookCart = await $('.shoppingcart');
+    LookCart.click();
+    let cartItems = await $('.cart-items td:first-child');
+    assert((await cartItems.getText()).includes(this.addedProduct1), "The product is Auld Rare Benriach");
+
+});
+
   this.When(/^I press on the cart to see the overview$/, async function () {
       let theButton = await $('.shoppingcart');
       console.warn("theButton", theButton.constructor.name);
@@ -89,6 +97,15 @@ module.exports = function () {
   
   let thirdProduct = await $('.cart-items td:first-child');
   this.addedProduct3 = await thirdProduct[1].getText();
+});
+
+this.Then(/^I will see the products in the cart$/, async function () {
+  let LookCart = await $('.shoppingcart');
+    LookCart.click();
+  let cartItems = await $('.cart-items td:first-child');
+  assert((await cartItems[0].getText()).includes(this.addedProduct1), "The cart do not contain 2 products");
+  cartItems = await $('.cart-items td:first-child');
+  assert((await cartItems[1].getText()).includes(this.addedProduct2), "The cart do not contain 2 products");
 });
 
 

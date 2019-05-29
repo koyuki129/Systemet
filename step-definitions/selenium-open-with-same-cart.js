@@ -12,6 +12,8 @@ module.exports = function () {
   });
 
   this.Then(/^I should be able to open the same cart as before it closed and reopened the browser$/, async function () {
+    let LookCart = await $('.shoppingcart');
+    LookCart.click();
     let cartItems = await $('.cart-items td:first-child');
     assert((await cartItems.getText()).includes(this.addedProduct1), "The product is not Auld Rare Benriach");
   });
