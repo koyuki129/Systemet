@@ -41,7 +41,6 @@ module.exports = function () {
     this.When(/^I add 1 unit of the same products to the cart$/, function () {
 
         cart.add(Product.products[100], 1)
-       console.log(cart);
     });
 
     
