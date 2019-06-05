@@ -92,6 +92,7 @@ header {
 .emptyCart{
   font-family: 'VT323';
   font-size: 3vh;
+  margin-left:10px;
   /*padding: .5vh;
   cursor: pointer;
   position: absolute;
@@ -103,6 +104,7 @@ header {
 .checkout{
   font-family: 'VT323';
   font-size: 3vh;
+  margin-left:10px;
   /*padding: .5vh;
   cursor: pointer;
   position: absolute;
