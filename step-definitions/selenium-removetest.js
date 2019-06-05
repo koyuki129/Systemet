@@ -157,9 +157,9 @@ module.exports = function () {
 
 this.Then(/^the cart should not contain the removed product anymore$/, async function () {
   let cartItems = await $('.cart-items td:first-child');
-    assert.notEqual(cartItems, null, 'Det finns tydligen något kvar');
-    assert(Array.isArray(cartItems) == false, 'Det var tydligen en array');
-    assert(!(await cartItems.getText()).includes(this.addedProduct1), "Det finns tydligen något kvar")
+    assert.notEqual(cartItems, null, 'There is apparantly something left');
+    assert(Array.isArray(cartItems) == false, 'That was apparantly an array');
+    assert(!(await cartItems.getText()).includes(this.addedProduct1), 'There is apparantly something left')
 
 });
 }
